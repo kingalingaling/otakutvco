@@ -1,0 +1,114 @@
+{
+  "blogs": [
+    {
+      "id": 0,
+      "genre": "Community Fiction, Sci-Fi",
+      "image": "/assets/images/blog/blog-img.jpg",
+      "title": "Power",
+      "author": "Esakibokay",
+      "link":"https://otakutv.co/power-by-esakibokay/",
+      "collection": "Otaku Connect '22 Writing Competition"
+    },
+    {
+      "id": 1,
+      "genre": "Community Fiction, Sci-Fi",
+      "image": "/assets/images/blog/blog-img.jpg",
+      "title": "The Game of Splintered Souls",
+      "author": "PenielsQuill",
+      "link":"https://otakutv.co/the-game-of-splintered-souls/",
+      "collection": "Otaku Connect '22 Writing Competition"
+    },
+    {
+      "id": 2,
+      "genre": "Community Fiction, Sci-Fi",
+      "image": "/assets/images/blog/blog-img.jpg",
+      "title": "Narrow",
+      "author": "Ibraheem",
+      "link":"https://otakutv.co/narrow-by-ibraheem/",
+      "collection": "Otaku Connect '22 Writing Competition"
+    },
+    {
+      "id": 3,
+      "genre": "Community Fiction, Sci-Fi, Mystery",
+      "image": "/assets/images/blog/blog-img.jpg",
+      "title": "Metal Dreams",
+      "author": "Adams Raphael",
+      "link":"https://otakutv.co/metal-dreams-by-adams-raphael/",
+      "collection": "Otaku Connect '22 Writing Competition"
+    },
+    {
+      "id": 4,
+      "genre": "Community Fiction, Sci-Fi",
+      "image": "/assets/images/blog/blog-img.jpg",
+      "title": "Wonderland",
+      "author": "DarkSkinnedBlackSheep",
+      "link":"https://otakutv.co/wonderland-by-darkskinnedblacksheep/",
+      "collection": "Otaku Connect '22 Writing Competition"
+    },
+    {
+      "id": 5,
+      "genre": "Community Fiction, Sci-Fi",
+      "image": "/assets/images/blog/blog-img.jpg",
+      "title": "Living the Shade of Gray",
+      "author": "HybridWag",
+      "link":"https://otakutv.co/living-the-shade-of-gray-by-hybridwag/",
+      "collection": "Otaku Connect '22 Writing Competition"
+    },
+    {
+      "id": 6,
+      "genre": "Community Fiction, Sci-Fi",
+      "image": "/assets/images/blog/blog-img.jpg",
+      "title": "Apotheosis",
+      "author": "CallMeDice",
+      "link":"https://otakutv.co/apotheosis-by-callmedice/",
+      "collection": "Otaku Connect '22 Writing Competition"
+    },
+    {
+      "id": 7,
+      "genre": "Community Fiction, Sci-Fi",
+      "image": "/assets/images/blog/blog-img.jpg",
+      "title": "Sambisa",
+      "author": "Logic",
+      "link":"https://otakutv.co/sambisa-by-logic/",
+      "collection": "Otaku Connect '22 Writing Competition"
+    }
+  ],
+  "feedback": [
+    {
+      "id": 0,
+      "heading": "You guys are the best",
+      "subheading": "You guys are the best! No better place to get anime updates",
+      "author": "Nonso",
+      "image": "/assets/images/feedback/0.jpg"
+    },
+    {
+      "id": 1,
+      "heading": "Your WhatsApp TV made me start anime",
+      "subheading": "Didn't even know we had such a large number of anime watchers in Nigeria before your TV.",
+      "author": "Tammy",
+      "image": "/assets/images/feedback/1.jpg"
+    },
+    {
+      "id": 2,
+      "heading": "I love OtakuTv",
+      "subheading": "OtakuTv wa subarashi",
+      "author": "Anu Esther",
+      "image": "/assets/images/feedback/2.jpg"
+    },
+    {
+      "id": 3,
+      "heading": "You are just Soo Amazing!",
+      "subheading": "Really love using your channel! God I love your WhatsApp TV",
+      "author": "Damilare",
+      "image": "/assets/images/feedback/3.jpg"
+    },
+    {
+      "id": 4,
+      "heading": "Best Community of Nigerian Weebs",
+      "subheading": "Love the way you gather and unite youth in Nigeria using anime",
+      "author": "Edwin",
+      "image": "/assets/images/feedback/4.jpg"
+    }
+  ],
+  "partners": [{ "id": 0, "name": "Arkronin", "logo": "/assets/images/partners/arkronin.png" }]
+}

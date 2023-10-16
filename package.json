@@ -1,0 +1,24 @@
+{
+  "name": "otakutvco",
+  "version": "1.0.0",
+  "description": "Website for OtakuTv and Otaku Connect",
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./server/index.cjs",
+    "server": "nodemon ./server/index.cjs",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "dependencies": {
+    "axios": "^1.5.1",
+    "body-parser": "^1.20.2",
+    "concurrently": "^8.2.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
