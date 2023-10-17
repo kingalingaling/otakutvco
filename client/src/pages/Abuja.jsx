@@ -6,8 +6,8 @@ import { formatCurrency } from "../utilities/formatCurrency";
 import { db } from "../config/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
-import OrderSuccessful from '../emails/OrderSuccessful'
-import { render } from "@react-email/render";
+// import OrderSuccessful from '../emails/OrderSuccessful'
+// import { render } from "@react-email/render";
 import axios from "axios";
 
 const abujaOrdersRef = collection(db, "abuja-tickets");
@@ -30,7 +30,8 @@ const Abuja = () => {
   const [ticketError, setTicketError] = useState(false);
   
   const location = 'La Vida Local Spar Road, behind NNPC Petrol station Life Camp, Abuja, Federal Capital Territory'
-  const time = 'December 30, 2023, 10:00 AM'
+  const time = '10:00 AM'
+  const day = "December 30, 2023"
 
   const calcCost = useCallback(() => {
     const tierCosts = {
@@ -152,14 +153,17 @@ const Abuja = () => {
   };
 
   const sendEmail = async () => {
-    // e.preventDefault();
-  
-    const emailHtml = render(<OrderSuccessful userFirstName={fname} tickets={order} time={time} location={location} orderTotal={cost} />); // Use the EmailTemplate component
-  
+    
     try {
       const response = await axios.post('http://localhost:3001/send-email', {
+        fname:fname,
+        tickets: order,
+        day: day,
+        time:time,
+        locay:location,
+        total_order:cost,
         recipient: email,
-        html: emailHtml // Extract the HTML from the component
+        // html: emailHtml // Extract the HTML from the component
       });
       console.log(response.data);
     } catch (error) {
