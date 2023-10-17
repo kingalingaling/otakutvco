@@ -1,14 +1,15 @@
 import locationImg from "/assets/images/locations/la-vida-local.jpg";
-// import { sendEmail } from "../config/sendEmail";
 import { useState, useEffect, useCallback } from "react";
 import { MdCancel } from "react-icons/md";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { db } from "../config/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
-// import OrderSuccessful from '../emails/OrderSuccessful'
-// import { render } from "@react-email/render";
 import axios from "axios";
+import {useNavigate} from "react-router-dom"
+// Paystack
+import { usePaystackPayment } from "react-paystack";
+import PaystackConfig from "../config/paystack";
 
 const abujaOrdersRef = collection(db, "abuja-tickets");
 
@@ -83,6 +84,26 @@ const Abuja = () => {
     setTier(option);
   };
 
+  const navigate = useNavigate()
+
+  const onSuccess = () => {
+    //implementation for after success call
+    onSubmitOrder();
+    sendEmail()
+    setTickets([]);
+    navigate("/order-completed");
+    console.log("success");
+  };
+
+  const onClose = () => {
+    navigate("/order-failed");
+    //Implementation for when dialog closes
+    console.log("closed");
+  };
+
+  const config = PaystackConfig(email, cost);
+  const initializePayment = usePaystackPayment(config);
+
   const handleCheckout = () => {
     if (validateInput(fname) || validateInput(lname) || validateInput(email)) {
       setEmpty(true);
@@ -91,11 +112,8 @@ const Abuja = () => {
       if (validateEmail(email)) {
         console.log("email is valid");
         if (tickets != []) {
-          // initializePayment(onSuccess, onClose);
+          initializePayment(onSuccess, onClose);
           setTicketError(false);
-          onSubmitOrder()
-          sendEmail()
-          
         } else {
           setTicketError(true);
         }
@@ -143,7 +161,7 @@ const Abuja = () => {
         email: email,
         tickets: order,
         cost: cost,
-        status: "pending",
+        status: "confirmed",
         event: "Otaku Connect Abuja",
         date: serverTimestamp(),
       });
