@@ -58,7 +58,7 @@ const OrderSuccessful = ({
                     textAlign: "center",
                   }}
                 >
-                  You&apos;ve Got Ticket(s)! More Info Below
+                  You&apos;ve Got Tickets! More Info Below
                 </Heading>
 
                 <Text style={paragraph}>{time}</Text>
@@ -78,7 +78,6 @@ const OrderSuccessful = ({
                   <b>Order Total: </b>
                   {orderTotal}
                 </Text>
-
               </Column>
             </Row>
           </Section>

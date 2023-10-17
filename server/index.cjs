@@ -44,6 +44,12 @@ app.post('/send-email', (req, res) => {
   });
 });
 
+// app.get("*", (req, res) => {
+//   res.sendFile(
+//     path.join(__dirname, "../client/build/index.html")
+//   );
+// });
+
 // app.get('/send-email', (req, res) => {
 //   const mailOptions = {
 //     from: 'kingeshiebor@gmail.com',
