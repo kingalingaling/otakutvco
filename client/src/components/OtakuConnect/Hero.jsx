@@ -7,9 +7,9 @@ const Hero = ({ navigate }) => {
         {/* Overlay */}
         <div className="absolute pt-4 md:pt-0 bg-black/20 w-full h-full z-30 font-bold text-gray-200/90 flex flex-col justify-center items-center">
           <img src={OCLogo} className="w-1/3 lg:-mt-8 lg:w-1/4 hidden md:block" alt="" />
-          <h2 className="text-xl mb-1.5 text-center px-[10%] lg:px-0 md:mb-3 lg:mb-1 md:text-2xl lg:text-4xl">
+          <h1 className="text-xl mb-1.5 text-center px-[10%] lg:px-0 md:mb-3 lg:mb-1 md:text-2xl lg:text-4xl">
             The Biggest Anime/Weeb Convention in Nigeria
-          </h2>
+          </h1>
           <h2 className="text-lg mb-1.5 md:mb-3 md:text-xl lg:text-3xl">
             Get Tickets!
           </h2>

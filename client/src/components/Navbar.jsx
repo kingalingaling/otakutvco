@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "/assets/logo.png";
-import { BiSolidUserAccount, BiMenu, BiSolidInfoSquare } from "react-icons/bi";
+import { BiMenu, BiSolidMicrophone, BiSolidParty } from "react-icons/bi";
 import { AiOutlineClose, AiTwotoneHome } from "react-icons/ai";
-import { FaCalendarDay } from "react-icons/fa";
-import { IoIosCreate } from "react-icons/io";
+import { FaCalendarDay, FaCloudDownloadAlt } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
@@ -15,27 +14,27 @@ const Navbar = () => {
     { item: "Home", icon: <AiTwotoneHome size={20} />, link: "/" },
     {
       item: "Otaku Connect",
-      icon: <FaCalendarDay size={20} />,
+      icon: <BiSolidParty size={20} />,
       link: "/otakuconnect",
     },
     {
       item: "Otaku Scoop",
-      icon: <IoIosCreate size={20} />,
+      icon: <BiSolidMicrophone size={20} />,
       link: "https://otakutv.co/otakuscoop/",
     },
     {
       item: "Anime Downloads",
-      icon: <BiSolidInfoSquare size={20} />,
+      icon: <FaCloudDownloadAlt size={20} />,
       link: "https://t.me/otakutvanime/",
     },
-    {
-      item: "Sosu Onegai",
-      icon: <BiSolidUserAccount size={20} />,
-      link: "https://sosu.otakutv.co/",
-    },
+    // {
+    //   item: "Sosu Onegai",
+    //   icon: <BiSolidUserAccount size={20} />,
+    //   link: "https://sosu.otakutv.co/",
+    // },
     {
       item: "OtakuTv Events",
-      icon: <BiSolidUserAccount size={20} />,
+      icon: <FaCalendarDay size={20} />,
       link: "https://events.otakutv.co",
     },
   ];

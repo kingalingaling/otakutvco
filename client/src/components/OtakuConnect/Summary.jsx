@@ -1,3 +1,4 @@
+// import Timer from "../Timer";
 import OC_Logo from "/assets/images/otaku-connect-logo.png";
 
 const Summary = () => {
@@ -10,6 +11,10 @@ const Summary = () => {
           valuable platform for enthusiasts to gather, learn, network,
           socialize, and most importantly, enjoy themselves.{" "}
         </p>
+        {/* <div>
+          <Timer />
+          <p className="text-center mt-3 font-bold text-xl">To Otaku Connect 2023 Abuja</p>
+        </div> */}
         <img src={OC_Logo} alt="" className="w-[30%] pt-14" />
         <p className="w-[30%]">
           Organized in Nigeria, Otaku Connect has successfully attracted over

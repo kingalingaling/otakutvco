@@ -7,15 +7,15 @@ const Hero = () => {
     <div className="max-w-[1640] mx-auto p-0 px-4 lg:px-0">
       <div className="relative max-h-[90vh]">
         {/* Overlay */}
-        <div className="absolute pt-4 bg-black/20 w-full pl-4 md:pl-28 h-full z-30 md:text-left font-bold text-gray-200/90 flex flex-col justify-center items-start">
+        <div className="absolute pt-4 bg-black/20 w-full pl-4 md:pl-28 h-full z-30 md:text-left font-bold text-gray-200/90 flex flex-col justify-start md:justify-center items-start">
           <img src={Logo} className="w-1/5 hidden md:block" alt="" />
-          <h2 className="text-xl mb-1.5 md:mb-3 md:text-2xl lg:text-4xl">
+          <h2 className="text-lg mb-1.5 md:mb-3 md:text-2xl lg:text-4xl">
             Your One Stop Site <br />
             For Everything Anime
           </h2>
           <div>
             <Typed
-              className="text-lg md:text-2xl lg:text-4xl"
+              className="md:text-2xl lg:text-4xl"
               strings={[
                 "Podcast",
                 "Downloads",
@@ -30,7 +30,7 @@ const Hero = () => {
           </div>
           <Link to={"https://linktr.ee/otakutv"} target="_blank">
             <button
-              className="p-3 mt-6 md:mt-3 bg-transparent text-lg md:text-2xl lg:text-2xl hover:bg-red-700 hover:border-red-700 border border-white rounded-md duration-300"
+              className="p-3 mt-6 md:mt-3 bg-transparent font-bold md:text-2xl lg:text-2xl hover:bg-red-700 hover:border-red-700 border border-white rounded-md duration-300"
             >
               Join our Community
             </button>

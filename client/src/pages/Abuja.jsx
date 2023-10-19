@@ -91,7 +91,7 @@ const Abuja = () => {
     onSubmitOrder();
     sendEmail()
     setTickets([]);
-    navigate("/order-completed");
+    navigate("/otakuconnect/order-completed");
     console.log("success");
   };
 

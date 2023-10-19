@@ -8,7 +8,7 @@ const Review = () => {
         frameBorder="0"
         allowFullScreen
       ></iframe>
-      <p className="pt-2 text-sm md:text-md md:pt-0 md:px-12 lg:w-[60%] mx-auto my-auto text-justify">
+      <p className="pt-2 text-sm md:text-md lg:text-lg md:pt-0 md:px-12 lg:w-[60%] mx-auto my-auto text-justify">
         Over the past three years, Otaku Connect has been held in key Nigerian
         cities including Abuja, Lagos, and Port Harcourt. Attendees were treated
         to an abundance of food, beverages, and an impressive array of cosplays.
