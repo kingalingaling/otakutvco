@@ -7,7 +7,7 @@ import inspiration2 from "/assets/images/inspiration2.svg";
 
 const Cards = () => {
   return (
-    <div className="p-4 w-full text-xs md:text-md lg:max-w-[60%] mx-auto my-4 grid grid-cols-2 md:grid-cols-3 gap-4">
+    <div className="p-4 w-full text-xs md:text-base lg:max-w-[60%] mx-auto my-4 grid grid-cols-2 md:grid-cols-3 gap-4">
       <div className=" max-h-[500px] shadow-lg rounded-lg p-6 shadow-black/10 group relative">
         <div className="relative w-full md:h-[250px]">
           <img
@@ -63,8 +63,8 @@ const Cards = () => {
         </div>
         <h2 className="text-xl font-bold py-2">Inspiration and Growth</h2>
         <p className="">
-          We encourage people to be creative and expressive, discovering their
-          inner talents
+          We believe that shared passions have the potential to inspire and
+          elevate individuals to new heights.
         </p>
       </div>
     </div>
