@@ -96,7 +96,7 @@ const Abuja = () => {
   };
 
   const onClose = () => {
-    navigate("/order-failed");
+    navigate("/otakuconnect/order-failed");
     //Implementation for when dialog closes
     console.log("closed");
   };
@@ -111,7 +111,7 @@ const Abuja = () => {
       setEmpty(false);
       if (validateEmail(email)) {
         console.log("email is valid");
-        if (tickets != []) {
+        if (tickets.length>0) {
           initializePayment(onSuccess, onClose);
           setTicketError(false);
         } else {
@@ -149,6 +149,7 @@ const Abuja = () => {
       { tier: tier, quantity: quantity },
     ]);
     setCartError(false);
+    setTicketError(false)
 
     calcCost(); // Calculate cost after adding to cart
   };

@@ -1,4 +1,4 @@
-import locationImg from "/assets/images/locations/la-vida-local.jpg";
+import locationImg from "/assets/images/locations/rango.jpg";
 import { useState, useEffect, useCallback } from "react";
 import { MdCancel } from "react-icons/md";
 import { formatCurrency } from "../utilities/formatCurrency";
@@ -96,7 +96,7 @@ const Lagos = () => {
   };
 
   const onClose = () => {
-    navigate("/order-failed");
+    navigate("/otakuconnect/order-failed");
     //Implementation for when dialog closes
     console.log("closed");
   };
@@ -111,7 +111,7 @@ const Lagos = () => {
       setEmpty(false);
       if (validateEmail(email)) {
         console.log("email is valid");
-        if (tickets != []) {
+        if (tickets.length>0) {
           initializePayment(onSuccess, onClose);
           setTicketError(false);
         } else {
@@ -181,7 +181,6 @@ const Lagos = () => {
         locay:location,
         total_order:cost,
         recipient: email,
-        // html: emailHtml // Extract the HTML from the component
       });
       console.log(response.data);
     } catch (error) {
