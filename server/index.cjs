@@ -1,7 +1,8 @@
-const express = require('express');
+const express = require("express");
 const cors = require("cors");
-const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
+const bodyParser = require("body-parser");
+const nodemailer = require("nodemailer");
+const path = require('path')
 
 const app = express();
 app.use(
@@ -10,25 +11,25 @@ app.use(
     origin: "http://localhost:5173",
   })
 );
-const PORT = 3001;
+const PORT = process.env.PORT ? process.env.port : 3001;
 
 app.use(bodyParser.json());
 
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: "gmail",
   auth: {
-    // user: process.env.GMAIL_USER,
-    // pass: process.env.GMAIL_PASSWORD
-    user: 'kingeshiebor@gmail.com',
-    pass: "hich ybss vqjg injl"
-  }
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_PASSWORD,
+  },
 });
 
-app.get("/", function (req, res) {
-  res.send("Hello World!");
-});
+app.use(express.static(path.join(__dirname, "../client/dist")))
 
-app.post('/send-email', (req, res) => {
+// app.get("/", function (req, res) {
+//   res.send("Hello World!");
+// });
+
+app.post("/send-email", (req, res) => {
   const { fname, tickets, day, time, locay, total_order, recipient } = req.body;
 
   const htmlBody = `<html>
@@ -399,36 +400,40 @@ app.post('/send-email', (req, res) => {
     </table>
   </body>
 </html>
-`
-
-
+`;
 
   const mailOptions = {
-    from: 'kingeshiebor@gmail.com',
+    from: "kingeshiebor@gmail.com",
     to: recipient,
-    subject: 'Your Tickets Have Arrived!!',
+    subject: "Your Tickets Have Arrived!!",
     html: htmlBody,
     attachments: [
       {
-        filename: 'logo.png',
-        path: './server/images/logo.png',
-        cid: 'logoImg'
+        filename: "logo.png",
+        path: "./server/images/logo.png",
+        cid: "logoImg",
       },
       {
-        filename: 'email-banner.jpg',
-        path: './server/images/email-banner.jpg',
-        cid: 'bannerImg'
-      }
-    ]
+        filename: "email-banner.jpg",
+        path: "./server/images/email-banner.jpg",
+        cid: "bannerImg",
+      },
+    ],
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       return res.status(500).send(error.toString());
     }
-    res.status(200).send('Email sent: ' + info.response);
+    res.status(200).send("Email sent: " + info.response);
   });
 });
+
+app.get('*', (req,res) => {
+  res.sendFile(
+    path.join(__dirname, "../client/dist/index.html")
+  )
+})
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
