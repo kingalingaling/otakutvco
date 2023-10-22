@@ -52,7 +52,7 @@ export default class BlogSlider extends Component {
         </h2>
         <Slider {...settings} >
           {blogs.map((i) => (
-            <Link key={i.id} to={i.link} target="_blank">
+            <Link key={i.id} to={i.link} target="_blank" rel="noreferrer">
               <div className="group cursor-pointer inline-block pb-4 bg-white text-black overflow-hidden rounded-2xl shadow-md shadow-black/25 transition">
                 <figure className="max-h-64 overflow-hidden">
                   <img

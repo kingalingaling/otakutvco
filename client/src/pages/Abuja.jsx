@@ -174,7 +174,7 @@ const Abuja = () => {
   const sendEmail = async () => {
     
     try {
-      const response = await axios.post('http://localhost:3001/send-email', {
+      const response = await axios.post('/.netlify/functions/send-email', {
         fname:fname,
         tickets: order,
         day: day,

@@ -20,7 +20,7 @@ const AnimeDownloads = () => {
             Makes anime and chill almost too easy.
           </p>
           <LiaTelegram size={60} className="text-white hidden md:inline-block opacity-100 group-hover:opacity-0 transition-opacity duration-500" />
-          <Link to={"https://t.me/otakutvanime/"} target="_blank">
+          <Link to={"https://t.me/otakutvanime/"} target="_blank" rel="noreferrer">
             <button className="px-4 py-2 border w-48 border-white/70 text-white/70 rounded-lg hover:text-white hover:border-white hover:scale-105 duration-300">
               Start Downloading
             </button>
