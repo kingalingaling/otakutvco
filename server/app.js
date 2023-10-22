@@ -11,19 +11,18 @@ app.use(
     origin: "http://localhost:5173",
   })
 );
-const PORT = process.env.PORT ? process.env.port : 3001;
+const PORT = process.env.PORT ? process.env.PORT : 3001;
 
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, "../client/dist")))
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASSWORD,
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASSWORD,
   },
 });
-
-app.use(express.static(path.join(__dirname, "../client/dist")))
 
 // app.get("/", function (req, res) {
 //   res.send("Hello World!");
@@ -403,7 +402,7 @@ app.post("/send-email", (req, res) => {
 `;
 
   const mailOptions = {
-    from: "kingeshiebor@gmail.com",
+    from: "otakuconnect@otakutv.co",
     to: recipient,
     subject: "Your Tickets Have Arrived!!",
     html: htmlBody,
@@ -436,5 +435,5 @@ app.get('*', (req,res) => {
 })
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });

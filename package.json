@@ -2,11 +2,11 @@
   "name": "otakutvco",
   "version": "1.0.0",
   "description": "Website for OtakuTv and Otaku Connect",
-  "main": "server.js",
+  "main": "app.js",
   "license": "MIT",
   "scripts": {
-    "start": "node ./server/index.cjs",
-    "server": "nodemon ./server/index.cjs",
+    "start": "node ./server/app.js",
+    "server": "nodemon ./server/app.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
