@@ -5,7 +5,7 @@ import { formatCurrency } from "../utilities/formatCurrency";
 import { db } from "../config/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
-import axios from "axios";
+// import axios from "axios";
 import {useNavigate} from "react-router-dom"
 // Paystack
 import { usePaystackPayment } from "react-paystack";
@@ -171,19 +171,31 @@ const Abuja = () => {
     }
   };
 
+  const request = new XMLHttpRequest()
+
   const sendEmail = async () => {
     try {
-      const response = await axios.post('https://netlify--otakutvco.netlify.app/.netlify/functions/send-email', {
-        fname:fname,
-        tickets: order,
-        day: day,
-        time:time,
-        locay:location,
-        total_order:cost,
-        recipient: email,
-        // html: emailHtml // Extract the HTML from the component
-      });
-      console.log(response.data);
+      request.open("POST", "https://netlify--otakutvco.netlify.app/.netlify/functions/send-email")
+      request.send(JSON.stringify({
+          fname:fname,
+          tickets: order,
+          day: day,
+          time:time,
+          locay:location,
+          total_order:cost,
+          recipient: email
+        }))
+      // const response = await axios.post('https://netlify--otakutvco.netlify.app/.netlify/functions/send-email', {
+      //   fname:fname,
+      //   tickets: order,
+      //   day: day,
+      //   time:time,
+      //   locay:location,
+      //   total_order:cost,
+      //   recipient: email,
+      //   // html: emailHtml // Extract the HTML from the component
+      // });
+      console.log("Initiate email sending");
     } catch (error) {
       console.error(error);
     }
