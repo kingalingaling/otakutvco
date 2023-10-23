@@ -86,10 +86,10 @@ const Abuja = () => {
 
   const navigate = useNavigate()
 
-  const onSuccess = () => {
+  const onSuccess = async() => {
     //implementation for after success call
     onSubmitOrder();
-    sendEmail()
+    await sendEmail()
     setTickets([]);
     navigate("/otakuconnect/order-completed");
     console.log("success");
