@@ -1,4 +1,6 @@
 import nodemailer from 'nodemailer'
+import logo from '/assets/logo.png'
+import emailBanner from '/assets/images/email-banner.jpg'
 
 export async function handler (event) {
   const transporter = nodemailer.createTransport({
@@ -392,12 +394,12 @@ export async function handler (event) {
     attachments: [
       {
         filename: "logo.png",
-        path: "../../src/assets/logo.png",
+        path: logo,
         cid: "logoImg",
       },
       {
         filename: "email-banner.jpg",
-        path: "../../src/assets/email-banner.jpg",
+        path: emailBanner,
         cid: "bannerImg",
       },
     ],
