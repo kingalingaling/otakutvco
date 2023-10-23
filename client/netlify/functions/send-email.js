@@ -4,8 +4,8 @@ exports.handler = async function (event) {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASSWORD,
+      user: import.meta.env.EMAIL_USER,
+      pass: import.meta.env.EMAIL_PASSWORD,
     },
   });
 
@@ -404,7 +404,8 @@ exports.handler = async function (event) {
   };
 
   try {
-    await transporter.sendMail(mailOptions);
+    let info = await transporter.sendMail(mailOptions);
+    console.log(info)
     return {
       statusCode: 200,
       body: JSON.stringify({ message: "Email sent successfully" }),

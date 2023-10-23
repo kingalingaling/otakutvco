@@ -171,8 +171,8 @@ const Abuja = () => {
     }
   };
 
-  const sendEmail = async () => {
-    
+  const sendEmail = async (e) => {
+    e.preventDefault()
     try {
       const response = await axios.post('https://netlify--otakutvco.netlify.app/.netlify/functions/send-email', {
         fname:fname,
