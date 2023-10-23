@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer'
-// import * as fs from 'fs'
+import * as fs from 'fs'
 
 export async function handler (event) {
   const transporter = nodemailer.createTransport({
@@ -390,18 +390,18 @@ export async function handler (event) {
     to: recipient,
     subject: "Your Tickets Have Arrived!!",
     html: htmlBody,
-    // attachments: [
-    //   {
-    //     filename: "logo.png",
-    //     path: fs.readFileSync('./logo.png'),
-    //     cid: "logoImg",
-    //   },
-    //   {
-    //     filename: "email-banner.jpg",
-    //     path: fs.readFileSync('./email-banner.jpg'),
-    //     cid: "bannerImg",
-    //   },
-    // ],
+    attachments: [
+      {
+        filename: "logo.png",
+        path: fs.readFileSync('logo.png'),
+        cid: "logoImg",
+      },
+      {
+        filename: "email-banner.jpg",
+        path: fs.readFileSync('email-banner.jpg'),
+        cid: "bannerImg",
+      },
+    ],
   };
 
   try {
