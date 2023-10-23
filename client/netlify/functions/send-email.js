@@ -1,6 +1,6 @@
-const nodemailer = require("nodemailer");
+import nodemailer from 'nodemailer'
 
-exports.handler = async function (event) {
+export async function handler (event) {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -416,4 +416,4 @@ exports.handler = async function (event) {
       body: JSON.stringify({ message: error.toString() }),
     };
   }
-};
+}
