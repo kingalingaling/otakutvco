@@ -1,5 +1,5 @@
 // import Logo from "/assets/logo.png";
-import { BsFacebook, BsInstagram } from "react-icons/Bs";
+import { BsFacebook, BsInstagram } from "react-icons/bs";
 import { RiTwitterXFill } from "react-icons/ri";
 
 const Footer = () => {
