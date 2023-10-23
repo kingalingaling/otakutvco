@@ -392,12 +392,12 @@ export async function handler (event) {
     attachments: [
       {
         filename: "logo.png",
-        path: "./server/images/logo.png",
+        path: "/assets/logo.png",
         cid: "logoImg",
       },
       {
         filename: "email-banner.jpg",
-        path: "./server/images/email-banner.jpg",
+        path: "/assets/images/email-banner.jpg",
         cid: "bannerImg",
       },
     ],
