@@ -109,7 +109,7 @@ const Highlights = () => {
           </span>
         </button>
       </div>
-      <Link to={"https://instagram.com/otakufestivalng"} target="_blank">
+      <Link to={"https://instagram.com/otakufestivalng"} target="_blank" rel="noreferrer">
         <button
           className="bg-red-500 mt-4 flex mx-auto py-3 px-5 rounded-md text-lg font-bold duration-500 border text-white hover:text-red-500 hover:border-red-500 hover:bg-white"
         >

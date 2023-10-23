@@ -28,7 +28,7 @@ const Hero = () => {
               loop
             />
           </div>
-          <Link to={"https://linktr.ee/otakutv"} target="_blank">
+          <Link to={"https://linktr.ee/otakutv"} target="_blank" rel="noreferrer">
             <button
               className="p-3 mt-6 md:mt-3 bg-transparent font-bold md:text-2xl lg:text-2xl hover:bg-red-700 hover:border-red-700 border border-white rounded-md duration-300"
             >
