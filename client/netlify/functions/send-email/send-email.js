@@ -393,7 +393,7 @@ export async function handler (event) {
     attachments: [
       {
         filename: "logo.png",
-        path: fs.readFileSync('logo.png'),
+        path: fs.readFileSync(require.resolve('logo.png')),
         cid: "logoImg",
       },
       {
