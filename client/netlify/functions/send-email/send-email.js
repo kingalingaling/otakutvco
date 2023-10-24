@@ -1,18 +1,18 @@
-import nodemailer from 'nodemailer'
+import nodemailer from "nodemailer";
 // import * as fs from 'fs'
 
-export async function handler (event) {
+export async function handler(event) {
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "otakutv.co",
+    port: 465,
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASSWORD,
     },
   });
 
-  const { fname, tickets, day, time, locay, total_order, recipient } = JSON.parse(
-    event.body
-  );
+  const { fname, tickets, day, time, locay, total_order, recipient } =
+    JSON.parse(event.body);
 
   const htmlBody = `
   <html>
@@ -204,7 +204,7 @@ export async function handler (event) {
                       "
                     >
                       <div class="mktEditable" id="intro_title">
-                        Hello ${fname},
+                        Hello ${fname}, <br> Your tickets are here
                       </div>
                     </td>
                   </tr>
@@ -390,23 +390,11 @@ export async function handler (event) {
     to: recipient,
     subject: "Your Tickets Have Arrived!!",
     html: htmlBody,
-    // attachments: [
-    //   {
-    //     filename: "logo.png",
-    //     path: fs.readFileSync('logo.png'),
-    //     cid: "logoImg",
-    //   },
-    //   {
-    //     filename: "email-banner.jpg",
-    //     path: fs.readFileSync('email-banner.jpg'),
-    //     cid: "bannerImg",
-    //   },
-    // ],
   };
 
   try {
     let info = await transporter.sendMail(mailOptions);
-    console.log(info)
+    console.log(info);
     return {
       statusCode: 200,
       body: JSON.stringify({ message: "Email sent successfully" }),
