@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer'
-import * as fs from 'fs'
+// import * as fs from 'fs'
 
 export async function handler (event) {
   const transporter = nodemailer.createTransport({
@@ -128,7 +128,7 @@ export async function handler (event) {
                 <a href="https://www.otakutv.co"
                   ><img
                     class="top-image"
-                    src="cid:logoImg"
+                    src="https://github.com/kingalingaling/otakutvco/blob/332c6cdfe132df117f037933d3c4cc5ef79f939c/client/public/assets/logo.png?raw=true"
                     style="line-height: 1; width: 100px"
                     alt="Otaku Connect 2023"
                 /></a>
@@ -243,7 +243,7 @@ export async function handler (event) {
                       <div class="mktEditable" id="cta">
                         <img
                           class="top-image"
-                          src="cid:bannerImg"
+                          src="https://github.com/kingalingaling/otakutvco/blob/332c6cdfe132df117f037933d3c4cc5ef79f939c/client/public/assets/email-banner.jpg?raw=true"
                           width="560"
                         /><br /><br />
                         <strong>Location:</strong>${locay}<br />
@@ -390,18 +390,18 @@ export async function handler (event) {
     to: recipient,
     subject: "Your Tickets Have Arrived!!",
     html: htmlBody,
-    attachments: [
-      {
-        filename: "logo.png",
-        path: fs.readFileSync(require.resolve('logo.png')),
-        cid: "logoImg",
-      },
-      {
-        filename: "email-banner.jpg",
-        path: fs.readFileSync('email-banner.jpg'),
-        cid: "bannerImg",
-      },
-    ],
+    // attachments: [
+    //   {
+    //     filename: "logo.png",
+    //     path: fs.readFileSync('logo.png'),
+    //     cid: "logoImg",
+    //   },
+    //   {
+    //     filename: "email-banner.jpg",
+    //     path: fs.readFileSync('email-banner.jpg'),
+    //     cid: "bannerImg",
+    //   },
+    // ],
   };
 
   try {
