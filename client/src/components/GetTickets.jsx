@@ -6,7 +6,7 @@ const GetTickets = () => {
 
   return (
     <div className="w-full px-4 lg:px-0">
-      <div className="bg-black mx-auto p4 flex flex-col items-stretch">
+      <div className="bg-red-600 mx-auto p4 flex flex-col items-stretch">
         <div className="flex justify-center md:justify-between items-center md:w-[50%] mx-auto">
           <img src={OCLogoLight} alt="" className="w-[100px] md:w-[200px]" />
           <div className="w-8 md:hidden"></div>
