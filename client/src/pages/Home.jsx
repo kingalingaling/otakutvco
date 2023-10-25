@@ -8,12 +8,14 @@ import BlogPosts from "../components/BlogPosts";
 import Feedback from "../components/Feedback";
 import Footer from "../components/Footer";
 import CountUp from "../components/CountUp";
+import GetTickets from "../components/GetTickets";
 
 const Home = () => {
   return (
     <div className="w-full">
       <Navbar />
       <Hero />
+      <GetTickets />
       <Cards />
       <div className="w-full p-4 lg:max-w-[60%] flex justify-between mx-auto">
         <div className="flex flex-col items-center w-1/3">
