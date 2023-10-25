@@ -20,7 +20,7 @@ const Navbar = () => {
     {
       item: "Otaku Scoop",
       icon: <BiSolidMicrophone size={20} />,
-      link: "https://otakutv.co/otakuscoop/",
+      link: "https://linktr.ee/otakuscoop",
     },
     {
       item: "Anime Downloads",
