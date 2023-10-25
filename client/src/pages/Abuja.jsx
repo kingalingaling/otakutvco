@@ -6,7 +6,7 @@ import { db } from "../config/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
 // import axios from "axios";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 // Paystack
 import { usePaystackPayment } from "react-paystack";
 import PaystackConfig from "../config/paystack";
@@ -21,7 +21,7 @@ const Abuja = () => {
   const [cost, setCost] = useState(0);
   const [tier, setTier] = useState("");
   const [tickets, setTickets] = useState([]);
-  const [order, setOrder] = useState([""])
+  const [order, setOrder] = useState([""]);
   const [selectedTiers, setSelectedTiers] = useState([]);
 
   // Errors
@@ -29,10 +29,11 @@ const Abuja = () => {
   const [cartError, setCartError] = useState(false);
   const [empty, setEmpty] = useState(false);
   const [ticketError, setTicketError] = useState(false);
-  
-  const location = 'La Vida Local Spar Road, behind NNPC Petrol station Life Camp, Abuja, Federal Capital Territory'
-  const time = '10:00 AM'
-  const day = "December 30, 2023"
+
+  const location =
+    "La Vida Local Spar Road, behind NNPC Petrol station Life Camp, Abuja, Federal Capital Territory";
+  const time = "10:00 AM";
+  const day = "December 30, 2023";
 
   const calcCost = useCallback(() => {
     const tierCosts = {
@@ -44,13 +45,13 @@ const Abuja = () => {
       return total + (tierCosts[tier.tier] || 0) * tier.quantity;
     }, 0);
     setCost(totalCost);
-  } , [selectedTiers]);
+  }, [selectedTiers]);
 
   useEffect(() => {
     const total_order = tickets.map((ticket) => {
-      return [ticket.tier, ticket.quantity].join(": ")
-    })
-    setOrder(total_order)
+      return [ticket.tier, ticket.quantity].join(": ");
+    });
+    setOrder(total_order);
     calcCost();
   }, [tickets, calcCost]);
 
@@ -67,10 +68,6 @@ const Abuja = () => {
     return /\S+@\S+\.\S+/.test(email);
   };
 
-  // const remove = (arr, condition) => {
-  //   return arr.filter((item) => !condition(item));
-  // };
-
   const removeFromCart = (id, tier) => {
     setTickets((prevState) => prevState.filter((item) => item.id !== id));
     setSelectedTiers((prevTiers) =>
@@ -84,12 +81,12 @@ const Abuja = () => {
     setTier(option);
   };
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const onSuccess = () => {
     //implementation for after success call
     onSubmitOrder();
-    sendEmail()
+    sendEmail();
     setTickets([]);
     navigate("/otakuconnect/order-completed");
     console.log("success");
@@ -111,7 +108,7 @@ const Abuja = () => {
       setEmpty(false);
       if (validateEmail(email)) {
         console.log("email is valid");
-        if (tickets.length>0) {
+        if (tickets.length > 0) {
           initializePayment(onSuccess, onClose);
           setTicketError(false);
         } else {
@@ -149,7 +146,7 @@ const Abuja = () => {
       { tier: tier, quantity: quantity },
     ]);
     setCartError(false);
-    setTicketError(false)
+    setTicketError(false);
 
     calcCost(); // Calculate cost after adding to cart
   };
@@ -158,7 +155,7 @@ const Abuja = () => {
     try {
       await addDoc(abujaOrdersRef, {
         first_name: fname,
-        last_name:lname,
+        last_name: lname,
         email: email,
         tickets: order,
         cost: cost,
@@ -171,30 +168,25 @@ const Abuja = () => {
     }
   };
 
-  const request = new XMLHttpRequest()
+  const request = new XMLHttpRequest();
 
   const sendEmail = async () => {
     try {
-      request.open("POST", "https://netlify--otakutvco.netlify.app/.netlify/functions/send-email")
-      request.send(JSON.stringify({
-          fname:fname,
+      request.open(
+        "POST",
+        "https://netlify--otakutvco.netlify.app/.netlify/functions/send-email"
+      );
+      request.send(
+        JSON.stringify({
+          fname: fname,
           tickets: order,
           day: day,
-          time:time,
-          locay:location,
-          total_order:cost,
-          recipient: email
-        }))
-      // const response = await axios.post('https://netlify--otakutvco.netlify.app/.netlify/functions/send-email', {
-      //   fname:fname,
-      //   tickets: order,
-      //   day: day,
-      //   time:time,
-      //   locay:location,
-      //   total_order:cost,
-      //   recipient: email,
-      //   // html: emailHtml // Extract the HTML from the component
-      // });
+          time: time,
+          locay: location,
+          total_order: cost,
+          recipient: email,
+        })
+      );
       console.log("Initiate email sending");
     } catch (error) {
       console.error(error);
@@ -205,14 +197,15 @@ const Abuja = () => {
     <div>
       <div className="bg-gradient-to-tr from-orange-400 via-red-300 to-blue-500 min-h-screen flex items-center justify-center py-16 md:p-15">
         <div className="bg-black/95 rounded-lg shadow-2xl w-full lg:w-2/3 text-white md:flex md:flex-col">
-          <img src={locationImg} className="rounded-t-lg h-[300px] object-cover" />
+          <img
+            src={locationImg}
+            className="rounded-t-lg h-[300px] object-cover"
+          />
           <div className="p-6 min-h-full flex flex-col">
             <h2 className="flex-none font-bold text-2xl md:text-xl text-white mb-2">
               Otaku Connect Abuja
             </h2>
-            <p className="flex-none text-white mb-2">
-              {location}
-            </p>
+            <p className="flex-none text-white mb-2">{location}</p>
             <div className="flex flex-col justify-between md:flex-row">
               <div className="w-full md:w-[50%] md:h-[80%] flex flex-col md:justify-between">
                 <div>
