@@ -48,7 +48,7 @@ const getQRCodeURL = async (fileName) => {
     return url;
   } catch (error) {
     console.error('Error retrieving QR code URL:', error);
-    return null;
+    // return null;
   }
 };
 
@@ -86,9 +86,6 @@ export async function handler(event) {
           margin: 0 auto;
           width: 100%;
           height: auto;
-        }
-        #qrcode-container {
-          display: none;
         }
 
         .top-image {
