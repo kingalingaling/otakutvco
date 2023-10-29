@@ -1,5 +1,56 @@
 import nodemailer from "nodemailer";
 // import * as fs from 'fs'
+import { initializeApp } from "firebase/app";
+import {getStorage, ref, uploadString, getDownloadURL} from 'firebase/storage'
+import QRCode from 'qrcode';
+
+const firebaseConfig = {
+  apiKey: process.env.VITE_FIREBASE_API,
+  authDomain: "otakutv-82c57.firebaseapp.com",
+  projectId: "otakutv-82c57",
+  storageBucket: "otakutv-82c57.appspot.com",
+  messagingSenderId: "913039501658",
+  appId: "1:913039501658:web:586a11370fac5f02a06b63",
+  measurementId: "G-310WH7NX6E"
+};
+
+const app = initializeApp(firebaseConfig)
+const storage = getStorage(app)
+
+const generateQRCode = async(data) => {
+  try {
+    const qrCodeImage = await QRCode.toDataURL(data);
+    return qrCodeImage;
+  } catch (error) {
+    console.error('Error generating QR code:', error);
+    return null;
+  }
+}
+
+const uploadQRCodeToStorage = async (qrCodeData, fileName) => {
+  try {
+    const qrCodeImage = await generateQRCode(qrCodeData);
+
+    if (qrCodeImage) {
+      const storageRef = ref(storage, `qr_codes/${fileName}.png`);
+      await uploadString(storageRef, qrCodeImage, 'data_url');
+      console.log('QR code uploaded to Firebase Storage');
+    }
+  } catch (error) {
+    console.error('Error uploading QR code to Firebase Storage:', error);
+  }
+};
+
+const getQRCodeURL = async (fileName) => {
+  try {
+    const storageRef = ref(storage, `qr_codes/${fileName}.png`);
+    const url = await getDownloadURL(storageRef);
+    return url;
+  } catch (error) {
+    console.error('Error retrieving QR code URL:', error);
+    return null;
+  }
+};
 
 export async function handler(event) {
   const transporter = nodemailer.createTransport({
@@ -15,12 +66,13 @@ export async function handler(event) {
     event.body
   );
 
+  uploadQRCodeToStorage(`https://netlify--otakutvco.netlify.app/otakuconnect/${id}`,id)
+  const qrCodeURL = await getQRCodeURL(id);
   console.log(id,first_name, email, tickets, cost,day, locay)
 
   const htmlBody = `
   <html>
   <head>
-    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     <style>
       @media only screen and (max-width: 600px) {
         .main {
@@ -364,7 +416,9 @@ export async function handler(event) {
                       "
                     >
                       <div id="qrcode-container" style="width: 100%; display: flex; justify-content: center;">
-                        <div id="qrcode" class="qrcode" style="margin: 0px auto; display: flex; justify-content: center;"></div>
+                        <div id="qrcode" class="qrcode" style="margin: 0px auto; display: flex; justify-content: center;">
+                          <img src=${qrCodeURL} alt='QR-Code'/>
+                        </div>
                       </div>
                     </td>
                   </tr>
@@ -440,19 +494,6 @@ export async function handler(event) {
         </td>
       </tr>
     </table>
-    <script type="text/javascript">
-      let qrcodeContainer = document.getElementById("qrcode");
-      qrcodeContainer.innerHTML = "";
-      new QRCode(qrcodeContainer, {
-        text: "https://netlify--otakutvco.netlify.app/",
-        width: 128,
-        height: 128,
-        colorDark: "#5868bf",
-        colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.H,
-      });
-      document.getElementById("qrcode-container").style.display = "block";
-    </script>
   </body>
 </html>
 
