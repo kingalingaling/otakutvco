@@ -1,21 +1,21 @@
 import nodemailer from "nodemailer";
 // import * as fs from 'fs'
-import { initializeApp } from "firebase/app";
-import {getStorage, ref, uploadString, getDownloadURL} from 'firebase/storage'
+// import { initializeApp } from "firebase/app";
+// import {getStorage, ref, uploadString, getDownloadURL} from 'firebase/storage'
 import QRCode from 'qrcode';
 
-const firebaseConfig = {
-  apiKey: process.env.VITE_FIREBASE_API,
-  authDomain: "otakutv-82c57.firebaseapp.com",
-  projectId: "otakutv-82c57",
-  storageBucket: "otakutv-82c57.appspot.com",
-  messagingSenderId: "913039501658",
-  appId: "1:913039501658:web:586a11370fac5f02a06b63",
-  measurementId: "G-310WH7NX6E"
-};
+// const firebaseConfig = {
+//   apiKey: process.env.VITE_FIREBASE_API,
+//   authDomain: "otakutv-82c57.firebaseapp.com",
+//   projectId: "otakutv-82c57",
+//   storageBucket: "otakutv-82c57.appspot.com",
+//   messagingSenderId: "913039501658",
+//   appId: "1:913039501658:web:586a11370fac5f02a06b63",
+//   measurementId: "G-310WH7NX6E"
+// };
 
-const app = initializeApp(firebaseConfig)
-const storage = getStorage(app)
+// const app = initializeApp(firebaseConfig)
+// const storage = getStorage(app)
 
 const generateQRCode = async(data) => {
   try {
@@ -27,30 +27,30 @@ const generateQRCode = async(data) => {
   }
 }
 
-const uploadQRCodeToStorage = async (qrCodeData, fileName) => {
-  try {
-    const qrCodeImage = await generateQRCode(qrCodeData);
+// const uploadQRCodeToStorage = async (qrCodeData, fileName) => {
+//   try {
+//     const qrCodeImage = await generateQRCode(qrCodeData);
 
-    if (qrCodeImage) {
-      const storageRef = ref(storage, `qr_codes/${fileName}.png`);
-      await uploadString(storageRef, qrCodeImage, 'data_url');
-      console.log('QR code uploaded to Firebase Storage');
-    }
-  } catch (error) {
-    console.error('Error uploading QR code to Firebase Storage:', error);
-  }
-};
+//     if (qrCodeImage) {
+//       const storageRef = ref(storage, `qr_codes/${fileName}.png`);
+//       await uploadString(storageRef, qrCodeImage, 'data_url');
+//       console.log('QR code uploaded to Firebase Storage');
+//     }
+//   } catch (error) {
+//     console.error('Error uploading QR code to Firebase Storage:', error);
+//   }
+// };
 
-const getQRCodeURL = async (fileName) => {
-  try {
-    const storageRef = ref(storage, `qr_codes/${fileName}.png`);
-    const url = await getDownloadURL(storageRef);
-    return url;
-  } catch (error) {
-    console.error('Error retrieving QR code URL:', error);
-    // return null;
-  }
-};
+// const getQRCodeURL = async (fileName) => {
+//   try {
+//     const storageRef = ref(storage, `qr_codes/${fileName}.png`);
+//     const url = await getDownloadURL(storageRef);
+//     return url;
+//   } catch (error) {
+//     console.error('Error retrieving QR code URL:', error);
+//     return null;
+//   }
+// };
 
 export async function handler(event) {
   const transporter = nodemailer.createTransport({
@@ -66,8 +66,11 @@ export async function handler(event) {
     event.body
   );
 
-  uploadQRCodeToStorage(`https://netlify--otakutvco.netlify.app/otakuconnect/${id}`,id)
-  const qrCodeURL = await getQRCodeURL(id);
+  // uploadQRCodeToStorage(`https://netlify--otakutvco.netlify.app/otakuconnect/${id}`,id)
+  // const qrCodeURL = await getQRCodeURL(id);
+  const qrCodeImg = await generateQRCode(`https://netlify--otakutvco.netlify.app/otakuconnect/${id}`)
+  const base64Image = qrCodeImg.split(',')[1];
+  
   console.log(id,first_name, email, tickets, cost,day, locay)
 
   const htmlBody = `
@@ -414,7 +417,7 @@ export async function handler(event) {
                     >
                       <div id="qrcode-container" style="width: 100%; display: flex; justify-content: center;">
                         <div id="qrcode" class="qrcode" style="margin: 0px auto; display: flex; justify-content: center;">
-                          <img src=${qrCodeURL} alt='QR-Code'/>
+                          <img src="cid:qr_code" alt='QR-Code'/>
                         </div>
                       </div>
                     </td>
@@ -501,6 +504,14 @@ export async function handler(event) {
     to: email,
     subject: "Your Tickets Have Arrived!!",
     html: htmlBody,
+    attachments: [
+      {
+        filename: 'qr_code.png',
+        encoding: 'base64',
+        content: base64Image,
+        cid: 'qr_code'
+      }
+    ]
   };
 
   try {
