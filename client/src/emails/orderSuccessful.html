@@ -1,9 +1,22 @@
 <html>
   <head>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     <style>
       @media only screen and (max-width: 600px) {
         .main {
           width: 320px !important;
+        }
+
+        .qrcode {
+          padding: 16px;
+        }
+        .qrcode img {
+          margin: 0 auto;
+          width: 100%;
+          height: auto;
+        }
+        #qrcode-container {
+          display: none;
         }
 
         .top-image {
@@ -111,9 +124,9 @@
                 <a href="https://www.otakutv.co"
                   ><img
                     class="top-image"
-                    src="cid:logoImg"
-                    style="line-height: 1; width: 600px"
-                    alt="OtakuTv Logo"
+                    src="https://github.com/kingalingaling/otakutvco/blob/332c6cdfe132df117f037933d3c4cc5ef79f939c/client/public/assets/logo.png?raw=true"
+                    style="line-height: 1; width: 100px"
+                    alt="Otaku Connect 2023"
                 /></a>
               </td>
             </tr>
@@ -187,7 +200,8 @@
                       "
                     >
                       <div class="mktEditable" id="intro_title">
-                        Hello ${recipient},
+                        Hello ${first_name}, <br />
+                        Your tickets are here
                       </div>
                     </td>
                   </tr>
@@ -226,11 +240,12 @@
                       <div class="mktEditable" id="cta">
                         <img
                           class="top-image"
-                          src="cid:bannerImg"
+                          src="https://github.com/kingalingaling/otakutvco/blob/332c6cdfe132df117f037933d3c4cc5ef79f939c/client/public/assets/email-banner.jpg?raw=true"
                           width="560"
                         /><br /><br />
-                        <strong>Date:</strong>${location}<br />
-                        <strong>Time</strong>: ${dateTime}<br /><br />
+                        <strong>Location:</strong>${locay}<br />
+                        <strong>Date:</strong>${day}<br />
+                        <strong>Time</strong>: ${time}<br /><br />
                       </div>
                     </td>
                   </tr>
@@ -271,6 +286,7 @@
                         <b>Ticket Details:</b><br /><br />
                         ${tickets} <br />
                         <br />
+                        <b>Total Cost: ${cost}</b><br /><br />
                         Can't Wait to see you!
                       </div>
                     </td>
@@ -292,11 +308,51 @@
                       &nbsp;<br />
                     </td>
                   </tr>
+                  <tr style="width:100%;">
+                    <td
+                      class="text"
+                      style="
+                        border-collapse: collapse;
+                        border: 0;
+                        margin: 0;
+                        padding: 0;
+                        width: 100%;
+                        -webkit-text-size-adjust: none;
+                        color: #555559;
+                        font-family: Arial, sans-serif;
+                        font-size: 16px;
+                        line-height: 26px;
+                      "
+                    >
+                      <p style="text-align: center; font-size: 1.5em; margin-bottom: 10px; font-weight: bolder;">Scan QR Code to View Tickets</p>
+                    </td>
+                  </tr>
+                  <tr style="width: 100%;">
+                    <td
+                      class="text"
+                      style="
+                        border-collapse: collapse;
+                        border: 0;
+                        margin: 0;
+                        width: 100%;
+                        padding: 0;
+                        -webkit-text-size-adjust: none;
+                        color: #555559;
+                        font-family: Arial, sans-serif;
+                        font-size: 16px;
+                        line-height: 26px;
+                      "
+                    >
+                      <div id="qrcode-container" style="width: 100%; display: flex; justify-content: center;">
+                        <div id="qrcode" class="qrcode" style="margin: 0px auto; display: flex; justify-content: center;"></div>
+                      </div>
+                    </td>
+                  </tr>
                 </table>
               </td>
             </tr>
 
-            <tr bgcolor="#fff" style="border-top: 4px solid #00a5b5">
+            <tr bgcolor="#fff" style="border-top: 4px solid #df1e1e">
               <td
                 valign="top"
                 class="footer"
@@ -345,7 +401,9 @@
                       "
                     >
                       <div id="address" class="mktEditable">
-                        © 2023 | OtakuTv | <a href="https://www.otakutv.co">www.otakutv.co</a> <br>
+                        © 2023 | OtakuTv |
+                        <a href="https://www.otakutv.co">www.otakutv.co</a>
+                        <br />
                         <br />
                         <a
                           style="color: #00a5b5"
@@ -362,5 +420,18 @@
         </td>
       </tr>
     </table>
+    <script type="text/javascript">
+      let qrcodeContainer = document.getElementById("qrcode");
+      qrcodeContainer.innerHTML = "";
+      new QRCode(qrcodeContainer, {
+        text: "https://netlify--otakutvco.netlify.app/",
+        width: 128,
+        height: 128,
+        colorDark: "#5868bf",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H,
+      });
+      document.getElementById("qrcode-container").style.display = "block";
+    </script>
   </body>
 </html>

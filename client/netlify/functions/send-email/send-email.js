@@ -11,16 +11,32 @@ export async function handler(event) {
     },
   });
 
-  const { fname, tickets, day, time, locay, total_order, recipient } =
-    JSON.parse(event.body);
+  const { id, first_name, email, tickets, cost, day, time, locay } = JSON.parse(
+    event.body
+  );
+
+  console.log(id,first_name, email, tickets, cost,day, locay)
 
   const htmlBody = `
   <html>
   <head>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     <style>
       @media only screen and (max-width: 600px) {
         .main {
           width: 320px !important;
+        }
+
+        .qrcode {
+          padding: 16px;
+        }
+        .qrcode img {
+          margin: 0 auto;
+          width: 100%;
+          height: auto;
+        }
+        #qrcode-container {
+          display: none;
         }
 
         .top-image {
@@ -204,7 +220,8 @@ export async function handler(event) {
                       "
                     >
                       <div class="mktEditable" id="intro_title">
-                        Hello ${fname}, <br> Your tickets are here
+                        Hello ${first_name}, <br />
+                        Your tickets are here
                       </div>
                     </td>
                   </tr>
@@ -289,7 +306,7 @@ export async function handler(event) {
                         <b>Ticket Details:</b><br /><br />
                         ${tickets} <br />
                         <br />
-                        <b>Total Cost: ${total_order}</b><br /><br />
+                        <b>Total Cost: ${cost}</b><br /><br />
                         Can't Wait to see you!
                       </div>
                     </td>
@@ -311,11 +328,51 @@ export async function handler(event) {
                       &nbsp;<br />
                     </td>
                   </tr>
+                  <tr style="width:100%;">
+                    <td
+                      class="text"
+                      style="
+                        border-collapse: collapse;
+                        border: 0;
+                        margin: 0;
+                        padding: 0;
+                        width: 100%;
+                        -webkit-text-size-adjust: none;
+                        color: #555559;
+                        font-family: Arial, sans-serif;
+                        font-size: 16px;
+                        line-height: 26px;
+                      "
+                    >
+                      <p style="text-align: center; font-size: 1.5em; margin-bottom: 10px; font-weight: bolder;">Scan QR Code to View Tickets</p>
+                    </td>
+                  </tr>
+                  <tr style="width: 100%;">
+                    <td
+                      class="text"
+                      style="
+                        border-collapse: collapse;
+                        border: 0;
+                        margin: 0;
+                        width: 100%;
+                        padding: 0;
+                        -webkit-text-size-adjust: none;
+                        color: #555559;
+                        font-family: Arial, sans-serif;
+                        font-size: 16px;
+                        line-height: 26px;
+                      "
+                    >
+                      <div id="qrcode-container" style="width: 100%; display: flex; justify-content: center;">
+                        <div id="qrcode" class="qrcode" style="margin: 0px auto; display: flex; justify-content: center;"></div>
+                      </div>
+                    </td>
+                  </tr>
                 </table>
               </td>
             </tr>
 
-            <tr bgcolor="#fff" style="border-top: 4px solid #00a5b5">
+            <tr bgcolor="#fff" style="border-top: 4px solid #df1e1e">
               <td
                 valign="top"
                 class="footer"
@@ -364,7 +421,9 @@ export async function handler(event) {
                       "
                     >
                       <div id="address" class="mktEditable">
-                        © 2023 | OtakuTv | <a href="https://www.otakutv.co">www.otakutv.co</a> <br>
+                        © 2023 | OtakuTv |
+                        <a href="https://www.otakutv.co">www.otakutv.co</a>
+                        <br />
                         <br />
                         <a
                           style="color: #00a5b5"
@@ -381,13 +440,27 @@ export async function handler(event) {
         </td>
       </tr>
     </table>
+    <script type="text/javascript">
+      let qrcodeContainer = document.getElementById("qrcode");
+      qrcodeContainer.innerHTML = "";
+      new QRCode(qrcodeContainer, {
+        text: "https://netlify--otakutvco.netlify.app/",
+        width: 128,
+        height: 128,
+        colorDark: "#5868bf",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H,
+      });
+      document.getElementById("qrcode-container").style.display = "block";
+    </script>
   </body>
 </html>
+
   `;
 
   const mailOptions = {
     from: "otakuconnect@otakutv.co",
-    to: recipient,
+    to: email,
     subject: "Your Tickets Have Arrived!!",
     html: htmlBody,
   };

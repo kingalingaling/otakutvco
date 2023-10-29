@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import { MdCancel } from "react-icons/md";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { db } from "../config/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, getDoc } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
 // import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -29,6 +29,10 @@ const Abuja = () => {
   const [cartError, setCartError] = useState(false);
   const [empty, setEmpty] = useState(false);
   const [ticketError, setTicketError] = useState(false);
+
+  // Firebase Doc
+  // const[docFinal, setDocFinal] = useState()
+  // let documentFb;
 
   const location =
     "La Vida Local Spar Road, behind NNPC Petrol station Life Camp, Abuja, Federal Capital Territory";
@@ -86,7 +90,7 @@ const Abuja = () => {
   const onSuccess = () => {
     //implementation for after success call
     onSubmitOrder();
-    sendEmail();
+    // sendEmail();
     setTickets([]);
     navigate("/otakuconnect/order-completed");
     console.log("success");
@@ -153,7 +157,7 @@ const Abuja = () => {
 
   const onSubmitOrder = async () => {
     try {
-      await addDoc(abujaOrdersRef, {
+      const newDocRef = await addDoc(abujaOrdersRef, {
         first_name: fname,
         last_name: lname,
         email: email,
@@ -162,36 +166,65 @@ const Abuja = () => {
         status: "confirmed",
         event: "Otaku Connect Abuja",
         date: serverTimestamp(),
-      });
+      })
+
+      const newDocId = newDocRef.id
+      const docSnap = await getDoc(doc(db, "abuja-tickets", newDocId));
+      const documentFb = {id:newDocId, ...docSnap.data()}
+      console.log(documentFb)
+      sendEmail(documentFb)
+      // console.log(setDocFinal)
+      // }).then(function(docRef){
+      //   console.log("Beginning fetch")
+      //   console.log(docRef.id)
+      //   setDocumentFb(getSubmission(docRef.id))
+      //   console.log(documentFb)
+      //   // setQRCode()
+      // })
     } catch (err) {
       console.error(err);
     }
   };
 
+  // const getSubmission = async (docId) => {
+  //   const docRef = doc(db, "abuja-tickets", docId);
+  //   const docSnap = await getDoc(docRef);
+  //   if (docSnap.exists()) {
+  //     return {id: docSnap.id, ...docSnap.data()}
+      
+  //   } else {
+  //     console.log("No such document")
+  //   }
+  // } 
+
   const request = new XMLHttpRequest();
 
-  const sendEmail = async () => {
+  const sendEmail = async (documentFinal) => {
     try {
       request.open(
         "POST",
         "https://netlify--otakutvco.netlify.app/.netlify/functions/send-email"
       );
       request.send(
-        JSON.stringify({
-          fname: fname,
-          tickets: order,
-          day: day,
-          time: time,
-          locay: location,
-          total_order: cost,
-          recipient: email,
-        })
+        JSON.stringify({...documentFinal, day:day, time:time, locay:location})
       );
       console.log("Initiate email sending");
     } catch (error) {
       console.error(error);
     }
   };
+
+  // const setQRCode = async () => {
+  //   try {
+  //     request.open("POST", "https://netlify--otakutvco.netlify.app/.netlify/functions/setQRCode");
+  //     request.send(
+  //       JSON.stringify(documentFb)
+  //     )
+  //     console.log("Sending QR Code details")
+  //   } catch(error) {
+  //     console.error(error)
+  //   }
+  // }
 
   return (
     <div>
