@@ -101,23 +101,23 @@ const Navbar = () => {
       <div
         className={
           nav
-            ? "fixed top-0 right-0 w-[250px] md:w-[300px] h-screen backdrop-blur-xl backdrop-filter z-10 duration-300"
+            ? "fixed top-0 right-0 w-[250px] md:w-[300px] h-screen bg-black/40 backdrop-blur-xl backdrop-filter z-10 duration-300"
             : "hidden"
         }
       >
         <AiOutlineClose
           size={30}
-          className="absolute left-4 top-4 cursor-pointer"
+          className="absolute left-4 top-4 cursor-pointer text-white"
           onClick={() => {
             setNav(!nav);
           }}
         />
-        <h2 className="text-2xl p-3 ml-12 mt-0.5 font-bold">Menu</h2>
+        <h2 className="text-2xl p-3 ml-12 mt-0.5 text-white font-bold">Menu</h2>
         <nav>
           <ul className="flex flex-col p-4">
             {menuItems.map((i) => (
               <span
-                className="flex py-4 text-xl justify-between cursor-pointer hover:text-red-500"
+                className="flex py-4 text-xl text-gray-200 justify-between cursor-pointer hover:text-white"
                 onClick={() => {
                   navigate(i.link);
                 }}

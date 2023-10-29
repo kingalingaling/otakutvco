@@ -1,21 +1,5 @@
 import nodemailer from "nodemailer";
-// import * as fs from 'fs'
-// import { initializeApp } from "firebase/app";
-// import {getStorage, ref, uploadString, getDownloadURL} from 'firebase/storage'
 import QRCode from 'qrcode';
-
-// const firebaseConfig = {
-//   apiKey: process.env.VITE_FIREBASE_API,
-//   authDomain: "otakutv-82c57.firebaseapp.com",
-//   projectId: "otakutv-82c57",
-//   storageBucket: "otakutv-82c57.appspot.com",
-//   messagingSenderId: "913039501658",
-//   appId: "1:913039501658:web:586a11370fac5f02a06b63",
-//   measurementId: "G-310WH7NX6E"
-// };
-
-// const app = initializeApp(firebaseConfig)
-// const storage = getStorage(app)
 
 const generateQRCode = async(data) => {
   try {
@@ -26,31 +10,6 @@ const generateQRCode = async(data) => {
     return null;
   }
 }
-
-// const uploadQRCodeToStorage = async (qrCodeData, fileName) => {
-//   try {
-//     const qrCodeImage = await generateQRCode(qrCodeData);
-
-//     if (qrCodeImage) {
-//       const storageRef = ref(storage, `qr_codes/${fileName}.png`);
-//       await uploadString(storageRef, qrCodeImage, 'data_url');
-//       console.log('QR code uploaded to Firebase Storage');
-//     }
-//   } catch (error) {
-//     console.error('Error uploading QR code to Firebase Storage:', error);
-//   }
-// };
-
-// const getQRCodeURL = async (fileName) => {
-//   try {
-//     const storageRef = ref(storage, `qr_codes/${fileName}.png`);
-//     const url = await getDownloadURL(storageRef);
-//     return url;
-//   } catch (error) {
-//     console.error('Error retrieving QR code URL:', error);
-//     return null;
-//   }
-// };
 
 export async function handler(event) {
   const transporter = nodemailer.createTransport({
@@ -66,8 +25,6 @@ export async function handler(event) {
     event.body
   );
 
-  // uploadQRCodeToStorage(`https://netlify--otakutvco.netlify.app/otakuconnect/${id}`,id)
-  // const qrCodeURL = await getQRCodeURL(id);
   const qrCodeImg = await generateQRCode(`https://netlify--otakutvco.netlify.app/otakuconnect/${id}`)
   const base64Image = qrCodeImg.split(',')[1];
   

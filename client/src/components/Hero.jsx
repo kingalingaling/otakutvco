@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <div className="max-w-[1640] mx-auto p-0 px-4 lg:px-0">
+    <div className="max-w-[1640] mx-auto p-0 px-0">
       <div className="relative max-h-[90vh]">
         {/* Overlay */}
         <div className="absolute pt-4 bg-black/40 w-full pl-4 md:pl-28 h-full z-30 md:text-left font-bold text-gray-200/90 flex flex-col justify-center items-start">
@@ -37,7 +37,7 @@ const Hero = () => {
           </Link>
         </div>
         <video
-          className="inset-0 w-full h-[35vh] lg:h-auto lg:max-h-[90vh] object-cover"
+          className="inset-0 w-full h-[80vh] md:h-[77vh] lg:h-auto lg:max-h-[90vh] object-cover"
           autoPlay
           loop
           muted

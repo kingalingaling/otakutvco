@@ -5,16 +5,16 @@ import { Link } from "react-router-dom";
 
 const AnimeDownloads = () => {
   return (
-    <div className="w-full max-h-[350px] md:max-h-[300px] relative group">
+    <div className="w-full h-[250px] md:h-auto max-h-[350px] md:max-h-[300px] relative group">
       {/* Overlay */}
       <div className="absolute pt-4 bg-black/70 w-full h-full z-30 font-bold text-white/80 flex justify-between items-center">
-        <div className="mx-auto px-4 md:w-[85%] h-full flex flex-col md:flex-row justify-start md:justify-between items-center">
+        <div className="mx-auto px-4 md:w-[85%] h-full flex flex-col md:flex-row justify-center md:justify-between items-center">
           <p className="text-center text-xs md:text-xl md:py-3 md:max-w-[50%] mb-2 md:mb-0 font-medium transition-opacity duration-500 opacity-100 group-hover:opacity-0">
             Get the latest anime episode and movie releases straight to your
             phone and at the tap of a button through our Telegram Anime download
             platform.
           </p>
-          <p className="text-center text-xs md:text-xl md:py-3 md:max-w-[50%] font-medium transition-opacity duration-500 opacity-0 group-hover:opacity-100 absolute">
+          <p className="text-center text-xs md:text-xl md:py-3 md:max-w-[50%] mb-10 md:mb-0 font-medium transition-opacity duration-500 opacity-0 group-hover:opacity-100 absolute">
             No ad hassles or wrong clicks. A download catalog and clear-cut
             instructions
             Makes anime and chill almost too easy.
@@ -28,11 +28,11 @@ const AnimeDownloads = () => {
         </div>
       </div>
       <img
-        className="w-full h-full md:max-h-[300px] object-cover transition-opacity duration-500 opacity-100 group-hover:opacity-0"
+        className="w-full h-full md:max-h-[400px] object-cover transition-opacity duration-500 opacity-100 group-hover:opacity-0"
         src={animeDownloadBackground}
       ></img>
       <img
-        className="w-full h-full md:max-h-[300px] object-cover transition-opacity duration-500 opacity-0 group-hover:opacity-100 absolute top-0 left-0"
+        className="w-full h-full md:max-h-[400px] object-cover transition-opacity duration-500 opacity-0 group-hover:opacity-100 absolute top-0 left-0"
         src={animeDownloadBackground2}
       ></img>
     </div>
