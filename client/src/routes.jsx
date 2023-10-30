@@ -7,6 +7,7 @@ import Lagos from "./pages/Lagos";
 import OrderCompleted from "./pages/OrderCompleted";
 import OrderFailed from "./pages/OrderFailed";
 import PageNotFound from "./pages/PageNotFound";
+import Confirmation from "./pages/Confirmation";
 
 export const routes = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -15,6 +16,7 @@ export const routes = createBrowserRouter([
   { path: "/otakuconnect/lagos", element: <Lagos /> },
   { path: "/otakuconnect/order-completed", element: <OrderCompleted /> },
   { path: "/otakuconnect/order-failed", element: <OrderFailed /> },
+  { path: "/otakuconnect/confirmation", element: <Confirmation />},
   {path:'*', element: <PageNotFound />}
 ]);
 
