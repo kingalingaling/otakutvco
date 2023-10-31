@@ -2,6 +2,8 @@ import { FaArrowRight } from "react-icons/fa";
 import highlightImage1 from "/assets/images/img1.jpg";
 import highlightImage2 from "/assets/images/img2.jpg";
 import highlightImage3 from "/assets/images/img3.jpg";
+import highlightImage4 from "/assets/images/img4.jpg";
+import highlightImage5 from "/assets/images/img5.jpg";
 import { Link } from "react-router-dom";
 
 const Highlights = () => {
@@ -17,39 +19,61 @@ const Highlights = () => {
         data-te-ride="carousel"
       >
         {/* Carousel items */}
-        <div className="relative w-full max-h-[300px] overflow-hidden after:clear-both after:block after:content-['']">
+        <div className="relative w-full max-h-[450px] overflow-hidden after:clear-both after:block after:content-['']">
           {/* First item */}
           <div
-            className="relative float-left -mr-[100%] max-h-[300px] w-full transition-transform duration-[400ms] ease-in-out motion-reduce:transition-none"
+            className="relative float-left -mr-[100%] max-h-[450px] w-full transition-transform duration-[400ms] ease-in-out motion-reduce:transition-none"
             data-te-carousel-item
             data-te-carousel-active
           >
             <img
               src={highlightImage1}
-              className="block w-full h-[200px] lg:h-[300px] object-cover"
-              alt="Wild Landscape"
+              className="block w-full h-[200px] lg:h-[450px] object-cover"
+              alt="highlight-1"
             />
           </div>
           {/* Second item */}
           <div
-            className="relative float-left -mr-[100%] max-h-[300px] hidden w-full transition-transform duration-[400ms] ease-in-out motion-reduce:transition-none"
+            className="relative float-left -mr-[100%] max-h-[450px] hidden w-full transition-transform duration-[400ms] ease-in-out motion-reduce:transition-none"
             data-te-carousel-item
           >
             <img
               src={highlightImage2}
-              className="block w-full h-[200px] lg:h-[300px] object-cover"
-              alt="Camera"
+              className="block w-full h-[200px] lg:h-[450px] object-cover"
+              alt="highlight-2"
             />
           </div>
           {/* Third item */}
           <div
-            className="relative float-left -mr-[100%] max-h-[300px] hidden w-full transition-transform duration-[400ms] ease-in-out motion-reduce:transition-none"
+            className="relative float-left -mr-[100%] max-h-[450px] hidden w-full transition-transform duration-[400ms] ease-in-out motion-reduce:transition-none"
             data-te-carousel-item
           >
             <img
               src={highlightImage3}
-              className="block w-full h-[200px] lg:h-[300px] object-cover"
-              alt="Exotic Fruits"
+              className="block w-full h-[200px] lg:h-[450px] object-cover"
+              alt="highlight-3"
+            />
+          </div>
+          {/* Fourth item */}
+          <div
+            className="relative float-left -mr-[100%] max-h-[450px] hidden w-full transition-transform duration-[400ms] ease-in-out motion-reduce:transition-none"
+            data-te-carousel-item
+          >
+            <img
+              src={highlightImage4}
+              className="block w-full h-[200px] lg:h-[450px] object-cover"
+              alt="highlight-3"
+            />
+          </div>
+          {/* Fifth item */}
+          <div
+            className="relative float-left -mr-[100%] max-h-[450px] hidden w-full transition-transform duration-[400ms] ease-in-out motion-reduce:transition-none"
+            data-te-carousel-item
+          >
+            <img
+              src={highlightImage5}
+              className="block w-full h-[200px] lg:h-[450px] object-cover"
+              alt="highlight-3"
             />
           </div>
         </div>
