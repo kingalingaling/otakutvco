@@ -28,11 +28,11 @@ const AnimeDownloads = () => {
         </div>
       </div>
       <img
-        className="w-full h-full md:max-h-[400px] object-cover transition-opacity duration-500 opacity-100 group-hover:opacity-0"
+        className="w-full h-full md:max-h-[300px] object-cover transition-opacity duration-500 opacity-100 group-hover:opacity-0"
         src={animeDownloadBackground}
       ></img>
       <img
-        className="w-full h-full md:max-h-[400px] object-cover transition-opacity duration-500 opacity-0 group-hover:opacity-100 absolute top-0 left-0"
+        className="w-full h-full md:max-h-[300px] object-cover transition-opacity duration-500 opacity-0 group-hover:opacity-100 absolute top-0 left-0"
         src={animeDownloadBackground2}
       ></img>
     </div>
