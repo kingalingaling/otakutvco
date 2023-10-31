@@ -47,7 +47,7 @@ export default class BlogSlider extends Component {
     };
     return (
       <div className="w-full">
-        <h2 className="text-xl text-white md:text-2xl lg:text-3xl text-center mx-auto font-bold">
+        <h2 className="text-xl text-white md:text-2xl mb-4 lg:text-3xl text-center mx-auto font-bold">
           Articles from Our Blog
         </h2>
         <Slider {...settings} >
