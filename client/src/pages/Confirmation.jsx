@@ -89,15 +89,15 @@ const Confirmation = () => {
           </div>
         </div>
         <div className="p-4 w-full lg:w-2/3">
-          <div className="flex justify-between">
-            <div className="text-purple-400 uppercase tracking-wider text-sm">
+          <div className="flex flex-col md:flex-row justify-between">
+            <div className="text-purple-400 tracking-wider text-sm w-1/2">
               {email}
             </div>
-            <div className="pt-1 pl-16">
+            <div className="pt-1 w-1/2">
               <div className="bg-purple-900 rounded-full h-2 w-[100%]">
                 <div className="h-2 bg-purple-900 w-[100%] rounded-full"></div>
               </div>
-              <div className="text-xs text-purple-400 text-right uppercase">
+              <div className="text-xs text-purple-400 pt-2 md:pt-0 uppercase">
                 {time}
               </div>
             </div>
