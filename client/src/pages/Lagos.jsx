@@ -16,6 +16,7 @@ const Lagos = () => {
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
+  const [repeatEmail, setRepeatEmail] = useState("");
   const [quantity, setQuantity] = useState(0);
   const [cost, setCost] = useState(0);
   const [tier, setTier] = useState("");
@@ -28,6 +29,7 @@ const Lagos = () => {
   const [cartError, setCartError] = useState(false);
   const [empty, setEmpty] = useState(false);
   const [ticketError, setTicketError] = useState(false);
+  const [repeatEmailError, setRepeatEmailError] = useState(false)
 
   const location =
     "Rango Rooftop Lounge, 26 Prince Adelowo Adedeji Street, Lekki Phase 1 - 106104, Lagos";
@@ -67,6 +69,14 @@ const Lagos = () => {
     return /\S+@\S+\.\S+/.test(email);
   };
 
+  const checkEmails = (email, repeatEmail) => {
+    if (email.trim() == repeatEmail.trim()) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   const removeFromCart = (id, tier) => {
     setTickets((prevState) => prevState.filter((item) => item.id !== id));
     setSelectedTiers((prevTiers) =>
@@ -105,12 +115,18 @@ const Lagos = () => {
     } else {
       setEmpty(false);
       if (validateEmail(email)) {
+        setError(false)
         console.log("email is valid");
-        if (tickets.length > 0) {
-          initializePayment(onSuccess, onClose);
-          setTicketError(false);
+        if (checkEmails(email, repeatEmail)) {
+          setRepeatEmailError(false)
+          if (tickets.length > 0) {
+            initializePayment(onSuccess, onClose);
+            setTicketError(false);
+          } else {
+            setTicketError(true);
+          }
         } else {
-          setTicketError(true);
+          setRepeatEmailError(true)
         }
       } else {
         setError(true);
@@ -154,7 +170,7 @@ const Lagos = () => {
       const newDocRef = await addDoc(lagosOrdersRef, {
         first_name: fname,
         last_name: lname,
-        email: email,
+        email: email.trim(),
         tickets: order,
         cost: cost,
         status: "confirmed",
@@ -210,7 +226,7 @@ const Lagos = () => {
             <div className="flex flex-col justify-between md:flex-row">
               <div className="w-full md:w-[50%] md:h-[80%] flex flex-col md:justify-between">
                 <div>
-                  <label htmlFor="name" className="font-bold text-xs">
+                  <label htmlFor="fname" className="font-bold text-xs">
                     First Name
                   </label>
                   <input
@@ -223,7 +239,7 @@ const Lagos = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="name" className="font-bold text-xs">
+                  <label htmlFor="lname" className="font-bold text-xs">
                     Last Name
                   </label>
                   <input
@@ -250,6 +266,24 @@ const Lagos = () => {
                     name="email"
                     id=""
                     onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="repeatEmail" className="font-bold text-xs">
+                    <span className="text-orange-400">Repeat Recipient Email</span>
+                    {repeatEmailError && (
+                      <span className="ml-5 text-red-600 text-xs">
+                        Emails don&apos;t match. Check this with your sharingan
+                      </span>
+                    )}
+                  </label>
+                  <input
+                    className="border text-black outline-orange-400 rounded-lg border-gray-500 py-1 px-2 w-full"
+                    type="text"
+                    name="repeatEmail"
+                    id=""
+                    onChange={(e) => setRepeatEmail(e.target.value)}
                     required
                   />
                 </div>
@@ -348,7 +382,7 @@ const Lagos = () => {
                 <div className="mt-2 flex flex-col justify-between md:flex-row">
                   <div className="w-full md:w-1/2">
                     <label
-                      htmlFor="name"
+                      htmlFor="ticketNum"
                       className="font-bold text-sm block mb-1"
                     >
                       Number of Tickets
@@ -356,7 +390,7 @@ const Lagos = () => {
                     <input
                       className="border text-black outline-orange-400 rounded-lg border-gray-500 h-10 py-1 px-2 w-full"
                       type="number"
-                      name="name"
+                      name="ticketNum"
                       id=""
                       min={1}
                       onChange={(e) => setQuantity(e.target.value)}
