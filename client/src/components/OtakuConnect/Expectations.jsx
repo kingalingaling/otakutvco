@@ -70,7 +70,7 @@ const Expectations = () => {
           <h3 className="w-[30%] mx-auto text-center font-black text-2xl mt-4">
             Meetups/Interations
           </h3>
-          <p className="w-[30%] mx-auto text-center text-lg mt-2">
+          <p className="w-[30%] mx-auto text-center text-xl mt-2">
             Make friends, learn and maybe even find love!! Argue about your
             favorite Anime, characters, movies and more
           </p>
@@ -84,7 +84,7 @@ const Expectations = () => {
           </p> */}
         </div>
         <div className="w-full h-[30vh] my-auto px-16 flex justify-between">
-          <div className="w-[30%] text-lg">
+          <div className="w-[30%] text-xl">
             <h3 className="font-black w-full text-2xl">Games</h3>
             <p className="w-full">
               Play Console and Virtual Reality games from top Anime/Manga. Also
@@ -92,9 +92,9 @@ const Expectations = () => {
               games
             </p>
           </div>
-          <div className="w-[30%] text-lg text-right">
-            <p className="w-full">
-              <h3 className="font-black text-2xl">Cosplays</h3>
+          <div className="w-[30%] text-xl text-right">
+            <h3 className="font-black text-2xl">Cosplays</h3>
+            <p className="w-full text">
               Come as your favorite characters and meetup with people dressed up
               as theirs. How well do you know your character? Compete and stand
               a chance to win N50,000!
