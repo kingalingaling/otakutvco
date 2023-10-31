@@ -3,9 +3,8 @@ import { useState, useEffect, useCallback } from "react";
 import { MdCancel } from "react-icons/md";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { db } from "../config/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, getDoc } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
-// import axios from "axios";
 import { useNavigate } from "react-router-dom";
 // Paystack
 import { usePaystackPayment } from "react-paystack";
@@ -86,7 +85,6 @@ const Lagos = () => {
   const onSuccess = () => {
     //implementation for after success call
     onSubmitOrder();
-    sendEmail();
     setTickets([]);
     navigate("/otakuconnect/order-completed");
     console.log("success");
@@ -153,7 +151,7 @@ const Lagos = () => {
 
   const onSubmitOrder = async () => {
     try {
-      await addDoc(lagosOrdersRef, {
+      const newDocRef = await addDoc(lagosOrdersRef, {
         first_name: fname,
         last_name: lname,
         email: email,
@@ -163,6 +161,12 @@ const Lagos = () => {
         event: "Otaku Connect Lagos",
         date: serverTimestamp(),
       });
+
+      const newDocId = newDocRef.id;
+      const docSnap = await getDoc(doc(db, "lagos-tickets", newDocId));
+      const documentFb = { id: newDocId, ...docSnap.data() };
+      console.log(documentFb);
+      sendEmail(documentFb);
     } catch (err) {
       console.error(err);
     }
@@ -170,7 +174,7 @@ const Lagos = () => {
 
   const request = new XMLHttpRequest();
 
-  const sendEmail = async () => {
+  const sendEmail = async (documentFinal) => {
     try {
       request.open(
         "POST",
@@ -178,13 +182,10 @@ const Lagos = () => {
       );
       request.send(
         JSON.stringify({
-          fname: fname,
-          tickets: order,
+          ...documentFinal,
           day: day,
           time: time,
           locay: location,
-          total_order: cost,
-          recipient: email,
         })
       );
       console.log("Initiate email sending");

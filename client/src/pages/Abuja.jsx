@@ -5,7 +5,6 @@ import { formatCurrency } from "../utilities/formatCurrency";
 import { db } from "../config/firebase";
 import { collection, addDoc, doc, getDoc } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
-// import axios from "axios";
 import { useNavigate } from "react-router-dom";
 // Paystack
 import { usePaystackPayment } from "react-paystack";
@@ -29,10 +28,6 @@ const Abuja = () => {
   const [cartError, setCartError] = useState(false);
   const [empty, setEmpty] = useState(false);
   const [ticketError, setTicketError] = useState(false);
-
-  // Firebase Doc
-  // const[docFinal, setDocFinal] = useState()
-  // let documentFb;
 
   const location =
     "La Vida Local Spar Road, behind NNPC Petrol station Life Camp, Abuja, Federal Capital Territory";
@@ -90,7 +85,6 @@ const Abuja = () => {
   const onSuccess = () => {
     //implementation for after success call
     onSubmitOrder();
-    // sendEmail();
     setTickets([]);
     navigate("/otakuconnect/order-completed");
     console.log("success");
@@ -166,36 +160,17 @@ const Abuja = () => {
         status: "confirmed",
         event: "Otaku Connect Abuja",
         date: serverTimestamp(),
-      })
+      });
 
-      const newDocId = newDocRef.id
+      const newDocId = newDocRef.id;
       const docSnap = await getDoc(doc(db, "abuja-tickets", newDocId));
-      const documentFb = {id:newDocId, ...docSnap.data()}
-      console.log(documentFb)
-      sendEmail(documentFb)
-      // console.log(setDocFinal)
-      // }).then(function(docRef){
-      //   console.log("Beginning fetch")
-      //   console.log(docRef.id)
-      //   setDocumentFb(getSubmission(docRef.id))
-      //   console.log(documentFb)
-      //   // setQRCode()
-      // })
+      const documentFb = { id: newDocId, ...docSnap.data() };
+      console.log(documentFb);
+      sendEmail(documentFb);
     } catch (err) {
       console.error(err);
     }
   };
-
-  // const getSubmission = async (docId) => {
-  //   const docRef = doc(db, "abuja-tickets", docId);
-  //   const docSnap = await getDoc(docRef);
-  //   if (docSnap.exists()) {
-  //     return {id: docSnap.id, ...docSnap.data()}
-      
-  //   } else {
-  //     console.log("No such document")
-  //   }
-  // } 
 
   const request = new XMLHttpRequest();
 
@@ -206,25 +181,18 @@ const Abuja = () => {
         "https://netlify--otakutvco.netlify.app/.netlify/functions/send-email"
       );
       request.send(
-        JSON.stringify({...documentFinal, day:day, time:time, locay:location})
+        JSON.stringify({
+          ...documentFinal,
+          day: day,
+          time: time,
+          locay: location,
+        })
       );
       console.log("Initiate email sending");
     } catch (error) {
       console.error(error);
     }
   };
-
-  // const setQRCode = async () => {
-  //   try {
-  //     request.open("POST", "https://netlify--otakutvco.netlify.app/.netlify/functions/setQRCode");
-  //     request.send(
-  //       JSON.stringify(documentFb)
-  //     )
-  //     console.log("Sending QR Code details")
-  //   } catch(error) {
-  //     console.error(error)
-  //   }
-  // }
 
   return (
     <div>
