@@ -317,9 +317,7 @@ const Lagos = () => {
                     <h4 className="font-black">{formatCurrency(3500)}</h4>
                     <p className="font-bold">Ticket provides:</p>
                     <ul className="list-disc">
-                      <li>Entry to the event</li>
-                      <li>Access to N1000 worth of drinks</li>
-                      <li>Chicken Meat</li>
+                      <li>Access to the event</li>
                     </ul>
                   </div>
                 )}
@@ -328,9 +326,9 @@ const Lagos = () => {
                     <h4 className="font-black">{formatCurrency(5000)}</h4>
                     <p className="font-bold">Ticket provides:</p>
                     <ul className="list-disc">
-                      <li>Everything entailed in Regular</li>
-                      <li>Access to N1000 worth of drinks</li>
-                      <li>Chicken Meat</li>
+                      <li>Access to the event</li>
+                      <li>Free Cocktail</li>
+                      <li>Vouchers/Coupons</li>
                     </ul>
                   </div>
                 )}
@@ -340,8 +338,8 @@ const Lagos = () => {
                     <p className="font-bold">Ticket provides:</p>
                     <ul className="list-disc">
                       <li>Everything entailed in VIP</li>
-                      <li>Access to N1000 worth of drinks</li>
-                      <li>Chicken Meat</li>
+                      <li>Access to Movie Showing</li>
+                      <li>Otaku Mystery Gift Bag</li>
                     </ul>
                   </div>
                 )}
