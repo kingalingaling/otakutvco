@@ -22,7 +22,7 @@ const OtakuScoop = () => {
             embark on a thrilling adventure with us on Otaku Scoop.
             Your next favorite anime awaits!
           </p>
-          <Link to={"https://otakutv.co/otakuscoop/"}>
+          <Link to={"https://linktr.ee/otakuscoop"}>
             <button className="mt-5 border border-red-500 rounded-md hover:bg-red-500 hover:text-white py-2 px-4 duration-300 font-bold">
               Listen Now
             </button>

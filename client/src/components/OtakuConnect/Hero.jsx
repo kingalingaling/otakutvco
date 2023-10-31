@@ -2,7 +2,7 @@ import OCLogo from "/assets/oc-logo.png";
 
 const Hero = ({ navigate }) => {
   return (
-    <div className="max-w-[1640] mx-auto p-0 px-4 lg:px-0">
+    <div className="max-w-[1640] mx-auto px-0">
       <div className="relative max-h-[90vh]">
         {/* Overlay */}
         <div className="absolute pt-4 md:pt-0 bg-black/20 w-full h-full z-30 font-bold text-gray-200/90 flex flex-col justify-center items-center">
