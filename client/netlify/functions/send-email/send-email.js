@@ -1,15 +1,68 @@
 import nodemailer from "nodemailer";
-import QRCode from 'qrcode';
+import QRCode from "qrcode";
+import html2pdf from "html2pdf.js";
 
-const generateQRCode = async(data) => {
+const generatePDF = async (fName, lName, qr) => {
+  const htmlContent = `
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Otaku Connect Tickets</title>
+      <style>
+          body {
+              font-family: Arial, sans-serif;
+              text-align: center;
+              background-color: rgb(248, 198, 198);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+          }
+          .ticket {
+              width: 600px;
+              margin: auto;
+              border: 1px solid red;
+              padding: 20px;
+              background-color: #f9f9f9;
+          }
+          img.qr-code {
+              max-width: 100%;
+          }
+          h1 {
+              font-size: 1.5em;
+          }
+      </style>
+  </head>
+  <body>
+      <div class="ticket">
+          <h1>Otaku Connect 2023 Tickets</h1>
+          <p>Name: ${fName+" "+lName}</p>
+          <img class="qr-code" src=${qr} alt="QR Code">
+      </div>
+  </body>
+  </html>
+  `;
+
+  return new Promise((resolve, reject) => {
+    html2pdf(htmlContent, (pdfBuffer) => {
+      if (pdfBuffer) {
+        resolve(pdfBuffer);
+      } else {
+        reject(new Error("Failed to generate PDF"));
+      }
+    });
+  });
+};
+
+const generateQRCode = async (data) => {
   try {
     const qrCodeImage = await QRCode.toDataURL(data);
     return qrCodeImage;
   } catch (error) {
-    console.error('Error generating QR code:', error);
+    console.error("Error generating QR code:", error);
     return null;
   }
-}
+};
 
 export async function handler(event) {
   const transporter = nodemailer.createTransport({
@@ -21,14 +74,14 @@ export async function handler(event) {
     },
   });
 
-  const { id, first_name, email, tickets, cost, day, time, locay } = JSON.parse(
+  const { id, first_name, last_name, email, tickets, cost, day, time, locay } = JSON.parse(
     event.body
   );
 
-  const qrCodeImg = await generateQRCode(`https://netlify--otakutvco.netlify.app/otakuconnect/confirmation?ticket_id=${id}`)
-  const base64Image = qrCodeImg.split(',')[1];
-  
-  console.log(id,first_name, email, tickets, cost,day, locay)
+  const qrCodeImg = await generateQRCode(
+    `https://netlify--otakutvco.netlify.app/otakuconnect/confirmation?ticket_id=${id}`
+  );
+  const base64Image = qrCodeImg.split(",")[1];
 
   const htmlBody = `
   <html>
@@ -356,29 +409,6 @@ export async function handler(event) {
                       <p style="text-align: center; font-size: 1.5em; margin-bottom: 10px; font-weight: bolder;">Scan QR Code to View Tickets</p>
                     </td>
                   </tr>
-                  <tr style="width: 100%;">
-                    <td
-                      class="text"
-                      style="
-                        border-collapse: collapse;
-                        border: 0;
-                        margin: 0;
-                        width: 100%;
-                        padding: 0;
-                        -webkit-text-size-adjust: none;
-                        color: #555559;
-                        font-family: Arial, sans-serif;
-                        font-size: 16px;
-                        line-height: 26px;
-                      "
-                    >
-                      <div id="qrcode-container" style="width: 100%; display: flex; justify-content: center;">
-                        <div id="qrcode" class="qrcode" style="margin: 0px auto; display: flex; justify-content: center;">
-                          <img src="cid:qr_code" alt='QR-Code'/>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
                 </table>
               </td>
             </tr>
@@ -456,22 +486,18 @@ export async function handler(event) {
 
   `;
 
-  const mailOptions = {
-    from: "otakuconnect@otakutv.co",
-    to: email,
-    subject: "Your Tickets Have Arrived!!",
-    html: htmlBody,
-    attachments: [
-      {
-        filename: 'qr_code.png',
-        encoding: 'base64',
-        content: base64Image,
-        cid: 'qr_code'
-      }
-    ]
-  };
-
   try {
+    const pdfBuffer = await generatePDF(first_name, last_name, base64Image)
+    const mailOptions = {
+      from: "otakuconnect@otakutv.co",
+      to: email,
+      subject: "Your Tickets Have Arrived!!",
+      html: htmlBody,
+      attachments: [{
+        filename: 'event_ticket.pdf',
+        content: pdfBuffer
+      }]
+    }
     let info = await transporter.sendMail(mailOptions);
     console.log(info);
     return {
