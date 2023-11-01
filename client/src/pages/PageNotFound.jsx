@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-import lost from "/assets/images/lost.svg";
+import lost from "/assets/images/404.svg";
 
 const PageNotFound = () => {
   return (

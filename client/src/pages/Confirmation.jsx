@@ -4,11 +4,12 @@ import { db } from "../config/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import ReactLoading from "react-loading";
 import gift from "/assets/images/gift.svg";
+import lost from "/assets/images/lost.svg";
 
 const Confirmation = () => {
-  useEffect(()=>{
-    document.title = "Confirm Tickets"
-  })
+  useEffect(() => {
+    document.title = "Confirm Tickets";
+  });
 
   const [ready, setReady] = useState(false);
   const [ticketExists, setTicketExists] = useState(false);
@@ -68,7 +69,30 @@ const Confirmation = () => {
   }
 
   if (ready && !ticketExists) {
-    return <div></div>;
+    return (
+      <div className="antialiased flex flex-col p-4 w-full justify-center items-center h-screen">
+        <img
+          src={lost}
+          className="w-[60%] lg:w-[30%] mx-auto mb-3 lg:mb-0 lg:mx-0 lg:mr-4"
+          alt="Record not Found"
+        />
+        <h2 className="font-bold text-xl text-center tracking-wide mx-auto w-[90%]">
+          Whoops. Seems this ticket is invalid <br /> You could try scanning the
+          QR again or reach out to{" "}
+          <a
+            href="mailto:support@otakutv.co"
+            className="text-blue-500 underline cursor-pointer hover:text-red-500"
+          >
+            support
+          </a>{" "}
+          if you need assistance
+        </h2>
+        <button
+              onClick={() => navigate("/")}
+              className="mt-4 px-12 py-2 bg-red-600 rounded-full font-bold text-purple-100 text-lg shadow-md hover:bg-red-500"
+            >Return Home</button>
+      </div>
+    );
   }
 
   return (
