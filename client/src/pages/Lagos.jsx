@@ -50,6 +50,8 @@ const Lagos = () => {
   }, [selectedTiers]);
 
   useEffect(() => {
+    document.title = "Otaku Connect Lagos"
+    
     const total_order = tickets.map((ticket) => {
       return [ticket.tier, ticket.quantity].join(": ");
     });

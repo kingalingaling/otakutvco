@@ -7,8 +7,13 @@ import Partners from "../components/OtakuConnect/Partners"
 import Review from "../components/OtakuConnect/Review"
 import Summary from "../components/OtakuConnect/Summary"
 import { useNavigate } from "react-router-dom"
+import { useEffect } from "react"
 
 const OtakuConnect = () => {
+  useEffect(() => {
+    document.title = "Otaku Connect '23"
+  }, [])
+
   const navigate = useNavigate();
   return (
     <div className='w-full'>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { db } from "../config/firebase";
 import { doc, getDoc } from "firebase/firestore";
@@ -6,6 +6,10 @@ import ReactLoading from "react-loading";
 import gift from "/assets/images/gift.svg";
 
 const Confirmation = () => {
+  useEffect(()=>{
+    document.title = "Confirm Tickets"
+  })
+
   const [ready, setReady] = useState(false);
   const [ticketExists, setTicketExists] = useState(false);
   const [fullName, setFullName] = useState(null);

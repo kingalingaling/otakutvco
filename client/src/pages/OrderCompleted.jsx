@@ -1,7 +1,12 @@
 import success from "/assets/images/success.svg";
 import {useNavigate} from 'react-router-dom'
+import { useEffect } from "react";
 
 const OrderCompleted = () => {
+  useEffect(()=>{
+    document.title = "Order Complete"
+  })
+
     const navigate = useNavigate()
   return (
     <div className="w-full md:w-[70%] mx-auto h-[100vh] flex flex-col justify-center items-center">

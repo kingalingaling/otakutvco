@@ -49,6 +49,8 @@ const Abuja = () => {
   }, [selectedTiers]);
 
   useEffect(() => {
+    document.title = "Otaku Connect Abuja"
+
     const total_order = tickets.map((ticket) => {
       return [ticket.tier, ticket.quantity].join(": ");
     });
