@@ -8,9 +8,11 @@ import OrderCompleted from "./pages/OrderCompleted";
 import OrderFailed from "./pages/OrderFailed";
 import PageNotFound from "./pages/PageNotFound";
 import Confirmation from "./pages/Confirmation";
+import ContactForm from "./pages/ContactForm";
 
 export const routes = createBrowserRouter([
   { path: "/", element: <Home /> },
+  { path: "/contact-us", element: <ContactForm /> },
   { path: "/otakuconnect", element: <OtakuConnect /> },
   { path: "/otakuconnect/abuja", element: <Abuja /> },
   { path: "/otakuconnect/lagos", element: <Lagos /> },

@@ -4,6 +4,7 @@ import Logo from "/assets/logo.png";
 import { BiMenu, BiSolidMicrophone, BiSolidParty } from "react-icons/bi";
 import { AiOutlineClose, AiTwotoneHome } from "react-icons/ai";
 import { FaCalendarDay, FaCloudDownloadAlt } from "react-icons/fa";
+import {MdOutlineConnectWithoutContact} from "react-icons/md"
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
@@ -27,15 +28,15 @@ const Navbar = () => {
       icon: <FaCloudDownloadAlt size={20} />,
       link: "https://t.me/otakutvanime/",
     },
-    // {
-    //   item: "Sosu Onegai",
-    //   icon: <BiSolidUserAccount size={20} />,
-    //   link: "https://sosu.otakutv.co/",
-    // },
     {
       item: "OtakuTv Events",
       icon: <FaCalendarDay size={20} />,
       link: "https://events.otakutv.co",
+    },
+    {
+      item: "Contact Us",
+      icon: <MdOutlineConnectWithoutContact size={20} />,
+      link: "/contact-us",
     },
   ];
   
