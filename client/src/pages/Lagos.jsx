@@ -222,7 +222,7 @@ const Lagos = () => {
           <img
             src={locationImgLg}
             className="rounded-t-lg h-[300px] object-cover hidden md:block"
-            alt={`Otaku Connect 2023 - ${location}`}          />
+            alt={`Otaku Connect '23 - ${location}`}          />
           <div className="p-6 min-h-full flex flex-col">
             <h1 className="flex-none font-bold text-2xl md:text-xl text-white mb-2">
               Experience Otaku Connect &apos;23 Lagos

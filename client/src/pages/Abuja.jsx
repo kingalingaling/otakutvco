@@ -217,7 +217,7 @@ const Abuja = () => {
           <img
             src={locationImg}
             className="rounded-t-lg h-[300px] object-cover"
-            alt={`Otaku Connect 2023 - ${location}`}
+            alt={`Otaku Connect '23 - ${location}`}
           />
           <div className="p-6 min-h-full flex flex-col">
             <h1 className="flex-none font-bold text-2xl md:text-xl text-white mb-2">

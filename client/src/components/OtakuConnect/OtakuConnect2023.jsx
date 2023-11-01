@@ -9,7 +9,7 @@ const OtakuConnect2023 = ({ navigate }) => {
       <div className="md:w-[90%] lg:w-[85%] mx-auto flex flex-col md:flex-row">
         <div className="md:w-[60%] ">
           <h1 className="text-xl md:text-3xl lg:text-4xl">
-            Otaku Connect 2023
+            Otaku Connect &apos;23
           </h1>
           <div className="bg-red-500 my-1.5 h-0.5 w-[200px]"></div>
           <p className="text-justify p-5">
@@ -40,14 +40,14 @@ const OtakuConnect2023 = ({ navigate }) => {
       </div>
       <div className="w-full bg-white mx-auto pt-4">
         <h2 className="text-xl md:text-2xl py-3 lg:text-3xl font-bold text-center mb-4 w-full">
-          Otaku Connect 2023 Locations
+          Otaku Connect &apos;23 Locations
         </h2>
         <div className="flex flex-col justify-center md:justify-between">
           {/* Abuja */}
           <div className="flex flex-col md:flex-row w-full mb-6 lg:mb-12 px-5">
             <img
               src={abujaFlyer}
-              alt=""
+              alt="Otaku Connect '23 Abuja"
               className="md:w-2/5 md:h-[300px] my-auto lg:h-auto"
             />
             <div className="w-full md:pl-8 flex flex-col">
@@ -87,7 +87,7 @@ const OtakuConnect2023 = ({ navigate }) => {
           <div className="flex flex-col md:flex-row-reverse w-full bg-red-50 py-10 px-5 mb-6">
             <img
               src={lagosFlyer}
-              alt=""
+              alt="Otaku Connect '23 Abuja"
               className="md:w-2/5 md:h-[300px] my-auto lg:h-auto"
             />
             <div className="w-full md:pr-8 flex flex-col">

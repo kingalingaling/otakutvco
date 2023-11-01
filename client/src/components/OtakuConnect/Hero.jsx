@@ -6,9 +6,9 @@ const Hero = ({ navigate }) => {
       <div className="relative max-h-[90vh]">
         {/* Overlay */}
         <div className="absolute pt-4 md:pt-0 bg-black/20 w-full h-full z-30 font-bold text-gray-200/90 flex flex-col justify-center items-center">
-          <img src={OCLogo} className="w-1/3 lg:-mt-8 lg:w-1/4 md:block" alt="Otaku COnnect 2023" />
+          <img src={OCLogo} className="w-1/3 lg:-mt-8 lg:w-1/4 md:block" alt="Otaku COnnect '23 Logo" />
           <h1 className="text-base font-bold mb-1.5 text-center px-[10%] lg:px-0 md:mb-3 lg:mb-1 md:text-2xl lg:text-4xl">
-            The Biggest Anime/Weeb Convention in Nigeria
+            Otaku Connect &apos;23 <br />The Biggest Anime/Weeb Convention in Nigeria
           </h1>
           <h2 className="text-base font-bold mb-1.5 md:mb-3 md:text-xl lg:text-3xl">
             Get Tickets!
