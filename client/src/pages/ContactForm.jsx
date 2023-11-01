@@ -43,39 +43,35 @@ const ContactForm = () => {
       setEmptyError(false);
       if (validateEmail(senderEmail)) {
         setEmailError(false);
-        handleSubmit();
+        fetch(
+          "https://netlify--otakutvco.netlify.app/.netlify/functions/contact-us",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              senderName: senderName,
+              senderEmail: senderEmail,
+              subject: subject,
+              message: message,
+            }),
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+          }
+        )
+          .then((response) => response.json())
+          .then((response) => {
+            if (response.status === "success") {
+              alert("Message Sent.");
+              this.resetForm();
+            } else if (response.status === "fail") {
+              alert("Message failed to send. Check your internet connection");
+            }
+          });
       } else {
         setEmailError(true);
       }
     }
-  };
-
-  const handleSubmit = () => {
-    fetch(
-      "https://netlify--otakutvco.netlify.app/.netlify/functions/contact-us",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          senderName: senderName,
-          senderEmail: senderEmail,
-          subject: subject,
-          message: message,
-        }),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((response) => {
-        if (response.status === "success") {
-          alert("Message Sent.");
-          this.resetForm();
-        } else if (response.status === "fail") {
-          alert("Message failed to send. Check your internet connection");
-        }
-      });
   };
 
   return (
@@ -135,7 +131,11 @@ const ContactForm = () => {
             <div className="absolute invisible md:visible z-0 w-40 h-40 bg-red-600 rounded-full -right-28 -top-28"></div>
             <div className="absolute invisible md:visible z-0 w-40 h-40 bg-red-600 rounded-full -left-28 -bottom-16"></div>
             <div className="relative z-10 bg-white rounded-xl shadow-lg p-8 text-gray-600 md:w-full">
-              <form className="flex flex-col space-y-4" onSubmit={submitEmail}>
+              <form
+                className="flex flex-col space-y-4"
+                onSubmit={submitEmail}
+                method="POST"
+              >
                 <div>
                   <label htmlFor="" className="text-sm">
                     Your Name
