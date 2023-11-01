@@ -38,8 +38,8 @@ const Lagos = () => {
 
   const calcCost = useCallback(() => {
     const tierCosts = {
-      Regular: 3500,
-      VIP: 5000,
+      Genin: 3500,
+      Hashira: 5000,
       "Special Grade": 10000,
     };
     const totalCost = selectedTiers.reduce((total, tier) => {
@@ -298,7 +298,7 @@ const Lagos = () => {
                 <div className="flex flex-wrap justify-center">
                   <label
                     className={
-                      tier == "Regular"
+                      tier == "Genin"
                         ? "bg-orange-700 text-white font-bold py-2 px-4 rounded-md cursor-pointer mr-2 my-2 shadow-lg shadow-orange-600/50"
                         : "bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md cursor-pointer mr-2 my-2"
                     }
@@ -308,13 +308,13 @@ const Lagos = () => {
                       name="options"
                       className="hidden"
                       autoComplete="off"
-                      onClick={() => handleOptionChange("Regular")}
+                      onClick={() => handleOptionChange("Genin")}
                     />
-                    Regular
+                    Genin
                   </label>
                   <label
                     className={
-                      tier == "VIP"
+                      tier == "Hashira"
                         ? "bg-red-700 text-white font-bold py-2 px-4 rounded-md cursor-pointer m-2 shadow-lg shadow-red-600/50"
                         : "bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-md cursor-pointer m-2"
                     }
@@ -324,9 +324,9 @@ const Lagos = () => {
                       name="options"
                       className="hidden"
                       autoComplete="off"
-                      onClick={() => handleOptionChange("VIP")}
+                      onClick={() => handleOptionChange("Hashira")}
                     />
-                    VIP
+                    Hashira
                   </label>
                   <label
                     className={
@@ -346,7 +346,7 @@ const Lagos = () => {
                   </label>
                 </div>
                 {/* Ticket Details */}
-                {tier == "Regular" && (
+                {tier == "Genin" && (
                   <div className="border duration-300 rounded-md border-black/50 py-5 px-10">
                     <h4 className="font-black">{formatCurrency(3500)}</h4>
                     <p className="font-bold">Ticket provides:</p>
@@ -355,7 +355,7 @@ const Lagos = () => {
                     </ul>
                   </div>
                 )}
-                {tier == "VIP" && (
+                {tier == "Hashira" && (
                   <div className="border duration-300 rounded-md border-black/50 py-5 px-10">
                     <h4 className="font-black">{formatCurrency(5000)}</h4>
                     <p className="font-bold">Ticket provides:</p>
@@ -371,7 +371,7 @@ const Lagos = () => {
                     <h4 className="font-black">{formatCurrency(10000)}</h4>
                     <p className="font-bold">Ticket provides:</p>
                     <ul className="list-disc">
-                      <li>Everything entailed in VIP</li>
+                      <li>Everything entailed in Hashira</li>
                       <li>Access to Movie Showing</li>
                       <li>Otaku Mystery Gift Bag</li>
                     </ul>
