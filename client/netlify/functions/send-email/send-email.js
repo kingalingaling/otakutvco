@@ -438,7 +438,7 @@ export async function handler(event) {
                         <br />
                         <a
                           style="color: #00a5b5"
-                          href="mailto:otakutvng@gmail.com"
+                          href="mailto:support@otakutv.co"
                           >Contact Us</a
                         >
                       </div>
