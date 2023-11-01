@@ -1,4 +1,5 @@
 import locationImg from "/assets/images/locations/rango.jpg";
+import locationImgLg from "/assets/images/locations/rango-lg.jpg";
 import { useState, useEffect, useCallback } from "react";
 import { MdCancel } from "react-icons/md";
 import { formatCurrency } from "../utilities/formatCurrency";
@@ -29,7 +30,7 @@ const Lagos = () => {
   const [cartError, setCartError] = useState(false);
   const [empty, setEmpty] = useState(false);
   const [ticketError, setTicketError] = useState(false);
-  const [repeatEmailError, setRepeatEmailError] = useState(false)
+  const [repeatEmailError, setRepeatEmailError] = useState(false);
 
   const location =
     "Rango Rooftop Lounge, 26 Prince Adelowo Adedeji Street, Lekki Phase 1 - 106104, Lagos";
@@ -71,11 +72,11 @@ const Lagos = () => {
 
   const checkEmails = (email, repeatEmail) => {
     if (email.trim() == repeatEmail.trim()) {
-      return true
+      return true;
     } else {
-      return false
+      return false;
     }
-  }
+  };
 
   const removeFromCart = (id, tier) => {
     setTickets((prevState) => prevState.filter((item) => item.id !== id));
@@ -115,10 +116,10 @@ const Lagos = () => {
     } else {
       setEmpty(false);
       if (validateEmail(email)) {
-        setError(false)
+        setError(false);
         console.log("email is valid");
         if (checkEmails(email, repeatEmail)) {
-          setRepeatEmailError(false)
+          setRepeatEmailError(false);
           if (tickets.length > 0) {
             initializePayment(onSuccess, onClose);
             setTicketError(false);
@@ -126,7 +127,7 @@ const Lagos = () => {
             setTicketError(true);
           }
         } else {
-          setRepeatEmailError(true)
+          setRepeatEmailError(true);
         }
       } else {
         setError(true);
@@ -216,13 +217,27 @@ const Lagos = () => {
         <div className="bg-black/95 rounded-lg shadow-2xl w-full lg:w-2/3 text-white md:flex md:flex-col">
           <img
             src={locationImg}
-            className="rounded-t-lg h-[300px] object-cover"
+            className="rounded-t-lg h-[300px] object-cover md:hidden"
           />
+          <img
+            src={locationImgLg}
+            className="rounded-t-lg h-[300px] object-cover hidden md:block"
+            alt={`Otaku Connect 2023 - ${location}`}          />
           <div className="p-6 min-h-full flex flex-col">
-            <h2 className="flex-none font-bold text-2xl md:text-xl text-white mb-2">
-              Otaku Connect Lagos
+            <h1 className="flex-none font-bold text-2xl md:text-xl text-white mb-2">
+              Experience Otaku Connect &apos;23 Lagos
+            </h1>
+            <h2 className="mb-4">
+              Event Details: <br /> 10AM, 23rd December, 2023 <br /> {location}
             </h2>
-            <p className="flex-none text-white mb-2">{location}</p>
+            <p className="flex-none text-white mb-2">
+              We&apos;re thrilled to have you join us for this year&apos;s exciting event.
+              Otaku Connect is more than just a gathering; it&apos;s an immersive
+              experience designed for passionate anime enthusiasts like
+              yourself. Get ready to dive into a world of creativity,
+              inspiration, and shared enthusiasm <br />
+              Secure your spot for Otaku Connect &apos;23 and be part of an unforgettable otaku experience!
+            </p>
             <div className="flex flex-col justify-between md:flex-row">
               <div className="w-full md:w-[50%] md:h-[80%] flex flex-col md:justify-between">
                 <div>
@@ -255,7 +270,7 @@ const Lagos = () => {
                   <label htmlFor="email" className="font-bold text-xs">
                     Recipient Email (PLEASE DOUBLECHECK)
                     {error && (
-                      <span className="ml-5 text-red-600 text-xs">
+                      <span className="ml-5 text-red-500 text-xs">
                         !!!Email is invalid
                       </span>
                     )}
@@ -271,9 +286,11 @@ const Lagos = () => {
                 </div>
                 <div>
                   <label htmlFor="repeatEmail" className="font-bold text-xs">
-                    <span className="text-orange-400">Repeat Recipient Email</span>
+                    <span className="text-orange-400">
+                      Repeat Recipient Email
+                    </span>
                     {repeatEmailError && (
-                      <span className="ml-5 text-red-600 text-xs">
+                      <span className="ml-5 text-red-500 text-xs">
                         Emails don&apos;t match. Check this with your sharingan
                       </span>
                     )}
