@@ -55,22 +55,19 @@ const ContactForm = () => {
       setEmptyError(false);
       if (validateEmail(senderEmail)) {
         setEmailError(false);
-        fetch(
-          "/.netlify/functions/contact-us",
-          {
-            method: "POST",
-            body: JSON.stringify({
-              senderName: senderName,
-              senderEmail: senderEmail,
-              subject: subject,
-              message: message,
-            }),
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-          }
-        ).then((response) => {
+        fetch("/.netlify/functions/contact-us", {
+          method: "POST",
+          body: JSON.stringify({
+            senderName: senderName,
+            senderEmail: senderEmail,
+            subject: subject,
+            message: message
+          }),
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }).then((response) => {
           if (response.ok) {
             window.alert("Message Sent.");
             setLoading(false);
