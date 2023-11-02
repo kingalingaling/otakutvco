@@ -3,6 +3,7 @@ import { BsFacebook, BsInstagram, BsWhatsapp } from "react-icons/bs";
 import { RiTwitterXFill } from "react-icons/ri";
 import { MdOutlineMail } from "react-icons/md";
 import Navbar from "../components/Navbar";
+import ReactLoading from "react-loading";
 
 const ContactForm = () => {
   useEffect(() => {
@@ -17,6 +18,16 @@ const ContactForm = () => {
   // Errors
   const [emptyError, setEmptyError] = useState(false);
   const [emailError, setEmailError] = useState(false);
+
+  //
+  const [loading, setLoading] = useState(false);
+
+  const resetForm = () => {
+    setSenderEmail("");
+    setSenderName("");
+    setMessage("");
+    setSubject("");
+  };
 
   const validateInput = (input) => {
     if (input.trim().length === 0) {
@@ -33,6 +44,7 @@ const ContactForm = () => {
 
   const submitEmail = (e) => {
     e.preventDefault();
+    setLoading(true);
     if (
       validateInput(senderName) ||
       validateInput(senderEmail) ||
@@ -60,8 +72,9 @@ const ContactForm = () => {
           }
         ).then((response) => {
           if (response.ok) {
-            alert("Message Sent.");
-            this.resetForm();
+            window.alert("Message Sent.");
+            setLoading(false);
+            resetForm();
           } else {
             alert("Message failed to send. Check your internet connection");
           }
@@ -75,7 +88,12 @@ const ContactForm = () => {
   return (
     <div className="antialiased h-screen">
       <Navbar />
-      <div className="flex w-full min-h-screen bg-black/90 md:bg-black/80 justify-center items-center">
+      <div className="flex w-full min-h-screen bg-black/90 md:bg-black/80 justify-center items-center relative">
+        {loading && (
+          <div className="absolute w-full h-full bg-black/70 z-30 flex justify-center items-center">
+            <ReactLoading type="bubbles" color="red" height={100} width={100} />
+          </div>
+        )}
         <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-black/0 md:bg-black/70 w-full max-w-4xl p-5 sm:p-8 rounded-lg shadow-lg text-white overflow-hidden">
           <div className="flex flex-col md:flex-1 space-y-8 justify-between">
             <div>
