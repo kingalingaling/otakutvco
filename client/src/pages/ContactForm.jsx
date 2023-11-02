@@ -58,16 +58,14 @@ const ContactForm = () => {
               "Content-Type": "application/json",
             },
           }
-        )
-          .then((response) => response.json())
-          .then((response) => {
-            if (response.status === "success") {
-              alert("Message Sent.");
-              this.resetForm();
-            } else if (response.status === "fail") {
-              alert("Message failed to send. Check your internet connection");
-            }
-          });
+        ).then((response) => {
+          if (response.ok) {
+            alert("Message Sent.");
+            this.resetForm();
+          } else {
+            alert("Message failed to send. Check your internet connection");
+          }
+        });
       } else {
         setEmailError(true);
       }
