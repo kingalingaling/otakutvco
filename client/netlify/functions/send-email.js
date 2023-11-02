@@ -25,7 +25,7 @@ export async function handler(event) {
     event.body
   );
 
-  const qrCodeImg = await generateQRCode(`https://netlify--otakutvco.netlify.app/otakuconnect/confirmation?ticket_id=${id}`)
+  const qrCodeImg = await generateQRCode(`https://otakutv.co/otakuconnect/confirmation?ticket_id=${id}`)
   const base64Image = qrCodeImg.split(',')[1];
   
   console.log(id,first_name, email, tickets, cost,day, locay)

@@ -196,7 +196,7 @@ const Abuja = () => {
     try {
       request.open(
         "POST",
-        "https://netlify--otakutvco.netlify.app/.netlify/functions/send-email"
+        "/.netlify/functions/send-email"
       );
       request.send(
         JSON.stringify({

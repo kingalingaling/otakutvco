@@ -56,7 +56,7 @@ const ContactForm = () => {
       if (validateEmail(senderEmail)) {
         setEmailError(false);
         fetch(
-          "https://netlify--otakutvco.netlify.app/.netlify/functions/contact-us",
+          "/.netlify/functions/contact-us",
           {
             method: "POST",
             body: JSON.stringify({
