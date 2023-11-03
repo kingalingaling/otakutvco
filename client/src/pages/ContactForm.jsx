@@ -63,10 +63,6 @@ const ContactForm = () => {
             subject: subject,
             message: message
           }),
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
         }).then((response) => {
           if (response.ok) {
             setLoading(false);
