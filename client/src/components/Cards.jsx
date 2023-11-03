@@ -1,9 +1,9 @@
-import unity1 from "/assets/images/unity1.svg";
-import unity2 from "/assets/images/unity2.svg";
-import innovation1 from "/assets/images/innovation1.svg";
-import innovation2 from "/assets/images/innovation2.svg";
-import inspiration1 from "/assets/images/inspiration1.svg";
-import inspiration2 from "/assets/images/inspiration2.svg";
+import unity1 from "/assets/images/team2.png";
+import unity2 from "/assets/images/team1.png";
+import innovation1 from "/assets/images/light.png";
+import innovation2 from "/assets/images/senku.png";
+import inspiration1 from "/assets/images/luffy.png";
+import inspiration2 from "/assets/images/ichigo.png";
 
 const Cards = () => {
   return (
