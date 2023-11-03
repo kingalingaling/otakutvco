@@ -55,7 +55,7 @@ const ContactForm = () => {
       setEmptyError(false);
       if (validateEmail(senderEmail)) {
         setEmailError(false);
-        fetch("https://otakutv.co/.netlify/functions/contact-us", {
+        fetch("/.netlify/functions/contact-us", {
           method: "POST",
           body: JSON.stringify({
             senderName: senderName,
@@ -69,10 +69,11 @@ const ContactForm = () => {
           },
         }).then((response) => {
           if (response.ok) {
-            window.alert("Message Sent.");
             setLoading(false);
+            window.alert("Message Sent.");
             resetForm();
           } else {
+            setLoading(false)
             alert("Message failed to send. Check your internet connection");
           }
         });

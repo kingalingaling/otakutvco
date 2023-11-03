@@ -11,6 +11,8 @@ export async function handler(event) {
     from: process.env.SUPPORT_EMAIL_USER,
   });
 
+  console.log(event.body)
+
   const { senderName, senderEmail, subject, message } = JSON.parse(event.body);
 
   const content = `name: ${senderName} \n email: ${senderEmail} \n message: ${message}`;
