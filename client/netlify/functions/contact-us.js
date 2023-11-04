@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 export async function handler(event) {
   const transporter = nodemailer.createTransport({
     // host: "otakutv.co",
-    service: gmail,
+    service: 'gmail',
     // port: 465,
     auth: {
       user: process.env.SUPPORT_EMAIL_USER,
