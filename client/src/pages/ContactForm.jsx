@@ -143,8 +143,6 @@ const ContactForm = () => {
             <div className="relative z-10 bg-white rounded-xl shadow-lg p-8 text-gray-600 md:w-full">
               <form
                 className="flex flex-col space-y-4"
-                onSubmit={submitEmail}
-                method="POST"
               >
                 <div>
                   <label htmlFor="" className="text-sm">
@@ -199,6 +197,7 @@ const ContactForm = () => {
                     placeholder="Message"
                     rows="4"
                     value={message}
+                    required
                     onChange={(e) => setMessage(e.target.value)}
                     className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-black/40"
                   ></textarea>
@@ -208,7 +207,7 @@ const ContactForm = () => {
                     Please fill in all fields
                   </p>
                 )}
-                <button className="inline-block self-end bg-red-600 hover:bg-red-500 text-white font-bold rounded-lg px-6 py-2 uppercase text-sm">
+                <button onClick={submitEmail} className="inline-block self-end bg-red-600 hover:bg-red-500 text-white font-bold rounded-lg px-6 py-2 uppercase text-sm">
                   Send Message
                 </button>
               </form>

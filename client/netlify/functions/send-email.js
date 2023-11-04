@@ -13,7 +13,7 @@ const generateQRCode = async(data) => {
 
 export async function handler(event) {
   const transporter = nodemailer.createTransport({
-    host: "otakutv.co",
+    host: "server322.web-hosting.com",
     port: 465,
     auth: {
       user: process.env.EMAIL_USER,
@@ -457,7 +457,7 @@ export async function handler(event) {
   `;
 
   const mailOptions = {
-    from: "otakuconnect@otakutv.co",
+    from: "Otaku Connect 2023 <otakuconnect@otakutv.co>",
     to: email,
     subject: "Your Tickets Have Arrived!!",
     html: htmlBody,
