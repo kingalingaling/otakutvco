@@ -44,7 +44,6 @@ const ContactForm = () => {
 
   const submitEmail = (e) => {
     e.preventDefault();
-    setLoading(true);
     if (
       validateInput(senderName) ||
       validateInput(senderEmail) ||
@@ -55,6 +54,7 @@ const ContactForm = () => {
       setEmptyError(false);
       if (validateEmail(senderEmail)) {
         setEmailError(false);
+        setLoading(true);
         fetch("/.netlify/functions/contact-us", {
           method: "POST",
           body: JSON.stringify({

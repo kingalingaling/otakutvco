@@ -20,6 +20,7 @@ const Lagos = () => {
   const [repeatEmail, setRepeatEmail] = useState("");
   const [quantity, setQuantity] = useState(0);
   const [cost, setCost] = useState(0);
+  const [finalCost, setFinalCost] = useState();
   const [tier, setTier] = useState("");
   const [tickets, setTickets] = useState([]);
   const [order, setOrder] = useState([""]);
@@ -47,7 +48,9 @@ const Lagos = () => {
       return total + (tierCosts[tier.tier] || 0) * tier.quantity;
     }, 0);
     setCost(totalCost);
-  }, [selectedTiers]);
+    const finCost = Math.round((cost + 100 + 0.015*cost)/10)*10
+    setFinalCost(finCost)
+  }, [selectedTiers, cost]);
 
   useEffect(() => {
     document.title = "Otaku Connect Lagos"
@@ -104,12 +107,12 @@ const Lagos = () => {
   };
 
   const onClose = () => {
-    navigate("/otakuconnect/order-failed");
+    // navigate("/otakuconnect/order-failed");
     //Implementation for when dialog closes
     console.log("closed");
   };
 
-  const config = PaystackConfig(email, cost);
+  const config = PaystackConfig(email, finalCost);
   const initializePayment = usePaystackPayment(config);
 
   const handleCheckout = () => {

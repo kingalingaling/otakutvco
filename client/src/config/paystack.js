@@ -1,9 +1,9 @@
-const PaystackConfig = (email, cost) => {
+const PaystackConfig = (email, finalCost) => {
     const config = {
       reference: new Date().getTime().toString(),
       email: email,
       //Currency in kobo
-      amount: (cost* 100) + 10000 +(0.015*cost*100),
+      amount: finalCost*100,
       publicKey: import.meta.env.VITE_PAYSTACK_API,
     };
   
