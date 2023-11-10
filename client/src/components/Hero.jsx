@@ -1,4 +1,5 @@
 import Logo from "/assets/logo.png";
+import heroPlaceHolder from '/assets/videos/hero-holder.webp'
 import Typed from "react-typed";
 import { Link } from "react-router-dom";
 
@@ -41,6 +42,7 @@ const Hero = () => {
           autoPlay
           loop
           muted
+          poster={heroPlaceHolder}
         >
           <source src="/assets/videos/hero-vid-alt.mp4" type="video/mp4" />
         </video>

@@ -1,4 +1,5 @@
 import OCLogo from "/assets/oc-logo.png";
+import heroPlaceHolder from '/assets/videos/hero-holder2.webp'
 
 const Hero = ({ navigate }) => {
   return (
@@ -49,6 +50,7 @@ const Hero = ({ navigate }) => {
           autoPlay
           loop
           muted
+          poster={heroPlaceHolder}
         >
           <source src="/assets/videos/hero-alt.mp4" type="video/mp4" />
         </video>
