@@ -1,9 +1,9 @@
-import unity1 from "/assets/images/team2.png";
-import unity2 from "/assets/images/team1.png";
-import innovation1 from "/assets/images/light.png";
-import innovation2 from "/assets/images/senku.png";
-import inspiration1 from "/assets/images/luffy.png";
-import inspiration2 from "/assets/images/ichigo.png";
+import unity1 from "/assets/images/team2.webp";
+import unity2 from "/assets/images/team1.webp";
+import innovation1 from "/assets/images/light.webp";
+import innovation2 from "/assets/images/senku.webp";
+import inspiration1 from "/assets/images/luffy.webp";
+import inspiration2 from "/assets/images/ichigo.webp";
 
 const Cards = () => {
   return (
@@ -12,12 +12,12 @@ const Cards = () => {
         <div className="relative w-full md:h-[250px]">
           <img
             src={innovation1}
-            alt="First Image"
+            alt="Light Yagami"
             className="w-full h-full transition-opacity duration-500 opacity-100 group-hover:opacity-0"
           />
           <img
             src={innovation2}
-            alt="Second Image"
+            alt="Senku"
             className="w-full h-full transition-opacity duration-500 opacity-0 group-hover:opacity-100 absolute top-0 left-0"
           />
         </div>
@@ -32,12 +32,12 @@ const Cards = () => {
         <div className="relative w-full md:h-[250px]">
           <img
             src={unity1}
-            alt="First Image"
+            alt="Team 7"
             className="w-full h-full transition-opacity duration-500 opacity-100 group-hover:opacity-0"
           />
           <img
             src={unity2}
-            alt="Second Image"
+            alt="Team Kakashi"
             className="w-full h-full transition-opacity duration-500 opacity-0 group-hover:opacity-100 absolute top-0 left-0"
           />
         </div>
@@ -52,12 +52,12 @@ const Cards = () => {
         <div className="relative w-full md:h-[250px]">
           <img
             src={inspiration1}
-            alt="First Image"
+            alt="Luffy"
             className="w-full h-full transition-opacity duration-500 opacity-100 group-hover:opacity-0"
           />
           <img
             src={inspiration2}
-            alt="Second Image"
+            alt="Ichigo"
             className="w-full h-full transition-opacity duration-500 opacity-0 group-hover:opacity-100 absolute top-0 left-0"
           />
         </div>

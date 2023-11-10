@@ -1,4 +1,4 @@
-import scoop from "/assets/images/scoop1-small.png";
+import scoop from "/assets/images/scoop1-small.webp";
 import { Link } from "react-router-dom";
 
 const OtakuScoop = () => {
