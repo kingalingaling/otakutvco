@@ -4,7 +4,7 @@ import Highlights from "../components/Highlights";
 import Navbar from "../components/Navbar";
 import AnimeDownloads from "../components/AnimeDownloads";
 import OtakuScoop from "../components/OtakuScoop";
-import BlogPosts from "../components/BlogPosts";
+// import BlogPosts from "../components/BlogPosts";
 import Feedback from "../components/Feedback";
 import Footer from "../components/Footer";
 import CountUp from "../components/CountUp";
@@ -34,7 +34,7 @@ const Home = () => {
       <Highlights />
       <OtakuScoop />
       <AnimeDownloads />
-      <BlogPosts />
+      {/* <BlogPosts /> */}
       <Feedback />
       <Footer />
     </div>
