@@ -20,7 +20,7 @@ const Home = () => {
       <div className="w-full p-4 lg:max-w-[60%] flex justify-between mx-auto">
         <div className="flex flex-col items-center w-1/3">
           <CountUp targetNumber={5} step={1} interval={50} />
-          <p className="font-bold text-xl text-center">Servces</p>
+          <p className="font-bold text-xl text-center">Serivces</p>
         </div>
         <div className="flex flex-col items-center w-1/3">
           <div className="flex font-bold text-red-600 text-xl md:text-2xl lg:text-4xl"><CountUp targetNumber={35000} step={100} interval={4} />+</div>

@@ -24,15 +24,15 @@ const Footer = () => {
             Anime Downloads
           </a>
           <a
-            href="https://sosu.otakutv.co"
+            href="https://events.otakutv.co"
             target="_blank"
             rel="noreferrer"
             className="hover:text-red-400"
           >
-            Sosu-Onegai
+            OtakuTv Events
           </a>
           <a
-            href="https://otakutv.co/otakuscoop/"
+            href="https://linktr.ee/otakuscoop/"
             target="_blank"
             rel="noreferrer"
             className="hover:text-red-400"

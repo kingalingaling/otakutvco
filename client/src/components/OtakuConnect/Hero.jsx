@@ -50,7 +50,7 @@ const Hero = ({ navigate }) => {
           loop
           muted
         >
-          <source src="/assets/videos/hero.mp4" type="video/mp4" />
+          <source src="/assets/videos/hero-alt.mp4" type="video/mp4" />
         </video>
       </div>
     </div>
