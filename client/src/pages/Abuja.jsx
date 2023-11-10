@@ -1,4 +1,4 @@
-import locationImg from "/assets/images/locations/la-vida-local.jpg";
+import locationImg from "/assets/images/locations/la-vida-local.webp";
 import { useState, useEffect, useCallback } from "react";
 import { MdCancel } from "react-icons/md";
 import { formatCurrency } from "../utilities/formatCurrency";

@@ -1,5 +1,5 @@
-import locationImg from "/assets/images/locations/rango.jpg";
-import locationImgLg from "/assets/images/locations/rango-lg.jpg";
+import locationImg from "/assets/images/locations/rango.webp";
+import locationImgLg from "/assets/images/locations/rango-lg.webp";
 import { useState, useEffect, useCallback } from "react";
 import { MdCancel } from "react-icons/md";
 import { formatCurrency } from "../utilities/formatCurrency";

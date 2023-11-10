@@ -1,6 +1,6 @@
 import OCLogoDark from "/assets/oc-logo-dark.png";
-import abujaFlyer from "/assets/images/locations/abuja-flyer.jpg";
-import lagosFlyer from "/assets/images/locations/lagos-flyer.jpg";
+import abujaFlyer from "/assets/images/locations/abuja-flyer.webp";
+import lagosFlyer from "/assets/images/locations/lagos-flyer.webp";
 import Timer from "../Timer";
 
 const OtakuConnect2023 = ({ navigate }) => {

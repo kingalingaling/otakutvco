@@ -1,9 +1,9 @@
 import { FaArrowRight } from "react-icons/fa";
-import highlightImage1 from "/assets/images/img1.jpg";
-import highlightImage2 from "/assets/images/img2.jpg";
-import highlightImage3 from "/assets/images/img3.jpg";
-import highlightImage4 from "/assets/images/img4.jpg";
-import highlightImage5 from "/assets/images/img5.jpg";
+import highlightImage1 from "/assets/images/img1.webp";
+import highlightImage2 from "/assets/images/img2.webp";
+import highlightImage3 from "/assets/images/img3.webp";
+import highlightImage4 from "/assets/images/img4.webp";
+import highlightImage5 from "/assets/images/img5.webp";
 import { Link } from "react-router-dom";
 
 const Highlights = () => {

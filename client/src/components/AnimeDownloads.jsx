@@ -1,5 +1,5 @@
-import animeDownloadBackground from "/assets/images/animeDownload2.jpg";
-import animeDownloadBackground2 from "/assets/images/animeDownload3.jpg";
+import animeDownloadBackground from "/assets/images/animeDownload2.webp";
+import animeDownloadBackground2 from "/assets/images/animeDownload3.webp";
 import { LiaTelegram } from "react-icons/lia";
 import { Link } from "react-router-dom";
 
