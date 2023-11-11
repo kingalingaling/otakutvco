@@ -61,7 +61,7 @@ const ContactForm = () => {
             senderName: senderName,
             senderEmail: senderEmail,
             subject: subject,
-            message: message
+            message: message,
           }),
         }).then((response) => {
           if (response.ok) {
@@ -69,7 +69,7 @@ const ContactForm = () => {
             window.alert("Message Sent.");
             resetForm();
           } else {
-            setLoading(false)
+            setLoading(false);
             alert("Message failed to send. Check your internet connection");
           }
         });
@@ -141,9 +141,7 @@ const ContactForm = () => {
             <div className="absolute invisible md:visible z-0 w-40 h-40 bg-red-600 rounded-full -right-28 -top-28"></div>
             <div className="absolute invisible md:visible z-0 w-40 h-40 bg-red-600 rounded-full -left-28 -bottom-16"></div>
             <div className="relative z-10 bg-white rounded-xl shadow-lg p-8 text-gray-600 md:w-full">
-              <form
-                className="flex flex-col space-y-4"
-              >
+              <form className="flex flex-col space-y-4">
                 <div>
                   <label htmlFor="" className="text-sm">
                     Your Name
@@ -207,7 +205,10 @@ const ContactForm = () => {
                     Please fill in all fields
                   </p>
                 )}
-                <button onClick={submitEmail} className="inline-block self-end bg-red-600 hover:bg-red-500 text-white font-bold rounded-lg px-6 py-2 uppercase text-sm">
+                <button
+                  onClick={submitEmail}
+                  className="inline-block self-end bg-red-600 hover:bg-red-500 text-white font-bold rounded-lg px-6 py-2 uppercase text-sm"
+                >
                   Send Message
                 </button>
               </form>
