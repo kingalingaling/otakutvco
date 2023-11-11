@@ -47,7 +47,7 @@ const Timer = ({ eventDate }) => {
       <div className="flex-shrink-0 time-part-wrapper">
         <div className="time-part days">
           <div className="digit-wrapper flex flex-col items-center">
-            <span className="digit text-2xl font-bold ">
+            <span className="digit text-3xl font-bold ">
               {timeLeft.days < 10 ? `0${timeLeft.days}` : timeLeft.days}
             </span>
             <div className="text-center">Days</div>
@@ -59,7 +59,7 @@ const Timer = ({ eventDate }) => {
       <div className="flex-shrink-0 time-part-wrapper mx-3">
         <div className="time-part hours">
           <div className="digit-wrapper flex flex-col items-center">
-            <span className="digit text-2xl font-bold">
+            <span className="digit text-3xl font-bold">
               {timeLeft.hours < 10 ? `0${timeLeft.hours}` : timeLeft.hours}
             </span>
             <div className="text-center">Hours</div>
@@ -71,7 +71,7 @@ const Timer = ({ eventDate }) => {
       <div className="flex-shrink-0 time-part-wrapper">
         <div className="time-part minutes">
           <div className="digit-wrapper flex flex-col items-center">
-            <span className="digit text-2xl font-bold">
+            <span className="digit text-3xl font-bold">
               {timeLeft.minutes < 10
                 ? `0${timeLeft.minutes}`
                 : timeLeft.minutes}
@@ -85,7 +85,7 @@ const Timer = ({ eventDate }) => {
       <div className="flex-shrink-0 time-part-wrapper ml-3">
         <div className="time-part seconds">
           <div className="digit-wrapper flex flex-col items-center">
-            <span className="digit text-2xl font-bold">
+            <span className="digit text-3xl font-bold">
               {timeLeft.seconds < 10
                 ? `0${timeLeft.seconds}`
                 : timeLeft.seconds}

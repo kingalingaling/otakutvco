@@ -48,9 +48,9 @@ const OtakuConnect2023 = ({ navigate }) => {
             <img
               src={abujaFlyer}
               alt="Otaku Connect '23 Abuja"
-              className="md:w-2/5 md:h-[300px] my-auto lg:h-auto"
+              className="md:w-2/5 md:h-[300px] my-auto lg:h-auto rounded-3xl shadow-2xl"
             />
-            <div className="w-full md:pl-8 flex flex-col">
+            <div className="w-full md:pl-8 flex flex-col justify-center">
               <h3 className="font-bold text-lg md:text-2xl pt-4 md:pt-0 lg:text-3xl text-center w-full mb-2">
                 Abuja
               </h3>
@@ -88,9 +88,9 @@ const OtakuConnect2023 = ({ navigate }) => {
             <img
               src={lagosFlyer}
               alt="Otaku Connect '23 Abuja"
-              className="md:w-2/5 md:h-[300px] my-auto lg:h-auto"
+              className="md:w-2/5 md:h-[300px] my-auto lg:h-auto rounded-3xl shadow-2xl"
             />
-            <div className="w-full md:pr-8 flex flex-col">
+            <div className="w-full md:pr-8 flex flex-col justify-center">
               <h3 className="font-bold text-lg mt-3 md:text-2xl lg:text-3xl text-center w-full mb-2">
                 Lagos
               </h3>
