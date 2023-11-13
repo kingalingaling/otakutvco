@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import dancePic from "/assets/images/competitions/dance.png";
+import dancePic from "/assets/images/competitions/dance.webp";
 
 const Dance = () => {
   return (

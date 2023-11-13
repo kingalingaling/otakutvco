@@ -47,12 +47,12 @@ const Abuja = () => {
       return total + (tierCosts[tier.tier] || 0) * tier.quantity;
     }, 0);
     setCost(totalCost);
-    const finCost = Math.round((cost + 100 + 0.015*cost)/10)*10
-    setFinalCost(finCost)
+    const finCost = Math.round((cost + 100 + 0.015 * cost) / 10) * 10;
+    setFinalCost(finCost);
   }, [selectedTiers, cost]);
 
   useEffect(() => {
-    document.title = "Otaku Connect Abuja"
+    document.title = "Otaku Connect Abuja";
 
     const total_order = tickets.map((ticket) => {
       return [ticket.tier, ticket.quantity].join(": ");
@@ -197,10 +197,7 @@ const Abuja = () => {
 
   const sendEmail = async (documentFinal) => {
     try {
-      request.open(
-        "POST",
-        "/.netlify/functions/send-email"
-      );
+      request.open("POST", "/.netlify/functions/send-email");
       request.send(
         JSON.stringify({
           ...documentFinal,
@@ -228,16 +225,10 @@ const Abuja = () => {
             <h1 className="flex-none font-bold text-2xl md:text-xl text-white mb-2">
               Experience Otaku Connect &apos;23 Abuja
             </h1>
-            <h2 className="mb-4">
-              Event Details: <br /> 10AM, 30th December, 2023 <br /> {location}
-            </h2>
             <p className="flex-none text-white mb-2">
-              We&apos;re thrilled to have you join us for this year&apos;s
-              exciting event. Otaku Connect is more than just a gathering;
-              it&apos;s an immersive experience designed for passionate anime
-              enthusiasts like yourself. Get ready to dive into a world of
-              creativity, inspiration, and shared enthusiasm <br />
-              Secure your spot for Otaku Connect &apos;23 and be part of an unforgettable otaku experience!
+              Get ready to dive into a world of creativity, inspiration, and
+              shared enthusiasm. Secure your spot for Otaku Connect &apos;23 and
+              be part of an unforgettable otaku experience!
             </p>
             <div className="flex flex-col justify-between md:flex-row">
               <div className="w-full md:w-[50%] md:h-[80%] flex flex-col md:justify-between">
@@ -317,8 +308,8 @@ const Abuja = () => {
                   <label
                     className={
                       tier == "Genin"
-                        ? "bg-orange-700 text-white font-bold py-2 px-4 rounded-md cursor-pointer mr-2 my-2 shadow-lg shadow-orange-600/50"
-                        : "bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md cursor-pointer mr-2 my-2"
+                        ? "bg-orange-600 text-white font-bold py-2 px-4 rounded-full cursor-pointer mr-2 my-2"
+                        : "bg-transparent border border-white hover:border-orange-600 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full cursor-pointer mr-2 my-2 duration-300"
                     }
                   >
                     <input
@@ -333,8 +324,8 @@ const Abuja = () => {
                   <label
                     className={
                       tier == "Hashira"
-                        ? "bg-red-700 text-white font-bold py-2 px-4 rounded-md cursor-pointer m-2 shadow-lg shadow-red-600/50"
-                        : "bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-md cursor-pointer m-2"
+                        ? "bg-red-600 text-white font-bold py-2 px-4 rounded-full cursor-pointer m-2"
+                        : "bg-transparent border border-white hover:border-red-600 duration-300 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full cursor-pointer m-2"
                     }
                   >
                     <input
@@ -349,8 +340,8 @@ const Abuja = () => {
                   <label
                     className={
                       tier == "Special Grade"
-                        ? "bg-blue-800 text-white font-bold py-2 px-4 rounded-md cursor-pointer my-2 ml-2 shadow-lg shadow-blue-600/50"
-                        : "bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md cursor-pointer my-2 ml-2"
+                        ? "bg-blue-600 text-white font-bold py-2 px-4 rounded-full cursor-pointer my-2 ml-2"
+                        : "bg-transparent border border-white hover:border-blue-600 duration-300 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full cursor-pointer my-2 ml-2"
                     }
                   >
                     <input
