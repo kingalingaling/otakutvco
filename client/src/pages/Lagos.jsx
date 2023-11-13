@@ -313,8 +313,8 @@ const Lagos = () => {
                   <label
                     className={
                       tier == "Genin"
-                        ? "bg-orange-600 text-white font-bold py-2 px-4 rounded-full cursor-pointer mr-2 my-2"
-                        : "bg-transparent border border-white hover:border-orange-600 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full cursor-pointer mr-2 my-2 duration-300"
+                        ? "bg-orange-600 scale-110 text-white font-bold py-2 px-4 rounded-full cursor-pointer mr-2 my-2"
+                        : "bg-transparent border hover:scale-110 border-white hover:border-orange-600 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full cursor-pointer mr-2 my-2 duration-300"
                     }
                   >
                     <input
@@ -329,8 +329,8 @@ const Lagos = () => {
                   <label
                     className={
                       tier == "Hashira"
-                        ? "bg-red-600 text-white font-bold py-2 px-4 rounded-full cursor-pointer m-2"
-                        : "bg-transparent border border-white hover:border-red-600 duration-300 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full cursor-pointer m-2"
+                        ? "bg-red-600 scale-110 text-white font-bold py-2 px-4 rounded-full cursor-pointer m-2"
+                        : "bg-transparent border hover:scale-110 border-white hover:border-red-600 duration-300 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full cursor-pointer m-2"
                     }
                   >
                     <input
@@ -345,8 +345,8 @@ const Lagos = () => {
                   <label
                     className={
                       tier == "Special Grade"
-                        ? "bg-blue-600 text-white font-bold py-2 px-4 rounded-full cursor-pointer my-2 ml-2"
-                        : "bg-transparent border border-white hover:border-blue-600 duration-300 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full cursor-pointer my-2 ml-2"
+                        ? "bg-blue-600 scale-110 text-white font-bold py-2 px-4 rounded-full cursor-pointer my-2 ml-2"
+                        : "bg-transparent border hover:scale-110 border-white hover:border-blue-600 duration-300 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full cursor-pointer my-2 ml-2"
                     }
                   >
                     <input
