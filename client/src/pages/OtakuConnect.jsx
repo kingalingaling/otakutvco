@@ -34,11 +34,11 @@ const OtakuConnect = () => {
           An annual Anime Fest organized by OtakuTv for the weebs of Nigeria
           Cosplay, Ramen, Anime Trivia, Charades, Movies and more!!!"
         />
-        <meta property="og:image" content="/assets/images/og/otakutv-og.jpg" />
+        <meta property="og:image" content="/assets/images/og/OC-og.jpg" />
         <meta property="og:url" content="https://otakutv.co/otakuconnect" />
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="OtakuTv - Everything Anime" />
+        <meta name="twitter:title" content="Otaku Connect '23" />
         <meta
           name="twitter:description"
           content="Otaku Connect returns to Abuja and Lagos Nigeria for the 2023 edition!

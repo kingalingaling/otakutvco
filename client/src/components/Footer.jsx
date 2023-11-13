@@ -5,7 +5,7 @@ import { RiTwitterXFill } from "react-icons/ri";
 const Footer = () => {
   return (
     <div className="w-full bg-black text-white py-4 pt-4">
-      <div className=" max-w-[90%] mx-auto grid grid-cols-4 gap-4 text-xs md:text-sm">
+      <div className=" max-w-[90%] mx-auto grid grid-cols-4 gap-4 text-xs md:text-md lg:text-base">
         <h1 className="font-bold col-span-2 text-red-600 text-xl">OtakuTV</h1>
         <h2 className="font-bold">Other Services</h2>
         <h2 className="font-bold">Company</h2>
