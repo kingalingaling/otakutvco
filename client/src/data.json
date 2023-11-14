@@ -6,7 +6,7 @@
       "image": "/assets/images/blog/blog-img.jpg",
       "title": "Power",
       "author": "Esakibokay",
-      "link":"https://otakutv.co/power-by-esakibokay/",
+      "link": "https://otakutv.co/power-by-esakibokay/",
       "collection": "Otaku Connect '22 Writing Competition"
     },
     {
@@ -15,7 +15,7 @@
       "image": "/assets/images/blog/blog-img.jpg",
       "title": "The Game of Splintered Souls",
       "author": "PenielsQuill",
-      "link":"https://otakutv.co/the-game-of-splintered-souls/",
+      "link": "https://otakutv.co/the-game-of-splintered-souls/",
       "collection": "Otaku Connect '22 Writing Competition"
     },
     {
@@ -24,7 +24,7 @@
       "image": "/assets/images/blog/blog-img.jpg",
       "title": "Narrow",
       "author": "Ibraheem",
-      "link":"https://otakutv.co/narrow-by-ibraheem/",
+      "link": "https://otakutv.co/narrow-by-ibraheem/",
       "collection": "Otaku Connect '22 Writing Competition"
     },
     {
@@ -33,7 +33,7 @@
       "image": "/assets/images/blog/blog-img.jpg",
       "title": "Metal Dreams",
       "author": "Adams Raphael",
-      "link":"https://otakutv.co/metal-dreams-by-adams-raphael/",
+      "link": "https://otakutv.co/metal-dreams-by-adams-raphael/",
       "collection": "Otaku Connect '22 Writing Competition"
     },
     {
@@ -42,7 +42,7 @@
       "image": "/assets/images/blog/blog-img.jpg",
       "title": "Wonderland",
       "author": "DarkSkinnedBlackSheep",
-      "link":"https://otakutv.co/wonderland-by-darkskinnedblacksheep/",
+      "link": "https://otakutv.co/wonderland-by-darkskinnedblacksheep/",
       "collection": "Otaku Connect '22 Writing Competition"
     },
     {
@@ -51,7 +51,7 @@
       "image": "/assets/images/blog/blog-img.jpg",
       "title": "Living the Shade of Gray",
       "author": "HybridWag",
-      "link":"https://otakutv.co/living-the-shade-of-gray-by-hybridwag/",
+      "link": "https://otakutv.co/living-the-shade-of-gray-by-hybridwag/",
       "collection": "Otaku Connect '22 Writing Competition"
     },
     {
@@ -60,7 +60,7 @@
       "image": "/assets/images/blog/blog-img.jpg",
       "title": "Apotheosis",
       "author": "CallMeDice",
-      "link":"https://otakutv.co/apotheosis-by-callmedice/",
+      "link": "https://otakutv.co/apotheosis-by-callmedice/",
       "collection": "Otaku Connect '22 Writing Competition"
     },
     {
@@ -69,7 +69,7 @@
       "image": "/assets/images/blog/blog-img.jpg",
       "title": "Sambisa",
       "author": "Logic",
-      "link":"https://otakutv.co/sambisa-by-logic/",
+      "link": "https://otakutv.co/sambisa-by-logic/",
       "collection": "Otaku Connect '22 Writing Competition"
     }
   ],
@@ -103,5 +103,16 @@
       "image": "/assets/images/feedback/2.jpg"
     }
   ],
-  "partners": [{ "id": 0, "name": "Arkronin", "logo": "/assets/images/partners/arkronin.png" }]
+  "partners": [
+    {
+      "id": 0,
+      "name": "Arkronin",
+      "logo": "/assets/images/partners/arkronin.png"
+    },
+    {
+      "id": 0,
+      "name": "Our Haven",
+      "logo": "/assets/images/partners/our-haven.webp"
+    }
+  ]
 }
