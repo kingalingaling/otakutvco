@@ -8,8 +8,9 @@ const Hero = () => {
           Participate in Otaku Connect &apos;23 Competitions
         </h1>
         <p className="text-xl md:text-xl lg:text-2xl w-full">
-          Compete and stand a chance to win up to 50,000 Naira. Dance, Sigs,
-          Draw and Play. Compete to win merchandise and cash prizes
+          Compete and stand a chance to win exciting prizes,
+          including up to 50,000 Naira in cash! Engage in various activities
+          such as dancing, signature competitions, drawing, and gaming.
         </p>
       </div>
       <img src={compHero} alt="" className=" w-full md:w-1/2 mt-8 md:mt-0" />

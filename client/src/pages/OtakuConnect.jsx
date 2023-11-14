@@ -8,9 +8,10 @@ import Review from "../components/OtakuConnect/Review";
 import Summary from "../components/OtakuConnect/Summary";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import Competitions from "../components/OtakuConnect/Competitions";
+import Dance from "../components/Competitions/Dance";
 
 const OtakuConnect = () => {
-
   const navigate = useNavigate();
   return (
     <div className="w-full">
@@ -53,6 +54,8 @@ const OtakuConnect = () => {
       <Review />
       <OtakuConnect2023 navigate={navigate} />
       <Expectations />
+      <Dance bgColor={'bg-red-100'} />
+      <Competitions />
       <Partners />
       <Footer />
     </div>

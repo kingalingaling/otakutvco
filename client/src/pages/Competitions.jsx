@@ -22,7 +22,7 @@ const Competitions = () => {
           property="og:description"
           content="Otaku Connect '23 Competitions are live!!! Show your illustration, design, dance skills and more and you could win up to 50,000 Naira"
         />
-        <meta property="og:image" content="/assets/images/og/OCs-og.jpg" />
+        <meta property="og:image" content="/assets/images/og/OC-og.jpg" />
         <meta property="og:url" content="https://otakutv.co/otakuconnect" />
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -35,7 +35,7 @@ const Competitions = () => {
       </Helmet>
       <Navbar />
       <Hero />
-      <Dance />
+      <Dance bgColor={'bg-white'} />
       <Footer />
     </div>
   );
