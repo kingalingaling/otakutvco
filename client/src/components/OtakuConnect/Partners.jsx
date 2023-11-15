@@ -10,7 +10,7 @@ const Partners = () => {
           {partners.map((partner) => (
             <div className="w-full" key={partner.id}>
               <img
-                className="w-[full] mx-auto my-auto max-h-[150px] object-cover"
+                className="w-[full] mx-auto my-auto max-h-[150px] object-cover rounded-xl"
                 src={partner.logo}
                 alt=""
               />
