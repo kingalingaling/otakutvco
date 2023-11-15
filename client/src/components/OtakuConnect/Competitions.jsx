@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import compHero from "/assets/images/competitions/competitions.svg";
+import compImg from "/assets/images/competitions/dance.svg";
 
 const Competitions = () => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const Competitions = () => {
         Unleash your talents and join the fun!
       </p>
       <div className="md:w-1/2 flex flex-col px-7">
-        <img src={compHero} className="h-[200px]" alt="" />
+        <img src={compImg} className="h-[200px]" alt="" />
         <button
           onClick={() => {
             navigate("/otakuconnect/competitions");

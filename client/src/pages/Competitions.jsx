@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet";
 import Navbar from "../components/Navbar";
-import Dance from "../components/Competitions/Dance";
 import Hero from "../components/Competitions/Hero";
 import Footer from "../components/Footer";
 
@@ -35,7 +34,6 @@ const Competitions = () => {
       </Helmet>
       <Navbar />
       <Hero />
-      <Dance bgColor={'bg-white'} />
       <Footer />
     </div>
   );

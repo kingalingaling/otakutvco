@@ -1,4 +1,4 @@
-import compHero from "/assets/images/competitions/competitions.svg";
+import compHero from "/assets/images/competitions/float.svg";
 
 const Hero = () => {
   return (
