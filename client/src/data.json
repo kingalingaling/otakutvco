@@ -114,5 +114,35 @@
       "name": "Our Haven",
       "logo": "/assets/images/partners/our-haven.webp"
     }
+  ],
+  "expectations": [
+    {
+      "id":0,
+      "image":"/assets/images/expectations/0.jpg"
+    },
+    {
+      "id":1,
+      "image":"/assets/images/expectations/1.webp"
+    },
+    {
+      "id":2,
+      "image":"/assets/images/expectations/2.webp"
+    },
+    {
+      "id":3,
+      "image":"/assets/images/expectations/3.webp"
+    },
+    {
+      "id":4,
+      "image":"/assets/images/expectations/4.webp"
+    },
+    {
+      "id":5,
+      "image":"/assets/images/expectations/5.webp"
+    },
+    {
+      "id":6,
+      "image":"/assets/images/expectations/6.webp"
+    }
   ]
 }

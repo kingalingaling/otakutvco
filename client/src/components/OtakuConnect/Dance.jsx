@@ -1,17 +1,17 @@
 import { NavLink } from "react-router-dom";
-import dancePic from "/assets/images/competitions/float.svg";
+import dancePic from "/assets/images/competitions/dance-alt.png";
 
 const Dance = ({ bgColor }) => {
   return (
-    <div className={`w-full ${bgColor}`}>
+    <div className={`w-full ${bgColor} py-16`}>
       <div className="md:w-[90%] lg:w-[85%] mx-auto flex flex-col md:flex-row">
-        <div className="flex flex-col md:flex-row w-full mb-6 lg:mb-12 px-5">
+        <div className="flex flex-col md:flex-row md:justify-between w-full  px-5">
           <img
             src={dancePic}
             alt="Otaku Connect '23 Dance Competition"
-            className="md:h-[300px] lg:w-[500px] lg:h-[500px]"
+            className="mx-auto md:max-h-[300px] md:max-w-[300px] lg:max-w-[500px] lg:max-h-[500px]"
           />
-          <div className="w-full md:pl-8 flex flex-col justify-center items-center">
+          <div className="w-full md:pl-8 md:w-2/3 flex flex-col justify-center items-center">
             <h3 className="font-bold text-lg md:text-2xl md:pt-0 lg:text-3xl text-center w-full mb-2">
               Dance Performance
             </h3>

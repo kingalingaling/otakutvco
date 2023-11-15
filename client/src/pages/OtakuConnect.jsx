@@ -8,8 +8,9 @@ import Review from "../components/OtakuConnect/Review";
 import Summary from "../components/OtakuConnect/Summary";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-// import Competitions from "../components/OtakuConnect/Competitions";
-import Dance from "../components/OtakuConnect/Dance";
+// // import Competitions from "../components/OtakuConnect/Competitions";
+// import Dance from "../components/OtakuConnect/Dance";
+import ExpectationImages from "../components/OtakuConnect/ExpectationImages";
 
 const OtakuConnect = () => {
   const navigate = useNavigate();
@@ -53,8 +54,8 @@ const OtakuConnect = () => {
       <Summary />
       <Review />
       <OtakuConnect2023 navigate={navigate} />
+      <ExpectationImages />
       <Expectations />
-      <Dance bgColor={'bg-red-50'} />
       {/* <Competitions /> */}
       <Partners />
       <Footer />

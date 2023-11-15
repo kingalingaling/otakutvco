@@ -5,11 +5,8 @@ import Cosplay from "/assets/images/cosplay.svg";
 
 const Expectations = () => {
   return (
-    <div className="w-full bg-white pt-6 md:pt-12 lg:pt-0 lg:bg-expect-lg lg:h-[90vh] bg-cover">
-      <h2 className="w-[80%] mx-auto text-4xl font-black text-center lg:hidden">
-        What to Expect
-      </h2>
-      <div className="p-4 w-full text-xs md:text-md lg:hidden mx-auto my-4 grid grid-cols-2 md:grid-cols-3 gap-4">
+    <div className="w-full bg-white md:pt-12 lg:pt-0 lg:bg-expect-lg lg:h-[90vh] bg-cover">
+      <div className="p-4 w-full text-xs md:text-md lg:hidden mx-auto mb-4 grid grid-cols-2 md:grid-cols-3 gap-4">
         <div className=" max-h-[500px] shadow-lg rounded-lg p-6 shadow-black/10 group relative">
           <div className="relative w-full md:h-[250px]">
             <img
@@ -64,9 +61,9 @@ const Expectations = () => {
       {/* Large Screens */}
       <div className="hidden lg:block pt-10">
         <div className="w-full h-[40vh]">
-          <h2 className="w-[30%] mx-auto text-4xl font-black text-center">
+          {/* <h2 className="w-[30%] mx-auto text-4xl font-black text-center">
             What to Expect
-          </h2>
+          </h2> */}
           <h3 className="w-[30%] mx-auto text-center font-black text-2xl mt-4">
             Meetups/Interations
           </h3>
