@@ -102,34 +102,42 @@ const ContactForm = () => {
             </div>
             <div className="flex flex-col space-y-4 sm:space-y-6">
               <div className="inline-flex space-x-2 items-center">
-                <BsWhatsapp
-                  name="call"
-                  className="text-green-300 text-xl"
-                ></BsWhatsapp>
-                <span>+234 (0) 902 584 5139</span>
+                <a href="https://wa.me/+2349025845139">
+                  <BsWhatsapp
+                    name="call"
+                    className="text-green-300 text-xl"
+                  ></BsWhatsapp>
+                </a>
+                <a href="https://wa.me/+2349025845139" className="hover:text-green-200">
+                  <span>+234 (0) 902 584 5139</span>
+                </a>
               </div>
               <div className="inline-flex space-x-2 items-center">
-                <MdOutlineMail
-                  name="mail"
-                  className="text-red-400 mt-0.5 text-xl"
-                ></MdOutlineMail>
-                <span>support@otakutv.co</span>
+                <a href="mailto:support@otakutv.co">
+                  <MdOutlineMail
+                    name="mail"
+                    className="text-red-400 mt-0.5 text-xl"
+                  ></MdOutlineMail>
+                </a>
+                <a href="mailto:support@otakutv.co" className="hover:text-red-200">
+                  <span>support@otakutv.co</span>
+                </a>
               </div>
             </div>
             <div className="flex space-x-4 text-lg">
-              <a href="#">
+              <a href="https://facebook.com/otaku.tv.nig">
                 <BsFacebook
                   name="logo-facebook"
                   className="hover:text-blue-600"
                 ></BsFacebook>
               </a>
-              <a href="#">
+              <a href="https://x.com/otakutvng">
                 <RiTwitterXFill
                   name="logo-twitter"
                   className="hover:text-blue-400"
                 ></RiTwitterXFill>
               </a>
-              <a href="#">
+              <a href="https://www.instagram.com/otaku.tv_ng/">
                 <BsInstagram
                   name="logo-instagram"
                   className="hover:text-pink-500"
