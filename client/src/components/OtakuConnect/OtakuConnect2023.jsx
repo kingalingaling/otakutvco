@@ -36,7 +36,7 @@ const OtakuConnect2023 = ({ navigate }) => {
         <img
           src={OCLogoDark}
           alt=""
-          className="h-auto md:h-[300px] md:mt-10 w-[40%] mx-auto lg:h-auto lg:-mt-10"
+          className="w-full md:w-1/2 md:h-[300px] my-auto"
         />
       </div>
       <Dance bgColor={'bg-white'} />
