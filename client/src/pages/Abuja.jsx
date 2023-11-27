@@ -34,7 +34,7 @@ const Abuja = () => {
 
   const location =
     "La Vida Local Spar Road, behind NNPC Petrol station Life Camp, Abuja, Federal Capital Territory";
-  const time = "10:00 AM";
+  const time = "12:00 PM";
   const day = "December 30, 2023";
 
   const calcCost = useCallback(() => {

@@ -27,8 +27,12 @@ export async function handler(event) {
 
   const qrCodeImg = await generateQRCode(`https://otakutv.co/otakuconnect/confirmation?ticket_id=${id}`)
   const base64Image = qrCodeImg.split(',')[1];
+  let movie = ""
   
   console.log(id,first_name, email, tickets, cost,day, locay)
+  if (tickets.includes("Special Grade")) {
+    movie = "Movie starts at 10AM"
+  }
 
   const htmlBody = `
   <html>
@@ -275,6 +279,7 @@ export async function handler(event) {
                         <strong>Location:</strong>${locay}<br />
                         <strong>Date:</strong>${day}<br />
                         <strong>Time</strong>: ${time}<br /><br />
+                        <strong>${movie}</strong>
                       </div>
                     </td>
                   </tr>

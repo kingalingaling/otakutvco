@@ -35,7 +35,7 @@ const Lagos = () => {
 
   const location =
     "Rango Rooftop Lounge, 26 Prince Adelowo Adedeji Street, Lekki Phase 1 - 106104, Lagos";
-  const time = "10:00 AM";
+  const time = "12:00 PM";
   const day = "December 23rd, 2023";
 
   const calcCost = useCallback(() => {
