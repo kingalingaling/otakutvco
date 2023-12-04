@@ -102,7 +102,6 @@ const Lagos = () => {
     //implementation for after success call
     onSubmitOrder();
     setTickets([]);
-    navigate("/otakuconnect/order-completed");
     console.log("success");
   };
 
@@ -188,7 +187,8 @@ const Lagos = () => {
       const docSnap = await getDoc(doc(db, "lagos-tickets", newDocId));
       const documentFb = { id: newDocId, ...docSnap.data() };
       console.log(documentFb);
-      sendEmail(documentFb);
+      await sendEmail(documentFb);
+      navigate("/otakuconnect/order-completed");
     } catch (err) {
       console.error(err);
     }
