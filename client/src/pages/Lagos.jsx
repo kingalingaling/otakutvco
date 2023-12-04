@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 // Paystack
 import { usePaystackPayment } from "react-paystack";
 import PaystackConfig from "../config/paystack";
+import ReactLoading from "react-loading";
 
 const lagosOrdersRef = collection(db, "lagos-tickets");
 
@@ -32,6 +33,9 @@ const Lagos = () => {
   const [empty, setEmpty] = useState(false);
   const [ticketError, setTicketError] = useState(false);
   const [repeatEmailError, setRepeatEmailError] = useState(false);
+
+  // Loading after payment
+  const [loading, setLoading] = useState(false);
 
   const location =
     "Rango Rooftop Lounge, 26 Prince Adelowo Adedeji Street, Lekki Phase 1 - 106104, Lagos";
@@ -100,6 +104,7 @@ const Lagos = () => {
 
   const onSuccess = () => {
     //implementation for after success call
+    setLoading(true);
     onSubmitOrder();
     setTickets([]);
     console.log("success");
@@ -188,6 +193,7 @@ const Lagos = () => {
       const documentFb = { id: newDocId, ...docSnap.data() };
       console.log(documentFb);
       await sendEmail(documentFb);
+      setLoading(false);
       navigate("/otakuconnect/order-completed");
     } catch (err) {
       console.error(err);
@@ -215,6 +221,11 @@ const Lagos = () => {
 
   return (
     <div>
+      {loading && (
+        <div className="fixed w-full h-full bg-black/70 z-30 flex justify-center items-center">
+          <ReactLoading type="bubbles" color="red" height={100} width={100} />
+        </div>
+      )}
       <div className="bg-gradient-to-tr from-orange-400 via-red-300 to-blue-500 min-h-screen flex items-center justify-center py-16 md:p-15">
         <div className="bg-black/95 rounded-lg shadow-2xl w-full lg:w-2/3 text-white md:flex md:flex-col">
           <img
