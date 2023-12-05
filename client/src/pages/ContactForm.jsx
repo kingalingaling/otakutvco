@@ -92,7 +92,7 @@ const ContactForm = () => {
           <div className="flex flex-col md:flex-1 space-y-8 justify-between">
             <div>
               <h1 className="font-bold text-4xl tracking-wide">Contact Us</h1>
-              <p className="pt-2 text-green-100 text-sm md:text-md lg:text-base">
+              <p className="pt-2 text-white text-sm md:text-md lg:text-base">
                 We&apos;d love to hear from you! Whether you have a question,
                 suggestion, or just want to say hello, we&apos;re here to help.
                 Feel free to reach out using the contact information below or by
