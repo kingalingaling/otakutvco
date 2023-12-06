@@ -12,6 +12,7 @@ import { Helmet } from "react-helmet";
 // import Dance from "../components/OtakuConnect/Dance";
 import ExpectationImages from "../components/OtakuConnect/ExpectationImages";
 import ShuttlerModal from "../components/OtakuConnect/ShuttlerModal";
+import ShuttlerComponent from "../components/OtakuConnect/ShuttlerComponent";
 
 const OtakuConnect = () => {
   const navigate = useNavigate();
@@ -56,6 +57,7 @@ const OtakuConnect = () => {
       <Summary />
       <Review />
       <OtakuConnect2023 navigate={navigate} />
+      <ShuttlerComponent />
       <ExpectationImages />
       <Expectations />
       {/* <Competitions /> */}

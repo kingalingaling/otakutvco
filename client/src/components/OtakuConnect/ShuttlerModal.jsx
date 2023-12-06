@@ -25,7 +25,7 @@ const ShuttlerModal = () => {
             </p>
           </div>
           <div className="flex justify-between items-center w-full">
-            <Link to={"google.com"} target="_blank">
+            <Link to={"https://forms.gle/DbzJ5DaEXUcHZG4fA"} target="_blank">
               <button className="bg-green-500 text-black px-5 py-2 md:text-lg font-black rounded-xl hover:bg-white hover:text-green-600 duration-300">
                 Abuja Transport
               </button>
