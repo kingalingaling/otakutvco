@@ -105,13 +105,18 @@ const Lagos = () => {
   const onSuccess = () => {
     //implementation for after success call
     setLoading(true);
-    onSubmitOrder();
+    try {
+      onSubmitOrder();
+    } catch (err) {
+      console.error(err);
+      navigate("/otakuconnect/order-failed");
+    }
     setTickets([]);
     console.log("success");
   };
 
   const onClose = () => {
-    // navigate("/otakuconnect/order-failed");
+    navigate("/otakuconnect/order-failed");
     //Implementation for when dialog closes
     console.log("closed");
   };
@@ -175,7 +180,7 @@ const Lagos = () => {
     calcCost(); // Calculate cost after adding to cart
   };
 
-  const onSubmitOrder = async () => {
+  const onSubmitOrder = async (retryCount = 3) => {
     try {
       const newDocRef = await addDoc(lagosOrdersRef, {
         first_name: fname,
@@ -188,15 +193,41 @@ const Lagos = () => {
         date: serverTimestamp(),
       });
 
+      //Retrieve newly added document
       const newDocId = newDocRef.id;
       const docSnap = await getDoc(doc(db, "lagos-tickets", newDocId));
+
+      if (!docSnap.exists()) {
+        throw new Error("Document not found after creation");
+      }
+
+      // Extract document data
       const documentFb = { id: newDocId, ...docSnap.data() };
       console.log(documentFb);
+
+      // send email
       await sendEmail(documentFb);
+
       setLoading(false);
       navigate("/otakuconnect/order-completed");
     } catch (err) {
-      console.error(err);
+      console.error("Error submitting order", err.message || err);
+
+      // Retry if the error indicates the document was not found
+      if (
+        err.message === "Document not found after creation" &&
+        retryCount > 0
+      ) {
+        console.log(
+          `Retrying document creation, ${retryCount} attempts remaining...`
+        );
+        // Call onSubmitOrder again with one less retry count
+        await onSubmitOrder(retryCount - 1);
+      } else {
+        console.log(
+          "Please contact support for ticket confirmation if you don't receive your tickets"
+        );
+      }
     }
   };
 
