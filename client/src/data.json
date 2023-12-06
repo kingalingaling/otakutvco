@@ -110,9 +110,14 @@
       "logo": "/assets/images/partners/arkronin.png"
     },
     {
-      "id": 0,
+      "id": 1,
       "name": "Our Haven",
       "logo": "/assets/images/partners/our-haven.webp"
+    },
+    {
+      "id": 2,
+      "name": "Shuttlers",
+      "logo": "/assets/images/partners/shuttlers.webp"
     }
   ],
   "expectations": [
