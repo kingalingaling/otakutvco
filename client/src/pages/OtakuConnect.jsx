@@ -11,11 +11,12 @@ import { Helmet } from "react-helmet";
 // // import Competitions from "../components/OtakuConnect/Competitions";
 // import Dance from "../components/OtakuConnect/Dance";
 import ExpectationImages from "../components/OtakuConnect/ExpectationImages";
+import ShuttlerModal from "../components/OtakuConnect/ShuttlerModal";
 
 const OtakuConnect = () => {
   const navigate = useNavigate();
   return (
-    <div className="w-full">
+    <div className="w-full z-10">
       <Helmet>
         <title>Otaku Connect &apos;23</title>
         <meta
@@ -50,6 +51,7 @@ const OtakuConnect = () => {
         <meta name="twitter:image" content="/assets/images/og/OC-og.jpg" />
       </Helmet>
       <Navbar />
+      <ShuttlerModal />
       <Hero navigate={navigate} />
       <Summary />
       <Review />
