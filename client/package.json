@@ -12,7 +12,10 @@
   "dependencies": {
     "@react-google-maps/api": "^2.19.2",
     "axios": "^1.5.1",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.3.1",
     "firebase": "^10.5.0",
+    "firebase-admin": "^11.11.1",
     "fs": "^0.0.1-security",
     "nodemailer": "^6.9.7",
     "qrcode": "^1.5.3",

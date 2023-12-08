@@ -4,15 +4,14 @@ import { useState, useEffect, useCallback } from "react";
 import { MdCancel } from "react-icons/md";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { db } from "../config/firebase";
-import { collection, addDoc, doc, getDoc } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 // Paystack
 import { usePaystackPayment } from "react-paystack";
 import PaystackConfig from "../config/paystack";
 import ReactLoading from "react-loading";
-
-const lagosOrdersRef = collection(db, "lagos-tickets");
+// import BrowserSuggestion from "../components/BrowserSuggestion";
 
 const Lagos = () => {
   const [fname, setFname] = useState("");
@@ -39,8 +38,8 @@ const Lagos = () => {
 
   const location =
     "Rango Rooftop Lounge, 26 Prince Adelowo Adedeji Street, Lekki Phase 1 - 106104, Lagos";
-  const time = "12:00 PM";
-  const day = "December 23rd, 2023";
+  // const time = "12:00 PM";
+  // const day = "December 23rd, 2023";
 
   const calcCost = useCallback(() => {
     const tierCosts = {
@@ -104,24 +103,19 @@ const Lagos = () => {
 
   const onSuccess = () => {
     //implementation for after success call
-    setLoading(true);
-    try {
-      onSubmitOrder();
-    } catch (err) {
-      console.error(err);
-      navigate("/otakuconnect/order-failed");
-    }
     setTickets([]);
+    navigate("/otakuconnect/order-completed");
     console.log("success");
   };
 
   const onClose = () => {
-    navigate("/otakuconnect/order-failed");
+    // navigate("/otakuconnect/order-failed");
     //Implementation for when dialog closes
     console.log("closed");
   };
 
-  const config = PaystackConfig(email, finalCost);
+  const ref = new Date().getTime().toString()
+  const config = PaystackConfig(email, finalCost, ref);
   const initializePayment = usePaystackPayment(config);
 
   const handleCheckout = () => {
@@ -135,6 +129,7 @@ const Lagos = () => {
         if (checkEmails(email, repeatEmail)) {
           setRepeatEmailError(false);
           if (tickets.length > 0) {
+            onSubmitOrder();
             initializePayment(onSuccess, onClose);
             setTicketError(false);
           } else {
@@ -182,34 +177,24 @@ const Lagos = () => {
 
   const onSubmitOrder = async (retryCount = 3) => {
     try {
-      const newDocRef = await addDoc(lagosOrdersRef, {
+      setLoading(true)
+      const docData = {
+        id: ref,
         first_name: fname,
         last_name: lname,
         email: email.trim(),
         tickets: order,
         cost: cost,
-        status: "confirmed",
+        status: "pending",
         event: "Otaku Connect Lagos",
         date: serverTimestamp(),
-      });
-
-      //Retrieve newly added document
-      const newDocId = newDocRef.id;
-      const docSnap = await getDoc(doc(db, "lagos-tickets", newDocId));
-
-      if (!docSnap.exists()) {
-        throw new Error("Document not found after creation");
       }
 
-      // Extract document data
-      const documentFb = { id: newDocId, ...docSnap.data() };
-      console.log(documentFb);
-
-      // send email
-      await sendEmail(documentFb);
-
-      setLoading(false);
-      navigate("/otakuconnect/order-completed");
+      console.log("Setting doc")
+      await setDoc(doc(db, "lagos-tickets", ref), docData);
+      console.log("Done")
+      
+      setLoading(false)
     } catch (err) {
       console.error("Error submitting order", err.message || err);
 
@@ -231,27 +216,9 @@ const Lagos = () => {
     }
   };
 
-  const request = new XMLHttpRequest();
-
-  const sendEmail = async (documentFinal) => {
-    try {
-      request.open("POST", "/.netlify/functions/send-email");
-      request.send(
-        JSON.stringify({
-          ...documentFinal,
-          day: day,
-          time: time,
-          locay: location,
-        })
-      );
-      console.log("Initiate email sending");
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return (
     <div>
+      {/* <BrowserSuggestion /> */}
       {loading && (
         <div className="fixed w-full h-full bg-black/70 z-30 flex justify-center items-center">
           <ReactLoading type="bubbles" color="red" height={100} width={100} />

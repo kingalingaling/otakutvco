@@ -3,15 +3,14 @@ import { useState, useEffect, useCallback } from "react";
 import { MdCancel } from "react-icons/md";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { db } from "../config/firebase";
-import { collection, addDoc, doc, getDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 // Paystack
 import { usePaystackPayment } from "react-paystack";
 import PaystackConfig from "../config/paystack";
 import ReactLoading from "react-loading";
-
-const abujaOrdersRef = collection(db, "abuja-tickets");
+// import BrowserSuggestion from "../components/BrowserSuggestion";
 
 const Abuja = () => {
   const [fname, setFname] = useState("");
@@ -38,8 +37,8 @@ const Abuja = () => {
 
   const location =
     "La Vida Local Spar Road, behind NNPC Petrol station Life Camp, Abuja, Federal Capital Territory";
-  const time = "12:00 PM";
-  const day = "December 30, 2023";
+  // const time = "12:00 PM";
+  // const day = "December 30, 2023";
 
   const calcCost = useCallback(() => {
     const tierCosts = {
@@ -101,26 +100,22 @@ const Abuja = () => {
 
   const navigate = useNavigate();
 
+
   const onSuccess = () => {
     //implementation for after success call
-    setLoading(true);
-    try {
-      onSubmitOrder();
-    } catch (err) {
-      console.error(err);
-      navigate("/otakuconnect/order-failed");
-    }
     setTickets([]);
+    navigate("/otakuconnect/order-failed");
     console.log("success");
   };
 
   const onClose = () => {
-    navigate("/otakuconnect/order-failed");
+    // navigate("/otakuconnect/order-failed");
     //Implementation for when dialog closes
     console.log("closed");
   };
 
-  const config = PaystackConfig(email, finalCost);
+  const ref = new Date().getTime().toString()
+  const config = PaystackConfig(email, finalCost, ref);
   const initializePayment = usePaystackPayment(config);
 
   const handleCheckout = () => {
@@ -134,6 +129,7 @@ const Abuja = () => {
         if (checkEmails(email, repeatEmail)) {
           setRepeatEmailError(false);
           if (tickets.length > 0) {
+            onSubmitOrder()
             initializePayment(onSuccess, onClose);
             setTicketError(false);
           } else {
@@ -181,34 +177,24 @@ const Abuja = () => {
 
   const onSubmitOrder = async (retryCount = 3) => {
     try {
-      const newDocRef = await addDoc(abujaOrdersRef, {
+      setLoading(true)
+      const docData = {
+        id:ref,
         first_name: fname,
         last_name: lname,
         email: email.trim(),
         tickets: order,
         cost: cost,
-        status: "confirmed",
+        status: "pending",
         event: "Otaku Connect Abuja",
         date: serverTimestamp(),
-      });
-
-      //Retrieve newly added document
-      const newDocId = newDocRef.id;
-      const docSnap = await getDoc(doc(db, "abuja-tickets", newDocId));
-
-      if (!docSnap.exists()) {
-        throw new Error("Document not found after creation");
       }
 
-      // Extract document data
-      const documentFb = { id: newDocId, ...docSnap.data() };
-      console.log(documentFb);
-
-      // send email
-      await sendEmail(documentFb);
-
+      console.log("Setting doc")
+      await setDoc(doc(db, "abuja-tickets", ref), docData);
+      console.log("Done")
+  
       setLoading(false);
-      navigate("/otakuconnect/order-completed");
     } catch (err) {
       console.error("Error submitting order", err.message || err);
 
@@ -230,29 +216,11 @@ const Abuja = () => {
     }
   };
 
-  const request = new XMLHttpRequest();
-
-  const sendEmail = async (documentFinal) => {
-    try {
-      request.open("POST", "/.netlify/functions/send-email");
-      request.send(
-        JSON.stringify({
-          ...documentFinal,
-          day: day,
-          time: time,
-          locay: location,
-        })
-      );
-      console.log("Initiate email sending");
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return (
     <div>
+      {/* <BrowserSuggestion /> */}
       {loading && (
-        <div className="fixed w-full h-full bg-black/70 z-30 flex justify-center items-center">
+        <div className="fixed w-full h-full bg-black/70 z-50 flex justify-center items-center">
           <ReactLoading type="bubbles" color="red" height={100} width={100} />
         </div>
       )}

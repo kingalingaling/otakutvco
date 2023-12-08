@@ -1,6 +1,6 @@
-const PaystackConfig = (email, finalCost) => {
+const PaystackConfig = (email, finalCost, reference) => {
     const config = {
-      reference: new Date().getTime().toString(),
+      reference: reference,
       email: email,
       //Currency in kobo
       amount: finalCost*100,
