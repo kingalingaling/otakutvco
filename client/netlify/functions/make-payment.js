@@ -7,7 +7,7 @@ import { config } from 'dotenv';
 config();
 
 
-const secret = process.env.VITE_PAYSTACK_API
+const secret = process.env.PAYSTACK_SECRET_KEY
 
 // Initialize Firebase Admin SDK
 const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_KEY);
