@@ -49,10 +49,12 @@ export async function handler(event) {
   try {
     const eventData = JSON.parse(event.body);
     const signature = event.headers['x-paystack-signature'];
+    console.log(event)
     console.log(`${eventData.event} , ${eventData.data}`)
 
     // Validate the Paystack event
     if (!eventData.event || !eventData.data || !eventData.data.id) {
+      console.log('Empty params')
       return {
         statusCode: 400,
         body: JSON.stringify({ success: false, error: 'Invalid Paystack event data' }),
@@ -60,6 +62,7 @@ export async function handler(event) {
     }
 
     if (!verify(eventData, signature)) {
+      console.log('Wrong key')
       return {
         statusCode: 400,
         body: JSON.stringify({ success: false, error: 'Event data signature not verified' }),
