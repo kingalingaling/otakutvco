@@ -104,7 +104,7 @@ const Abuja = () => {
   const onSuccess = () => {
     //implementation for after success call
     setTickets([]);
-    navigate("/otakuconnect/order-failed");
+    navigate("/otakuconnect/order-completed");
     console.log("success");
   };
 
