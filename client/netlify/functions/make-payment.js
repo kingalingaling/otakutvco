@@ -59,6 +59,13 @@ export async function handler(event) {
       };
     }
 
+    if (!verify(eventData, signature)) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ success: false, error: 'Event data signature not verified' }),
+      };
+    }
+
     if (eventData.event === 'charge.success' || eventData.event === 'transfer.success') {
       const transactionId = eventData.data.id;
       // Process the successful transaction to maybe fund wallet and update your WalletModel
