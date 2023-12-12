@@ -114,7 +114,7 @@ const Lagos = () => {
     console.log("closed");
   };
 
-  const ref = new Date().getTime().toString()
+  const ref = new Date().getTime().toString();
   const config = PaystackConfig(email, finalCost, ref);
   const initializePayment = usePaystackPayment(config);
 
@@ -177,7 +177,7 @@ const Lagos = () => {
 
   const onSubmitOrder = async (retryCount = 3) => {
     try {
-      setLoading(true)
+      setLoading(true);
       const docData = {
         id: ref,
         first_name: fname,
@@ -188,13 +188,13 @@ const Lagos = () => {
         status: "pending",
         event: "Otaku Connect Lagos",
         date: serverTimestamp(),
-      }
+      };
 
-      console.log("Setting doc")
+      console.log("Setting doc");
       await setDoc(doc(db, "lagos-tickets", ref), docData);
-      console.log("Done")
-      
-      setLoading(false)
+      console.log("Done");
+
+      setLoading(false);
     } catch (err) {
       console.error("Error submitting order", err.message || err);
 
@@ -318,6 +318,9 @@ const Lagos = () => {
                 )}
               </div>
               <div className="p-4">
+                <p className="font-bold text-orange-600 text-center">
+                  Note that Special Grade Tickets will not be sold at the gate
+                </p>
                 <div className="flex flex-wrap justify-center">
                   <label
                     className={

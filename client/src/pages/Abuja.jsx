@@ -100,7 +100,6 @@ const Abuja = () => {
 
   const navigate = useNavigate();
 
-
   const onSuccess = () => {
     //implementation for after success call
     setTickets([]);
@@ -114,7 +113,7 @@ const Abuja = () => {
     console.log("closed");
   };
 
-  const ref = new Date().getTime().toString()
+  const ref = new Date().getTime().toString();
   const config = PaystackConfig(email, finalCost, ref);
   const initializePayment = usePaystackPayment(config);
 
@@ -129,7 +128,7 @@ const Abuja = () => {
         if (checkEmails(email, repeatEmail)) {
           setRepeatEmailError(false);
           if (tickets.length > 0) {
-            onSubmitOrder()
+            onSubmitOrder();
             initializePayment(onSuccess, onClose);
             setTicketError(false);
           } else {
@@ -177,9 +176,9 @@ const Abuja = () => {
 
   const onSubmitOrder = async (retryCount = 3) => {
     try {
-      setLoading(true)
+      setLoading(true);
       const docData = {
-        id:ref,
+        id: ref,
         first_name: fname,
         last_name: lname,
         email: email.trim(),
@@ -188,12 +187,12 @@ const Abuja = () => {
         status: "pending",
         event: "Otaku Connect Abuja",
         date: serverTimestamp(),
-      }
+      };
 
-      console.log("Setting doc")
+      console.log("Setting doc");
       await setDoc(doc(db, "abuja-tickets", ref), docData);
-      console.log("Done")
-  
+      console.log("Done");
+
       setLoading(false);
     } catch (err) {
       console.error("Error submitting order", err.message || err);
@@ -314,6 +313,9 @@ const Abuja = () => {
                 )}
               </div>
               <div className="p-4">
+                <p className="font-bold text-orange-600 text-center">
+                  Note that Special Grade Tickets will not be sold at the gate
+                </p>
                 <div className="flex flex-wrap justify-center">
                   <label
                     className={
