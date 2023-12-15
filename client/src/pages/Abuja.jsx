@@ -313,9 +313,9 @@ const Abuja = () => {
                 )}
               </div>
               <div className="p-4">
-                <p className="font-bold text-orange-600 text-center">
+                {/* <p className="font-bold text-orange-600 text-center">
                   Note that Special Grade Tickets will not be sold at the gate
-                </p>
+                </p> */}
                 <div className="flex flex-wrap justify-center">
                   <label
                     className={
