@@ -2,7 +2,7 @@ import OCLogoDark from "/assets/oc-logo-dark.png";
 import abujaFlyer from "/assets/images/locations/abuja-flyer.webp";
 import lagosFlyer from "/assets/images/locations/lagos-flyer.webp";
 import Timer from "../Timer";
-import Dance from "./Dance";
+// import Dance from "./Dance";
 
 const OtakuConnect2023 = ({ navigate }) => {
   return (
@@ -39,7 +39,7 @@ const OtakuConnect2023 = ({ navigate }) => {
           className="w-full md:w-1/2 md:h-[300px] my-auto"
         />
       </div>
-      <Dance bgColor={'bg-white'} />
+      {/* <Dance bgColor={'bg-white'} /> */}
       <div className="w-full bg-white mx-auto pt-4">
         <h2 className="text-xl md:text-2xl py-3 lg:text-3xl font-bold text-center mb-4 w-full">
           Otaku Connect &apos;23 Locations
