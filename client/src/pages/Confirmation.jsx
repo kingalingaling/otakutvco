@@ -39,7 +39,11 @@ const Confirmation = () => {
       setTickets(docDetails.tickets);
       setTime("10AM, December 30, 2023");
       setEmail(docDetails.email);
-      setTicketExists(true);
+      if (docDetails.status !== "confirmed") {
+        setTicketExists(false);
+      } else {
+        setTicketExists(true);
+      }
     } else {
       const docSnapLag = await getDoc(doc(db, "lagos-tickets", tickedId));
       if (docSnapLag.exists()) {
@@ -53,7 +57,11 @@ const Confirmation = () => {
         setTickets(docDetails.tickets);
         setTime("10AM, December 23, 2023");
         setEmail(docDetails.email);
-        setTicketExists(true);
+        if (docDetails.status !== "confirmed") {
+          setTicketExists(false);
+        } else {
+          setTicketExists(true);
+        }
       }
     }
     setReady(true);
@@ -88,9 +96,11 @@ const Confirmation = () => {
           if you need assistance
         </h2>
         <button
-              onClick={() => navigate("/")}
-              className="mt-4 px-12 py-2 bg-red-600 rounded-full font-bold text-purple-100 text-lg shadow-md hover:bg-red-500"
-            >Return Home</button>
+          onClick={() => navigate("/")}
+          className="mt-4 px-12 py-2 bg-red-600 rounded-full font-bold text-purple-100 text-lg shadow-md hover:bg-red-500"
+        >
+          Return Home
+        </button>
       </div>
     );
   }
