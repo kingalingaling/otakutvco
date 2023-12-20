@@ -185,7 +185,11 @@ const Shuttlers = () => {
           <ReactLoading type="bubbles" color="red" height={100} width={100} />
         </div>
       )}
-      <div className="container flex justify-center items-center md:mt-20 p-4">
+      <div className="container flex flex-col justify-center items-center md:mt-20 p-4">
+        <div>
+          <h1 className="font-black text-white text-2xl text-center">Otaku Connect 2023 Transport</h1>
+          <p className="font-bold italic text-white mt-3 mb-6 text-center">Buses take off at 9:30AM</p>
+        </div>
         <form className="w-full max-w-lg">
           <div className="flex flex-wrap justify-center items-center -mx-3 mb-6">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">

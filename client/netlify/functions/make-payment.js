@@ -610,7 +610,7 @@ async function handleSuccessEventBooking(data) {
     const pickup = ticketDocSnapshot.get('pickup')
     const cost = ticketDocSnapshot.get('cost')
     const quantity = ticketDocSnapshot.get('quantity')
-    const pickupTime = "December 30th, 2023"
+    const pickupTime = "9:30AM, December 30th, 2023"
     console.log(id, first_name, email, cost, pickup, quantity, pickupTime)
 
     // Send email to the customer
