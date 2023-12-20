@@ -7,7 +7,7 @@ import { config } from 'dotenv';
 config();
 
 
-// const secret = process.env.PAYSTACK_SECRET_KEY
+const secret = process.env.PAYSTACK_SECRET_KEY
 
 // Initialize Firebase Admin SDK
 const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_KEY);
@@ -18,11 +18,11 @@ admin.initializeApp({
 // Firestore reference
 const db = admin.firestore();
 
-// function verify(eventData, signature) {
-//   const hmac = crypto.createHmac('sha512', secret);
-//   const expectedSignature = hmac.update(JSON.stringify(eventData)).digest('hex');
-//   return expectedSignature === signature;
-// }
+function verify(eventData, signature) {
+  const hmac = crypto.createHmac('sha512', secret);
+  const expectedSignature = hmac.update(JSON.stringify(eventData)).digest('hex');
+  return expectedSignature === signature;
+}
 
 const generateQRCode = async (data) => {
   try {
@@ -38,8 +38,8 @@ const generateQRCode = async (data) => {
 export async function handler(event) {
   try {
     const eventData = JSON.parse(event.body);
-    // const signature = event.headers['x-paystack-signature'];
-    // console.log(event)
+    const signature = event.headers['x-paystack-signature'];
+    console.log(event)
     console.log(`${eventData.event} , ${eventData.data}`)
 
     // Validate the Paystack event
@@ -51,13 +51,13 @@ export async function handler(event) {
       };
     }
 
-    // if (!verify(eventData, signature)) {
-    //   console.log('Wrong key')
-    //   return {
-    //     statusCode: 400,
-    //     body: JSON.stringify({ success: false, error: 'Event data signature not verified' }),
-    //   };
-    // }
+    if (!verify(eventData, signature)) {
+      console.log('Wrong key')
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ success: false, error: 'Event data signature not verified' }),
+      };
+    }
 
     if (eventData.event === 'charge.success' || eventData.event === 'transfer.success') {
       const transactionId = eventData.data.id;
