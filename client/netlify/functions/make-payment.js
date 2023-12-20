@@ -35,7 +35,7 @@ const generateQRCode = async (data) => {
 }
 
 // Webhook handler
-export async function handler(event) {
+export const handler = async(event) => {
   try {
     const eventData = JSON.parse(event.body);
     const signature = event.headers['x-paystack-signature'];
@@ -61,6 +61,8 @@ export async function handler(event) {
 
     if (eventData.event === 'charge.success' || eventData.event === 'transfer.success') {
       const transactionId = eventData.data.id;
+      const reference = eventData.data.reference;
+      console.log(reference)
       // Process the successful transaction to maybe fund wallet and update your WalletModel
       if (eventData.data.reference.startsWith("SH")) {
         await handleSuccessEventBooking(eventData.data);
