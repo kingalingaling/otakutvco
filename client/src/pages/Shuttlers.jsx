@@ -1,13 +1,15 @@
 import Navbar from "../components/Navbar";
 import { useEffect, useState, useCallback, useMemo } from "react";
 import { db } from "../config/firebase";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, collection, addDoc } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import ReactLoading from "react-loading";
 // Paystack
 import { usePaystackPayment } from "react-paystack";
 import PaystackConfig from "../config/paystack";
+
+const lagosShuttlersRef = collection(db, "lagos-shuttlers");
 
 const Shuttlers = () => {
   const [firstName, setFirstName] = useState("");
@@ -96,6 +98,7 @@ const Shuttlers = () => {
 
   const onSuccess = () => {
     //implementation for after success call
+    onSubmitOrder();
     navigate("/otakuconnect/order-completed");
     console.log("success");
   };
@@ -119,7 +122,6 @@ const Shuttlers = () => {
               setTicketError(true);
             } else {
               setTicketError(false);
-              onSubmitOrder();
               initializePayment(onSuccess, onClose);
             }
           } else {
@@ -146,14 +148,25 @@ const Shuttlers = () => {
         email: email.trim(),
         pickup: pickup,
         cost: cost,
-        status: "pending",
+        status: "confirmed",
         quantity: numTickets,
         date: serverTimestamp(),
       };
 
       console.log("Setting doc");
-      await setDoc(doc(db, "lagos-shuttlers", ref), docData);
+      await addDoc(lagosShuttlersRef,docData)
       console.log("Done");
+
+      const emailDoc = {
+        first_name: firstName, 
+        email: email,
+        pickup: pickup,
+        cost: cost,
+        pickupTime: "9:30Am",
+        quantity:numTickets
+      }
+      
+      sendEmail(emailDoc)
 
       setLoading(false);
     } catch (err) {
@@ -174,6 +187,25 @@ const Shuttlers = () => {
           "Please contact support for ticket confirmation if you don't receive your tickets"
         );
       }
+    }
+  };
+
+  const request = new XMLHttpRequest();
+
+  const sendEmail = async (documentFinal) => {
+    try {
+      request.open(
+        "POST",
+        "/.netlify/functions/send-email"
+      );
+      request.send(
+        JSON.stringify({
+          ...documentFinal
+        })
+      );
+      console.log("Initiate email sending");
+    } catch (error) {
+      console.error(error);
     }
   };
 

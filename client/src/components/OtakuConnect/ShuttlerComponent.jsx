@@ -18,7 +18,7 @@ const ShuttlerComponent = () => {
           <Link
             target="_blank"
             to={
-              "https://my.shuttlers.africa/dashboard/events/join-waitlist/054ac1e7-9aa6-4546-a5ae-8a9d2b25462c "
+              "/otakuconnect/lagos-transport"
             }
           >
             <button className="bg-green-500 text-black px-5 md:px-4 lg:px-5 py-2 md:text-lg font-black rounded-lg hover:bg-white hover:text-green-600 duration-300">
