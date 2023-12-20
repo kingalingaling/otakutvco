@@ -10,8 +10,10 @@ config();
 const secret = process.env.PAYSTACK_SECRET_KEY
 
 // Initialize Firebase Admin SDK
+console.log("begin")
 console.log(process.env.FIREBASE_SERVICE_KEY);
-const serviceAccount = process.env.FIREBASE_SERVICE_KEY;
+console.log("end")
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_KEY.replace(/\\n/g, '\n'));
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
