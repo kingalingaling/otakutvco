@@ -17,6 +17,7 @@ const Shuttlers = () => {
   const [email, setEmail] = useState("");
   const [repeatEmail, setRepeatEmail] = useState("");
   const [cost, setCost] = useState(0);
+  const [finalCost, setFinalCost] = useState(0)
   const [pickup, setPickup] = useState("");
   const [numTickets, setNumTickets] = useState(0);
 
@@ -67,7 +68,9 @@ const Shuttlers = () => {
 
   useEffect(() => {
     updateTotalCost(pickup, numTickets);
-  }, [numTickets, pickup, updateTotalCost]);
+    const finCost = Math.round((cost + 110 + 0.015 * cost) / 10) * 10;
+    setFinalCost(finCost);
+  }, [numTickets, pickup, updateTotalCost, cost]);
 
   const validateInput = (input) => {
     if (input.trim().length === 0) {
@@ -91,7 +94,7 @@ const Shuttlers = () => {
   };
 
   const ref = `SH-${new Date().getTime().toString()}`;
-  const config = PaystackConfig(email, cost, ref);
+  const config = PaystackConfig(email, finalCost, ref);
   const initializePayment = usePaystackPayment(config);
 
   const navigate = useNavigate();
