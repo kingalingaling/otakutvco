@@ -8,6 +8,7 @@ import ReactLoading from "react-loading";
 // Paystack
 import { usePaystackPayment } from "react-paystack";
 import PaystackConfig from "../config/paystack";
+import MusterPoints from "../components/MusterPoints";
 
 const lagosShuttlersRef = collection(db, "lagos-shuttlers");
 
@@ -220,6 +221,7 @@ const Shuttlers = () => {
           <ReactLoading type="bubbles" color="red" height={100} width={100} />
         </div>
       )}
+      <MusterPoints />
       <div className="container flex flex-col justify-center items-center md:mt-20 p-4">
         <div>
           <h1 className="font-black text-white text-2xl text-center">Otaku Connect 2023 Transport</h1>
