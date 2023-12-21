@@ -10,7 +10,7 @@ const MusterPoints = () => {
         <div className="bg-white text-black fixed flex flex-col justify-around text-center items-center rounded-xl p-4 w-[90%] md:w-[40%] lg:w-[30%] mx-auto">
           <div className="text-center">
             <h2 className="font-bold text-lg mb-3">Muster/Pickup Points</h2>
-            <div className="text-xs lg:text-md">
+            <div className="text-xs lg:text-sm">
             <ul>
               <li className="mb-2">
                 <strong>Ajah</strong>
