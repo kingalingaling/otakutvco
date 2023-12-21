@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import { useEffect, useState, useCallback, useMemo } from "react";
 import { db } from "../config/firebase";
-import { setDoc, doc, collection, addDoc } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import ReactLoading from "react-loading";
@@ -210,7 +210,7 @@ const Shuttlers = () => {
   };
 
   return (
-    <div className="m-0 antialiased h-full md:h-screen bg-black text-base w-full">
+    <div className="m-0 antialiased h-full md:h-screen lg:h-full bg-black text-base w-full">
       <Navbar />
       {loading && (
         <div className="fixed w-full h-full bg-black/70 z-30 flex justify-center items-center">
@@ -220,7 +220,8 @@ const Shuttlers = () => {
       <div className="container flex flex-col justify-center items-center md:mt-20 p-4">
         <div>
           <h1 className="font-black text-white text-2xl text-center">Otaku Connect 2023 Transport</h1>
-          <p className="font-bold italic text-white mt-3 mb-6 text-center">Buses take off at 9:30AM</p>
+          <p className="font-bold italic text-white mt-3 mb-2 text-center">Rides are to and fro</p>
+          <p className="font-bold italic text-white mb-6 text-center">Buses take off at 9:30AM</p>
         </div>
         <form className="w-full max-w-lg">
           <div className="flex flex-wrap justify-center items-center -mx-3 mb-6">
