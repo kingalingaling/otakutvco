@@ -118,6 +118,11 @@
       "id": 2,
       "name": "Shuttlers",
       "logo": "/assets/images/partners/shuttlers.webp"
+    },
+    {
+      "id": 3,
+      "name": "Toon Central",
+      "logo": "/assets/images/partners/tooncentral.webp"
     }
   ],
   "expectations": [
