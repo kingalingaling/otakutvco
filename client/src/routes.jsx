@@ -23,7 +23,7 @@ export const routes = createBrowserRouter([
   { path: "/otakuconnect/order-failed", element: <OrderFailed /> },
   { path: "/otakuconnect/confirmation", element: <Confirmation />},
   { path: "/otakuconnect/competitions", element: <Competitions />},
-  { path: "/otakuconnect/lagos-transport", element: <Shuttlers />},
+  // { path: "/otakuconnect/lagos-transport", element: <Shuttlers />},
   {path:'*', element: <PageNotFound />}
 ]);
 
