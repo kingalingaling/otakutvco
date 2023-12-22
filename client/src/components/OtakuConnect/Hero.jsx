@@ -23,8 +23,8 @@ const Hero = ({ navigate }) => {
               Abuja
             </button>
             <button
-              onClick={() => navigate("/otakuconnect/lagos")}
-              className="px-6 py-2 mt-6 bg-red-600 duration-300 hover:bg-white hover:text-red-500 rounded-md"
+              // onClick={() => navigate("/otakuconnect/lagos")}
+              className="px-6 py-2 mt-6 bg-gray-600 duration-300 rounded-md"
             >
               Lagos
             </button>
@@ -38,8 +38,8 @@ const Hero = ({ navigate }) => {
               Otaku Connect Abuja
             </button>
             <button
-              onClick={() => navigate("/otakuconnect/lagos")}
-              className="p-3 mt-2 bg-red-600 duration-300 hover:bg-white hover:text-red-500 rounded-md"
+              // onClick={() => navigate("/otakuconnect/lagos")}
+              className="p-3 mt-2 bg-gray-600 duration-300 rounded-md"
             >
               Otaku Connect Lagos
             </button>

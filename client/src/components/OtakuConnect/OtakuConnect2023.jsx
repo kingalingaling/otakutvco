@@ -119,10 +119,10 @@ const OtakuConnect2023 = ({ navigate }) => {
                 </div>
               </div>
               <button
-                onClick={() => navigate("/otakuconnect/lagos")}
-                className="px-5 py-2 w-[50%] mx-auto mt-3 bg-red-500 text-white font-bold text-lg rounded-lg border border-red-500 hover:bg-white hover:text-red-500 duration-300"
+                // onClick={() => navigate("/otakuconnect/lagos")}
+                className="px-5 py-2 w-[50%] mx-auto mt-3 bg-gray-500 text-white font-bold text-lg rounded-lg border duration-300"
               >
-                Get Tickets
+                Get Tickets at the Venue
               </button>
             </div>
           </div>
