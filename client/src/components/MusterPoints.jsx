@@ -57,6 +57,12 @@ const MusterPoints = () => {
               </li>
 
               <li className="mb-2">
+                <strong>Abule Egba/Iyana Ipaja</strong>
+                <br />
+                Chicken Republic
+              </li>
+
+              <li className="mb-2">
                 <strong>Surulere</strong>
                 <br />
                 National Stadium, Surulere

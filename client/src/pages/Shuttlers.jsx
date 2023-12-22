@@ -383,10 +383,11 @@ const Shuttlers = () => {
             )}
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full">
+                <p className="text-red-500 mb-3 italic text-sm">Registration closed</p>
                 <button
-                  className="shadow-none bg-green-700 hover:bg-green-400 duration-300 focus:shadow-outline focus:outline-none text-white font-bold py-4 px-10 rounded-full"
+                  className="shadow-none bg-gray-300 duration-300 focus:shadow-outline focus:outline-none text-white font-bold py-4 px-10 rounded-full"
                   type="button"
-                  onClick={() => handlePurchase()}
+                  // onClick={() => handlePurchase()}
                 >
                   Get Tickets
                 </button>
