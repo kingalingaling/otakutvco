@@ -19,11 +19,15 @@ const MusterPoints = () => {
               </li>
 
               <li className="mb-2">
-                <strong>Ojota/Yaba</strong>
+                <strong>Ojota</strong>
                 <br />
-                - Maryland Bus Stop (Ojota) or
+                Ojota bus stop
+              </li>
+
+              <li className="mb-2">
+                <strong>Maryland</strong>
                 <br />
-                - Lagos Presbyterian Church (Yaba)
+                Maryland bus stop
               </li>
 
               <li className="mb-2">
@@ -33,33 +37,27 @@ const MusterPoints = () => {
               </li>
 
               <li className="mb-2">
-                <strong>Festac</strong>
+                <strong>Unilag/Onike/Iwaya</strong>
                 <br />
-                Festival Mall
-              </li>
-
-              <li className="mb-2">
-                <strong>Unilag</strong>
-                <br />
-                MRS Filling Station
+                Jibowu bus stop 
               </li>
 
               <li className="mb-2">
                 <strong>Ikorodu</strong>
                 <br />
-                Ikorodu Garage, Forte Oil Filling station
+                Ikorodu Garage
               </li>
 
               <li className="mb-2">
-                <strong>Ikeja/Maryland</strong>
+                <strong>Abule Egba</strong>
                 <br />
-                Maryland Mall
+                Abule Egba Bus stop 
               </li>
 
               <li className="mb-2">
-                <strong>Abule Egba/Iyana Ipaja</strong>
+                <strong>Jakande </strong>
                 <br />
-                Chicken Republic
+                Oshodi 
               </li>
 
               <li className="mb-2">
@@ -68,6 +66,7 @@ const MusterPoints = () => {
                 National Stadium, Surulere
               </li>
             </ul>
+            <p className="font-bold mt-1">For help and enquiries contact : 07026961324 - Anu</p>
             </div>
           </div>
         </div>
