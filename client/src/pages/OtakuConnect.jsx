@@ -11,8 +11,8 @@ import { Helmet } from "react-helmet";
 // // import Competitions from "../components/OtakuConnect/Competitions";
 // import Dance from "../components/OtakuConnect/Dance";
 import ExpectationImages from "../components/OtakuConnect/ExpectationImages";
-import ShuttlerModal from "../components/OtakuConnect/ShuttlerModal";
-import ShuttlerComponent from "../components/OtakuConnect/ShuttlerComponent";
+// import ShuttlerModal from "../components/OtakuConnect/ShuttlerModal";
+// import ShuttlerComponent from "../components/OtakuConnect/ShuttlerComponent";
 
 const OtakuConnect = () => {
   const navigate = useNavigate();
@@ -52,12 +52,12 @@ const OtakuConnect = () => {
         <meta name="twitter:image" content="/assets/images/og/OC-og.jpg" />
       </Helmet>
       <Navbar />
-      <ShuttlerModal />
+      {/* <ShuttlerModal /> */}
       <Hero navigate={navigate} />
       <Summary />
       <Review />
       <OtakuConnect2023 navigate={navigate} />
-      <ShuttlerComponent />
+      {/* <ShuttlerComponent /> */}
       <ExpectationImages />
       <Expectations />
       {/* <Competitions /> */}

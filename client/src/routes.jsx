@@ -10,7 +10,7 @@ import PageNotFound from "./pages/PageNotFound";
 import Confirmation from "./pages/Confirmation";
 import ContactForm from "./pages/ContactForm";
 import Competitions from "./pages/Competitions";
-import Shuttlers from "./pages/Shuttlers";
+// import Shuttlers from "./pages/Shuttlers";
 
 export const routes = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -23,7 +23,7 @@ export const routes = createBrowserRouter([
   { path: "/otakuconnect/order-failed", element: <OrderFailed /> },
   { path: "/otakuconnect/confirmation", element: <Confirmation />},
   { path: "/otakuconnect/competitions", element: <Competitions />},
-  { path: "/otakuconnect/abuja-transport", element: <Shuttlers />},
+  // { path: "/otakuconnect/abuja-transport", element: <Shuttlers />},
   {path:'*', element: <PageNotFound />}
 ]);
 
