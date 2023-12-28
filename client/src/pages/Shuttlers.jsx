@@ -8,9 +8,10 @@ import ReactLoading from "react-loading";
 // Paystack
 import { usePaystackPayment } from "react-paystack";
 import PaystackConfig from "../config/paystack";
-import MusterPoints from "../components/MusterPoints";
+import { Helmet } from "react-helmet";
+// import MusterPoints from "../components/MusterPoints";
 
-const lagosShuttlersRef = collection(db, "lagos-shuttlers");
+const abujaShuttlersRef = collection(db, "abuja-shuttlers");
 
 const Shuttlers = () => {
   const [firstName, setFirstName] = useState("");
@@ -34,15 +35,12 @@ const Shuttlers = () => {
 
   const fees = useMemo(
     () => ({
-      Ajah: 3700,
-      "Ojota/Yaba": 4000,
-      Ogba: 4000,
-      "Abule-ebga/Iyana Ipaja": 4400,
-      Festac: 4400,
-      UNILAG: 4000,
-      "Ikorodu Garage": 4400,
-      "Ikeja/Maryland": 4000,
-      Surulere: 3700,
+      "Apo Roundabout": 4000,
+      "Nyanya Bridge": 5000,
+      "AYA Roundabout": 5000,
+      "Galadimawa Roundabout": 4000,
+      "Area 1 Roundabout": 4000,
+      "Berger Roundabout": 4000
     }),
     []
   );
@@ -158,7 +156,7 @@ const Shuttlers = () => {
       };
 
       console.log("Setting doc");
-      await addDoc(lagosShuttlersRef,docData)
+      await addDoc(abujaShuttlersRef,docData)
       console.log("Done");
 
       const emailDoc = {
@@ -166,7 +164,7 @@ const Shuttlers = () => {
         email: email,
         pickup: pickup,
         cost: cost,
-        pickupTime: "9:30Am",
+        pickupTime: "9:30AM",
         quantity:numTickets
       }
       
@@ -215,18 +213,48 @@ const Shuttlers = () => {
 
   return (
     <div className="m-0 antialiased h-full md:h-screen lg:h-full bg-black text-base w-full">
+      <Helmet>
+        <title>Otaku Connect &apos;23 Transport</title>
+        <meta
+          name="description"
+          content="Get a ride to and fro Otaku Connect '23 Abuja at a subsidized cost and ride with fellow Otaku!
+          Join in an annual Anime Fest organized by OtakuTv for the weebs of Nigeria
+          Cosplay, Ramen, Anime Trivia, Charades, Movies and more!!!"
+        />
+        <meta
+          name="keywords"
+          content="anime, otaku connect, otakutv, transport, abuja, otaku, manga, weeb, fest, otaku fest, community"
+        />
+        <meta property="og:title" content="Otaku Connect '23" />
+        <meta
+          property="og:description"
+          content="Otaku Connect returns to Abuja for the 2023 edition!
+          An annual Anime Fest organized by OtakuTv for the weebs of Nigeria
+          Cosplay, Ramen, Anime Trivia, Charades, Movies and more!!!"
+        />
+        <meta property="og:url" content="https://otakutv.co/otakuconnect/abuja-transport" />
+        {/* Twitter */}
+        <meta name="twitter:title" content="Otaku Connect '23 Abuja Transport" />
+        <meta
+          name="twitter:description"
+          content="Otaku Connect returns to Abuja and Lagos Nigeria for the 2023 edition!
+          An annual Anime Fest organized by OtakuTv for the weebs of Nigeria
+          Cosplay, Ramen, Anime Trivia, Charades, Movies and more!!!"
+        />
+        <meta name="twitter:image" content="/assets/images/og/OC-og.jpg" />
+      </Helmet>
       <Navbar />
       {loading && (
         <div className="fixed w-full h-full bg-black/70 z-30 flex justify-center items-center">
           <ReactLoading type="bubbles" color="red" height={100} width={100} />
         </div>
       )}
-      <MusterPoints />
-      <div className="container flex flex-col justify-center items-center md:mt-20 p-4">
+      {/* <MusterPoints /> */}
+      <div className="container mx-auto flex flex-col justify-center items-center md:mt-20 p-4">
         <div>
-          <h1 className="font-black text-white text-2xl text-center">Otaku Connect 2023 Transport</h1>
-          <p className="font-bold italic text-white mt-3 mb-2 text-center">Rides are to and fro</p>
-          <p className="font-bold italic text-white mb-6 text-center">Buses take off at 9:30AM</p>
+          <h1 className="font-black text-white text-2xl text-center">Otaku Connect 2023 Abuja Transport</h1>
+          <p className="font-bold italic text-sm text-orange-300 mt-3 mb-2 text-center">Using Instagram? For the best experience, <br />please open in browser</p>
+          <p className="font-bold italic text-white mb-6 text-center">Rides are to and fro. Buses take off at 9:30AM</p>
         </div>
         <form className="w-full max-w-lg">
           <div className="flex flex-wrap justify-center items-center -mx-3 mb-6">
@@ -300,7 +328,7 @@ const Shuttlers = () => {
                 className="block uppercase tracking-wide text-white text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
-                Email
+                Repeat Email
               </label>
               <input
                 className="appearance-none block w-full bg-gray-200 text-black border border-gray-200 rounded-full py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -334,7 +362,7 @@ const Shuttlers = () => {
                 >
                   <option></option>
                   {Object.keys(fees).map((tier) => (
-                    <option key={tier} value={tier}>
+                    <option className="text-xs md:text-base" key={tier} value={tier}>
                       {tier}
                     </option>
                   ))}
@@ -383,11 +411,11 @@ const Shuttlers = () => {
             )}
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full">
-                <p className="text-red-500 mb-3 italic text-sm">Registration closed</p>
+                {/* <p className="text-red-500 mb-3 italic text-sm">Registration closed</p> */}
                 <button
-                  className="shadow-none bg-gray-300 duration-300 focus:shadow-outline focus:outline-none text-white font-bold py-4 px-10 rounded-full"
+                  className="shadow-none bg-green-600 hover:bg-green-400 duration-300 focus:shadow-outline focus:outline-none text-white font-bold py-4 px-10 rounded-full"
                   type="button"
-                  // onClick={() => handlePurchase()}
+                  onClick={() => handlePurchase()}
                 >
                   Get Tickets
                 </button>

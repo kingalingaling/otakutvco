@@ -10,12 +10,12 @@ const ShuttlerComponent = () => {
           <p className="w-2/3 md:text-lg">Not sure how to get to either venue?<br />Reserve a seat and ride with fellow Otaku to the event</p>
         </div>
         <div className="w-full flex justify-between lg:w-1/2">
-          <Link to={"https://forms.gle/DbzJ5DaEXUcHZG4fA"} target="_blank">
+          <Link to={"/otakuconnect/abuja-transport"} target="_blank">
             <button className="bg-green-500 text-black px-5 md:px-4 lg:px-5 py-2 md:text-lg font-black rounded-lg hover:bg-white hover:text-green-600 duration-300">
               Abuja Transport
             </button>
           </Link>
-          <Link
+          {/* <Link
             target="_blank"
             to={
               "/otakuconnect/lagos-transport"
@@ -24,7 +24,7 @@ const ShuttlerComponent = () => {
             <button className="bg-green-500 text-black px-5 md:px-4 lg:px-5 py-2 md:text-lg font-black rounded-lg hover:bg-white hover:text-green-600 duration-300">
               Lagos Transport
             </button>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>

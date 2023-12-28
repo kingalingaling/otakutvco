@@ -24,13 +24,13 @@ const ShuttlerModal = () => {
               Reserve a seat and ride with fellow Otaku to the event
             </p>
           </div>
-          <div className="flex justify-between items-center w-full">
-            <Link to={"https://forms.gle/DbzJ5DaEXUcHZG4fA"} target="_blank">
+          <div className="flex justify-center items-center w-full">
+            <Link to={"/otakuconnect/abuja-transport"} target="_blank">
               <button className="bg-green-500 text-black px-4 mr-1.5 py-2 text-md md:text-lg font-black rounded-xl hover:bg-white hover:text-green-600 duration-300">
                 Abuja Transport
               </button>
             </Link>
-            <Link
+            {/* <Link
               target="_blank"
               to={
                 "/otakuconnect/lagos-transport"
@@ -39,7 +39,7 @@ const ShuttlerModal = () => {
               <button className="bg-green-500 text-black px-4 ml-1.5 text-md py-2 md:text-lg font-black rounded-xl hover:bg-white hover:text-green-600 duration-300">
                 Lagos Transport
               </button>
-            </Link>
+            </Link> */}
           </div>
         </div>
         <div

@@ -72,10 +72,10 @@ export async function handler(event) {
         <table width="100%" cellspacing="0" cellpadding="0">
             <tr class="header-container">
                 <td class="header">
-                    <img src="https://otakutv.co/assets/oc-logo.png" alt="Otaku Connect Logo" style="max-width: 150px; margin-right: 20px;">
+                    <img src="https://otakutv.co/assets/oc-logo.png" alt="Otaku Connect Logo" style="max-width: 150px;">
+                    <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <img src="https://otakutv.co/assets/shuttlers-logo.webp" alt="Logo 2" style="max-width: 100px; border-radius: 100%; margin-left: 20px;">
+                    <img src="https://otakutv.co/assets/shuttlers-logo.webp" alt="Logo 2" style="max-width: 100px; border-radius: 100%; margin-left: 20px;"> -->
                 </td>
             </tr>
             <tr>
