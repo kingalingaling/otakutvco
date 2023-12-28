@@ -254,7 +254,7 @@ const Shuttlers = () => {
         <div>
           <h1 className="font-black text-white text-2xl text-center">Otaku Connect 2023 Abuja Transport</h1>
           <p className="font-bold italic text-sm text-orange-300 mt-3 mb-2 text-center">Using Instagram? For the best experience, <br />please open in browser</p>
-          <p className="font-bold italic text-white mb-6 text-center">Rides are to and fro. Buses take off at 9:30AM</p>
+          <p className="font-bold italic text-white mb-6 text-center"><span className="text-green-500">Rides are to and fro.</span> Buses take off at 9:30AM</p>
         </div>
         <form className="w-full max-w-lg">
           <div className="flex flex-wrap justify-center items-center -mx-3 mb-6">

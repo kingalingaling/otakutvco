@@ -1,6 +1,6 @@
 import { MdCancel } from "react-icons/md";
 import { useState } from "react";
-import shuttlersLogo from "/assets/shuttlers-logo.webp";
+// import shuttlersLogo from "/assets/shuttlers-logo.webp";
 import { Link } from "react-router-dom";
 
 const ShuttlerModal = () => {
@@ -11,13 +11,13 @@ const ShuttlerModal = () => {
         {/* Dialog */}
         <div className="bg-black text-white fixed flex flex-col justify-around text-center items-center rounded-xl p-4 w-[90%] md:w-[40%] lg:w-[30%] mx-auto">
           <div className="text-center font-bold">
-            <img
+            {/* <img
               src={shuttlersLogo}
               alt="Shuttlers Logo"
               className="w-24 mx-auto mb-3"
-            />
+            /> */}
             <p>
-              Together with Shuttlers, We&apos;ve arranged transportation at
+              We&apos;ve arranged transportation at
               a subsidized cost
             </p>
             <p className="py-4">
