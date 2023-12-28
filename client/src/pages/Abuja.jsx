@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { usePaystackPayment } from "react-paystack";
 import PaystackConfig from "../config/paystack";
 import ReactLoading from "react-loading";
+import { Helmet } from "react-helmet";
 // import BrowserSuggestion from "../components/BrowserSuggestion";
 
 const Abuja = () => {
@@ -55,8 +56,6 @@ const Abuja = () => {
   }, [selectedTiers, cost]);
 
   useEffect(() => {
-    document.title = "Otaku Connect Abuja";
-
     const total_order = tickets.map((ticket) => {
       return [ticket.tier, ticket.quantity].join(": ");
     });
@@ -217,6 +216,39 @@ const Abuja = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Otaku Connect &apos;23 Abuja</title>
+        <meta
+          name="description"
+          content="Otaku Connect returns to Abuja for the 2023 edition!
+          An annual Anime Fest organized by OtakuTv for the weebs of Nigeria
+          Cosplay, Ramen, Anime Trivia, Charades, Movies and more!!! 
+          "
+        />
+        <meta
+          name="keywords"
+          content="anime, otaku connect, otakutv, abuja, otaku, manga, weeb, fest, otaku fest, community"
+        />
+        <meta property="og:title" content="Otaku Connect '23" />
+        <meta
+          property="og:description"
+          content="Otaku Connect returns to Abuja for the 2023 edition!
+          An annual Anime Fest organized by OtakuTv for the weebs of Nigeria
+          Cosplay, Ramen, Anime Trivia, Charades, Movies and more!!!"
+        />
+        <meta property="og:image" content="/assets/images/og/OC-og.jpg" />
+        <meta property="og:url" content="https://otakutv.co/otakuconnect/abuja" />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Otaku Connect '23" />
+        <meta
+          name="twitter:description"
+          content="Otaku Connect returns to Abuja and Lagos Nigeria for the 2023 edition!
+          An annual Anime Fest organized by OtakuTv for the weebs of Nigeria
+          Cosplay, Ramen, Anime Trivia, Charades, Movies and more!!!"
+        />
+        <meta name="twitter:image" content="/assets/images/og/OC-og.jpg" />
+      </Helmet>
       {/* <BrowserSuggestion /> */}
       {loading && (
         <div className="fixed w-full h-full bg-black/70 z-50 flex justify-center items-center">
