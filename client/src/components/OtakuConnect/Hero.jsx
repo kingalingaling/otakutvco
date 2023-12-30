@@ -17,8 +17,8 @@ const Hero = ({ navigate }) => {
           {/* Mobile View */}
           <div className="flex justify-between w-[80%] md:hidden">
             <button
-              onClick={() => navigate("/otakuconnect/abuja")}
-              className="px-6 py-2 mt-6 bg-red-600 duration-300 hover:bg-white hover:text-red-500 rounded-md"
+              // onClick={() => navigate("/otakuconnect/abuja")}
+              className="px-6 py-2 mt-6 bg-gray-600 duration-300 rounded-md"
             >
               Abuja
             </button>
@@ -32,8 +32,8 @@ const Hero = ({ navigate }) => {
           {/* Large View */}
           <div className="justify-between hidden md:flex md:w-[70%] lg:w-[50%] md:text-lg lg:text-2xl">
             <button
-              onClick={() => navigate("/otakuconnect/abuja")}
-              className="p-3 mt-2 bg-red-600 duration-300 hover:bg-white hover:text-red-500 rounded-md"
+              // onClick={() => navigate("/otakuconnect/abuja")}
+              className="p-3 mt-2 bg-gray-600 duration-300 rounded-md"
             >
               Otaku Connect Abuja
             </button>

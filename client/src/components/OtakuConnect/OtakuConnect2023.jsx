@@ -2,6 +2,7 @@ import OCLogoDark from "/assets/oc-logo-dark.png";
 import abujaFlyer from "/assets/images/locations/abuja-flyer.webp";
 import lagosFlyer from "/assets/images/locations/lagos-flyer.webp";
 import Timer from "../Timer";
+import { Link } from "react-router-dom";
 // import Dance from "./Dance";
 
 const OtakuConnect2023 = ({ navigate }) => {
@@ -78,10 +79,10 @@ const OtakuConnect2023 = ({ navigate }) => {
                 </div>
               </div>
               <button
-                onClick={() => navigate("/otakuconnect/abuja")}
-                className="px-5 py-2 w-[50%] mx-auto mt-3 bg-red-500 text-white font-bold text-lg rounded-lg border border-red-500 hover:bg-white hover:text-red-500 duration-300"
+                // onClick={() => navigate("/otakuconnect/abuja")}
+                className="px-5 py-2 w-[50%] mx-auto mt-3 bg-gray-500 text-white font-bold text-lg rounded-lg border duration-300"
               >
-                Get Tickets
+                Get Tickets at the Venue
               </button>
             </div>
           </div>
@@ -118,12 +119,14 @@ const OtakuConnect2023 = ({ navigate }) => {
                   </p>
                 </div>
               </div>
-              <button
-                // onClick={() => navigate("/otakuconnect/lagos")}
-                className="px-5 py-2 w-[50%] mx-auto mt-3 bg-gray-500 text-white font-bold text-lg rounded-lg border duration-300"
-              >
-                Get Tickets at the Venue
-              </button>
+              <Link to={"https://instagram.com/otaku.tv_ng"} className="mx-auto mt-3">
+                <button
+                  // onClick={() => navigate("https://instagram.com/otaku.tv_ng")}
+                  className="px-5 py-2 w-full bg-red-500 text-white font-bold text-lg rounded-lg border border-red-500 hover:bg-white hover:text-red-500 duration-300"
+                >
+                  View Highlights
+                </button>
+              </Link>
             </div>
           </div>
         </div>
