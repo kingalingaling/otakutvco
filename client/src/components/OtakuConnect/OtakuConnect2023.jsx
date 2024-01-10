@@ -14,24 +14,28 @@ const OtakuConnect2023 = ({ navigate }) => {
             Otaku Connect &apos;23
           </h1>
           <div className="bg-red-500 my-1.5 h-0.5 w-[200px]"></div>
+
           <p className="text-justify p-5">
             Building on the success of previous editions, Otaku Connect &apos;23
-            promises an even more exhilarating experience for fans of Japanese
-            Pop-culture. Prepare to be captivated by an extensive array of
-            immersive exhibits, showcasing the latest and greatest in Anime and
-            Manga culture. <br />
+            delivered an even more exhilarating experience for fans of Japanese
+            Pop-culture, with the inclusion of K-culture enthusiasts. Attendees
+            were captivated by an extensive array of immersive exhibits,
+            showcasing the latest and greatest in K, Anime and Manga culture.{" "}
             <br />
-            From exclusive merchandise to rare collectibles, there&apos;s
-            something for every avid enthusiast. Experience a new level of
-            excitement with an expanded Virtual Reality gaming section, and
-            participate in the epic cosplay competition with even more
-            incredible prizes, including cash rewards and exclusive merchandise.
-            Rub shoulders with internet sensations and influencers who&apos;ve
-            left their mark on the anime community. <br />
             <br />
-            Don&apos;t miss out on the anime event of the year! Mark your
-            calendars for Otaku Connect 2023 and be part of an unforgettable
-            celebration of Japanese Pop-culture.
+            From exclusive merchandise to rare collectibles, there was something
+            for every avid enthusiast. The experience reached a new level of
+            excitement with an expanded gaming section, and participants engaged
+            in the epic cosplay competition with even more incredible prizes,
+            including cash rewards and exclusive merchandise. There was also the
+            oportunity to dress up in hanboks and take pictures. Attendees had
+            the opportunity to rub shoulders with internet sensations and
+            influencers who&apos;ve left their mark on the anime community.{" "}
+            <br />
+            <br />
+            If you missed out on the anime event of the year, stay tuned for
+            future editions! Otaku Connect continues to be an unforgettable
+            celebration of Japanese/Korean Pop-culture.
           </p>
         </div>
         <img
@@ -61,9 +65,9 @@ const OtakuConnect2023 = ({ navigate }) => {
                 The capital of Nigeria, Center of Unity and home to over 3.6
                 million people. Abuja is Known for comprising of people from
                 different backgrounds. <br />
-                We&apos;ll be live at{" "}
-                <span className="font-bold">La Vida Local</span>, Abuja for
-                Otaku Connect &apos;23 on the 30th December 2023 from 10AM.
+                Was live at <span className="font-bold">La Vida Local</span>,
+                Abuja for Otaku Connect &apos;23 on the 30th December 2023 from
+                10AM.
                 <br />
               </p>
               <div className="flex flex-col md:flex-row justify-between">
@@ -78,12 +82,17 @@ const OtakuConnect2023 = ({ navigate }) => {
                   </p>
                 </div>
               </div>
-              <button
-                // onClick={() => navigate("/otakuconnect/abuja")}
-                className="px-5 py-2 w-[50%] mx-auto mt-3 bg-gray-500 text-white font-bold text-lg rounded-lg border duration-300"
+              <Link
+                to={"https://instagram.com/otakufestivalng"}
+                className="mx-auto mt-3"
               >
-                Get Tickets at the Venue
-              </button>
+                <button
+                  // onClick={() => navigate("https://instagram.com/otaku.tv_ng")}
+                  className="px-5 py-2 w-full bg-red-500 text-white font-bold text-lg rounded-lg border border-red-500 hover:bg-white hover:text-red-500 duration-300"
+                >
+                  View Highlights
+                </button>
+              </Link>
             </div>
           </div>
           {/* Lagos */}
@@ -102,9 +111,9 @@ const OtakuConnect2023 = ({ navigate }) => {
                 country&apos;s commercial center and the second most populous
                 city in Africa.
                 <br />
-                We&apos;ll be live at{" "}
-                <span className="font-bold">Rango Hotel</span>, Lagos for Otaku
-                Connect &apos;23 on the 23rd December 2023 from 10AM.
+                Was live at <span className="font-bold">Rango Hotel</span>,
+                Lagos for Otaku Connect &apos;23 on the 23rd December 2023 from
+                10AM.
                 <br />
               </p>
               <div className="flex flex-col md:flex-row-reverse justify-between">
@@ -119,7 +128,10 @@ const OtakuConnect2023 = ({ navigate }) => {
                   </p>
                 </div>
               </div>
-              <Link to={"https://instagram.com/otaku.tv_ng"} className="mx-auto mt-3">
+              <Link
+                to={"https://instagram.com/otakufestivalng"}
+                className="mx-auto mt-3"
+              >
                 <button
                   // onClick={() => navigate("https://instagram.com/otaku.tv_ng")}
                   className="px-5 py-2 w-full bg-red-500 text-white font-bold text-lg rounded-lg border border-red-500 hover:bg-white hover:text-red-500 duration-300"

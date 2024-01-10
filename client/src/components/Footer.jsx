@@ -64,7 +64,7 @@ const Footer = () => {
         </a>
       </div>
       <div className="mx-auto flex justify-center">
-        <p className="text-sm ml-2">Copyright &copy; 2023 OtakuTv&trade;</p>
+        <p className="text-sm ml-2">Copyright &copy; 2024 OtakuTv&trade;</p>
       </div>
     </div>
   );

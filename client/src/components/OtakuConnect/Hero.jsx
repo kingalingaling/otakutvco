@@ -8,14 +8,14 @@ const Hero = ({ navigate }) => {
         {/* Overlay */}
         <div className="absolute pt-4 md:pt-0 bg-black/20 w-full h-full z-30 font-bold text-gray-200/90 flex flex-col justify-center items-center">
           <img src={OCLogo} className="w-1/3 lg:-mt-8 lg:w-1/4 md:block" alt="Otaku COnnect '23 Logo" />
-          <h1 className="text-base font-bold mb-1.5 text-center px-[10%] lg:px-0 md:mb-3 lg:mb-1 md:text-2xl lg:text-4xl">
-            Otaku Connect &apos;23 <br />The Biggest Anime/Weeb Convention in Nigeria
+          <h1 className="text-base font-bold mb-1.5 mt-2 text-center px-[10%] lg:px-0 md:mb-3 lg:mb-1 md:text-2xl lg:text-5xl">
+            Otaku Connect <br />The Biggest Anime/Weeb Convention in Nigeria
           </h1>
-          <h2 className="text-base font-bold mb-1.5 md:mb-3 md:text-xl lg:text-3xl">
+          {/* <h2 className="text-base font-bold mb-1.5 md:mb-3 md:text-xl lg:text-3xl">
             Get Tickets!
-          </h2>
+          </h2> */}
           {/* Mobile View */}
-          <div className="flex justify-between w-[80%] md:hidden">
+          {/* <div className="flex justify-between w-[80%] md:hidden">
             <button
               // onClick={() => navigate("/otakuconnect/abuja")}
               className="px-6 py-2 mt-6 bg-gray-600 duration-300 rounded-md"
@@ -28,9 +28,9 @@ const Hero = ({ navigate }) => {
             >
               Lagos
             </button>
-          </div>
+          </div> */}
           {/* Large View */}
-          <div className="justify-between hidden md:flex md:w-[70%] lg:w-[50%] md:text-lg lg:text-2xl">
+          {/* <div className="justify-between hidden md:flex md:w-[70%] lg:w-[50%] md:text-lg lg:text-2xl">
             <button
               // onClick={() => navigate("/otakuconnect/abuja")}
               className="p-3 mt-2 bg-gray-600 duration-300 rounded-md"
@@ -43,7 +43,7 @@ const Hero = ({ navigate }) => {
             >
               Otaku Connect Lagos
             </button>
-          </div>
+          </div> */}
         </div>
         <video
           className="inset-0 w-full h-[50vh] md:h-[50vh] lg:h-auto lg:max-h-[90vh] object-cover"
